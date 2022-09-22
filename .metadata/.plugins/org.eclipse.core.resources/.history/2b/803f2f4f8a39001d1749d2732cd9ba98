@@ -1,0 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="BKRV.review.reviewDAO" %>
+<%@ page import="BKRV.review.reviewBean" %>
+<%@ page import="java.util.Vector" %>  
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<%
+	int num = Integer.parseInt(request.getParameter("num"));
+	//ID? Number?
+	reviewDAO rdao = new reviewDAO();
+	Vector<reviewBean> vec = rdao.allbookselectReview();
+	reviewBean rBean = rdao.allbookselectReview(num);
+	
+%>
+</body>
+</html>

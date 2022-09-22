@@ -1,0 +1,153 @@
+package BKRV.book;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Vector;
+
+import BKRV.review.reviewBean;
+
+public class bookDAO {
+	
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs  = null;
+	
+	public Connection getConnection() {
+		String Driver = "oracle.jdbc.OracleDriver";
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String id = "hyun";
+		String pass = "1234";
+		
+		try {
+			Class.forName(Driver);
+			 conn = DriverManager.getConnection(url, id, pass);
+			System.out.println("데이터베이스 연동에 성공하였습니다.");
+		}catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("데이터베이스 연동에 실패하였습니다.");
+		}		
+		return conn;		
+	}
+	
+	
+public void insertReview(reviewBean rBean) {
+		
+		getConnection();
+		
+		try {
+			int ref = 0;	//글 그룹에서 가장 큰 값
+			int re_step = 1;
+			int re_level = 1;
+			
+			String refsql = "select max(ref) from Book_info";
+			pstmt = conn.prepareStatement(refsql);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				ref = rs.getInt(1) + 1;
+			}
+			
+			String sql = "insert into Book_info values"
+					+ "(smartboard_num.nextval, ?, ?, ?, ?,sysdate, ?, ?, ?, 0, ?)";
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, bBean.getNumber());
+			pstmt.setInt(2, bBean.getBknumber());
+			pstmt.setString(3, bBean.getId());
+			pstmt.setString(4, bBean.getDate().toString());
+			pstmt.setInt(5, bBean.getScore());
+			pstmt.setString(6, bBean.getContent());
+			
+			pstmt.executeUpdate();
+			
+			if(conn != null) {
+				conn.commit();
+				conn.close();
+			}
+			
+		}catch(Exception e){
+			
+		}
+	}
+	
+
+	public Vector<bookBean> allselectBook(){
+
+		Vector<bookBean> vec = new Vector<>();
+		
+		getConnection();
+		
+		try {
+			
+			String sql = "select * from Book_info where BK_id = ? order by Date";
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				bookBean bean = new bookBean();
+				
+				bean.setNumber(rs.getInt(1));
+				bean.setBknumber(rs.getInt(2));
+				bean.setId(rs.getString(3));
+				bean.setDate(rs.getString(4));
+				bean.setScore(rs.getInt(5));
+				bean.setContent(rs.getString(6));
+				
+				vec.add(bean);
+			}
+			if(conn != null) {
+				conn.commit();
+				conn.close();
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return vec;
+	}
+	
+	public Vector<reviewBean> allbookselectReview(){
+
+		Vector<reviewBean> vec = new Vector<reviewBean>();
+		
+		getConnection();
+		
+		try {
+			
+			String sql = "select * from Review_info order by Date";
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				reviewBean rbean = new reviewBean();
+				
+				rbean.setNumber(rs.getInt(1));
+				rbean.setBknumber(rs.getInt(2));
+				rbean.setId(rs.getString(3));
+				rbean.setDate(rs.getString(4));
+				rbean.setScore(rs.getInt(5));
+				rbean.setContent(rs.getString(6));
+				
+				vec.add(rbean);
+			}
+			if(conn != null) {
+				conn.commit();
+				conn.close();
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return vec;
+	}
+	
+}
