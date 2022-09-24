@@ -1,9 +1,11 @@
 applyBackground=false
 approved.defs.file.last.changed.time=1649720987000
-configurationInstallLocation=/D\:/\uD559\uC0DD\uBC29/Program/eclipse/
+configurationInstallLocation=/E\:/Googledrive_WS/Computer/Program/eclipse/
+ct.upsell.display.after=1664158986387
 eclipse.preferences.version=1
 iconcolormode=primary
-last.download.attempt.time=1663830887141
-lastConfiguration=1663830879438
-newinstall=true
+last.download.attempt.time=1664007050898
+lastConfiguration=1664007047152
+newinstall=false
+showWelcomeDialog=false
 workbench.theme=Dark Gray

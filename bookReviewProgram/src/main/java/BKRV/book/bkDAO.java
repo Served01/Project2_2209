@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.Vector;
 
 public class bkDAO {
@@ -33,10 +32,31 @@ public class bkDAO {
 	
 	}
 	
-	public void insertBook() {
+	
+	public void insertBook(bkBean bBean) {
 		
-		conn = getConnection();
+		conn=getConnection();
+	try {
+		String sql = "insert into BOOK_INFO values(?, ?, ?, ?, ?, ?, ?, ?, ?, sysdate, ?)";
+
+		pstmt = conn.prepareStatement(sql);
+
+		pstmt.setInt(1, bBean.getBk_number());
+		pstmt.setString(2, bBean.getBk_title());
+		pstmt.setString(3, bBean.getBk_writer());
+		pstmt.setString(4, bBean.getBk_publisher());
+		pstmt.setString(5, bBean.getBk_pubdate());
+		pstmt.setString(6, bBean.getBk_image());
+		pstmt.setInt(7, bBean.getBk_local());
+		pstmt.setInt(8, bBean.getBk_genre());
+		pstmt.setInt(9, bBean.getBk_ebook());
+		pstmt.setString(10, bBean.getBk_detail());
+
+		pstmt.executeUpdate();
 		
+	}catch(Exception e){
+		e.printStackTrace();
+	}
 		
 	}
 	
@@ -44,6 +64,14 @@ public class bkDAO {
 
 
 	public bkBean selectBook() {
+		
+		bkBean bBean = new bkBean();
+		conn = getConnection();
+		
+		try {
+			
+			String sql = "select * from book_info where bk_number = ?"
+		}
 		
 		
 		return null;
