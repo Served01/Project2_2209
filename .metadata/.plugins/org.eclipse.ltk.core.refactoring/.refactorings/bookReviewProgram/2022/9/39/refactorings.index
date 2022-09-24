@@ -20,3 +20,6 @@
 1663823814060	Rename resource 'rvinsertPro.jsp'
 1663827310312	Copy file
 1663835855315	Rename resource 'rvSelectformPro.jsp'
+1664000532116	Move 'bookrvManagement.sql' to 'webapp'
+1664001722580	Rename resource 'boardList.jsp'
+1664002719112	Rename resource 'boardDeleteformPro.jsp'

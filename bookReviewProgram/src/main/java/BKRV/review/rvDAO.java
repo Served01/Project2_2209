@@ -235,4 +235,80 @@ public class rvDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	
+
+	//전체리뷰수 파악 후 반환
+	public int getAllcount(){
+		
+		getConnection();
+		
+		int count = 0;
+		
+		try {
+			String sql = "select count(*) from Review_info";
+			
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				count = rs.getInt(1);
+				
+			}
+			if(conn != null) {
+				conn.commit();
+				conn.close();
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return count;
+	}
+	
+	
+	public Vector<rvBean> allselectBoard(int startRow, int endRow) {
+			
+		getConnection();
+
+		Vector<rvBean> rb  = new Vector<rvBean>(); 
+		
+		try {
+			/*
+			Rownum - query 결과로 나오게 되는 각각의 행들의 순서 값
+					 특정 갯수의 그 이하 행 선택시 사용
+			RowID - 테이블에 저장된 각 행들이 저장된 주소 값
+					가장 최신 글 가져오기
+					Rownum 기준으로 Rnum 별칭 사용하여 Rnum이 srtRow보다 크고 endRow보다 작은 경우에 해당하는 모든 레코드 가져오기
+			
+			
+			*/
+			
+			String sql = "select * from (select A.*, Rownum Rnum from (select * from Review_info order by Rv_date)A) where Rnum >= ? and Rnum <= ?";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				rvBean rbean = new rvBean();
+					
+				rbean.setRv_number(rs.getInt(1));
+				rbean.setRv_bknumber(rs.getInt(2));
+				rbean.setRv_id(rs.getString(3));
+				rbean.setRv_date(rs.getString(4));
+				rbean.setRv_score(rs.getInt(5));
+				rbean.setRv_content(rs.getString(6));
+					
+					rb.add(rbean);
+				}
+				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}		
+			return rb;
+	}
 }
