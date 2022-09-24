@@ -1,0 +1,16 @@
+create table member(
+    MB_id varchar2(20) not null,
+    MB_pw varchar2(20) not null,
+    MB_name varchar2 (12) not null,
+    MB_nick varchar2 (20) not null,
+    MB_email varchar2(30) not null,
+    MB_tel varchar2(15) not null,
+    MB_gender varchar2(1) not null,
+    constraint MB_id primary key(MB_id)
+);
+
+select * from member;
+
+insert into member values ('hyun2', 'a1234', 'hyun', 'hyun', 'hyun@naver.com', '02-1234-5678', 'M');
+
+drop table member;

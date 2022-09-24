@@ -1,0 +1,13 @@
+127.0.0.1 - - [24/Sep/2022:17:09:05 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [24/Sep/2022:17:09:06 +0900] "GET /bookReviewProgram/mbUpdateform.jsp HTTP/1.1" 500 2597
+0:0:0:0:0:0:0:1 - - [24/Sep/2022:17:10:00 +0900] "GET /bookReviewProgram/mbUpdateform.jsp HTTP/1.1" 500 2597
+0:0:0:0:0:0:0:1 - - [24/Sep/2022:17:13:31 +0900] "GET /bookReviewProgram/mbinsertform.jsp HTTP/1.1" 200 2055
+0:0:0:0:0:0:0:1 - - [24/Sep/2022:17:14:49 +0900] "GET /bookReviewProgram/mbinsertform.Pro.jsp?id=ssss&pw1=1234&pw2=1234&name=%EC%9D%B4%EC%9D%B4%EC%9D%B4&nick=%E3%84%B4%E3%84%B4%E3%84%B4%E3%84%B4&email=dldldl&tel=88996655&hobby=%EB%82%A8%EC%9E%90 HTTP/1.1" 200 171
+0:0:0:0:0:0:0:1 - - [24/Sep/2022:17:18:24 +0900] "GET /bookReviewProgram/mbinsertform.jsp HTTP/1.1" 200 2054
+0:0:0:0:0:0:0:1 - - [24/Sep/2022:17:18:39 +0900] "POST /bookReviewProgram/mbinsertformPro.jsp HTTP/1.1" 200 175
+127.0.0.1 - - [24/Sep/2022:17:22:47 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [24/Sep/2022:17:22:47 +0900] "GET /bookReviewProgram/mbinsertform.jsp HTTP/1.1" 200 2054
+0:0:0:0:0:0:0:1 - - [24/Sep/2022:17:22:58 +0900] "POST /bookReviewProgram/mbinsertformPro.jsp HTTP/1.1" 200 175
+127.0.0.1 - - [24/Sep/2022:17:25:51 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [24/Sep/2022:17:25:51 +0900] "GET /bookReviewProgram/mbinsertform.jsp HTTP/1.1" 200 2054
+0:0:0:0:0:0:0:1 - - [24/Sep/2022:17:26:02 +0900] "POST /bookReviewProgram/mbinsertformPro.jsp HTTP/1.1" 200 175

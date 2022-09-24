@@ -1,0 +1,89 @@
+package BKRV.member;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Vector;
+
+public class mbDAO {
+	
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+	
+	public Connection getConnection() {
+		
+		String Driver = "orcle.jdbc.OrcleDriver";
+		String dburl = "jdbc:oracle:thin:@localhost:1521:xe";
+		String dbid = "hyun";
+		String dbpass = "1234";
+		try {
+			Class.forName(Driver);
+			conn = DriverManager.getConnection(dburl,dbid,dbpass);
+			System.out.println("데이터베이스 연동에 성공하였습니다");
+		} catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("데이터베이스 연동에 실패항였습니다");
+		} return conn;
+	}
+	
+	//insert
+	public void insertmember(mbBean Bean) {
+		try {
+			
+			conn = getConnection();
+			String sql = "insert into Orcle_member values (?,?,?,?,?,?,?,?)";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, Bean.getMb_id());
+			pstmt.setString(2, Bean.getMb_pw1());
+			pstmt.setString(3, Bean.getMb_pw2());
+			pstmt.setString(4, Bean.getMb_name());
+			pstmt.setString(5, Bean.getMb_nick());
+			pstmt.setString(6, Bean.getMb_email());
+			pstmt.setString(7, Bean.getMb_tel());
+			pstmt.setString(8, Bean.getMb_gender());
+			rs=pstmt.executeQuery();
+			conn.commit();
+			conn.close();
+		
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	//회원정보 반환
+public Vector<mbBean> allselectmember() throws SQLException {
+		
+		Vector<mbBean> v = new Vector<mbBean>();
+		String sql = "select * from member";
+		conn = getConnection();
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				mbBean Bean = new mbBean();
+				Bean.setMb_id(rs.getString(1));
+				Bean.setMb_pw1(rs.getString(2));
+				Bean.setMb_pw2(rs.getString(3));
+				Bean.setMb_name(rs.getString(4));
+				Bean.setMb_nick(rs.getString(5));
+				Bean.setMb_email(rs.getString(6));
+				Bean.setMb_tel(rs.getString(7));
+				Bean.setMb_gender(rs.getString(8));
+				v.add(Bean);
+			}
+			conn.commit();
+			conn.close();
+			} catch(SQLException e){
+				e.printStackTrace();
+			}
+		
+		return v;
+		
+	}
+	
+	
+}
