@@ -6,14 +6,16 @@
 <meta charset="UTF-8">
 <title>책 정보 입력 페이지</title>
 </head>
+
 <style>
 table{
 margin: auto;
 }
 </style>
+
 <body>
 <h2 align = "center">책 정보 입력 페이지</h2>
-
+<!-- 책 상세정보 입력 -->
 <form action="bkInsertPro.jsp" method="post" enctype="multipart/form-data">
 <table border="1">
 	<tr align = "center">
@@ -40,7 +42,7 @@ margin: auto;
 	</tr>
 	<tr align = "center">
 		<td>이미지</td>
-		<td>&nbsp;&nbsp;&nbsp;<input type="file" value="파일 선택" name="bk_image"/>
+		<td>&nbsp;&nbsp;&nbsp;<input type="file" value="파일 선택" name="bk_image"/></td>
 	</tr>
 	<tr align = "center">
 		<td>지역</td>
@@ -78,7 +80,8 @@ margin: auto;
 	<tr align="center">
 		<td colspan="2"> 				
 			<input type="submit" value="저장"/>&nbsp;&nbsp;
-			<input type="button" value="취소" onclick="location.href='mainsession.jsp'"/>
+			<input type="button" value="취소"/>
+			<input type="button" value="뒤로가기" onclick="location.href='history.back()'" />
 	</tr>
 		
 </table>

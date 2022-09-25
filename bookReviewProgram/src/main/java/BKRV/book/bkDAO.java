@@ -12,6 +12,7 @@ public class bkDAO {
 	PreparedStatement pstmt = null;
 	ResultSet rs  = null;
 	
+	//DB 연결
 	public Connection getConnection(){
 		
 	String Driver = "oracle.jdbc.OracleDriver";
@@ -32,10 +33,11 @@ public class bkDAO {
 	
 	}
 	
-	
+	//책 상세정보 입력
 	public void insertBook(bkBean bBean) {
 		
 		conn=getConnection();
+		
 	try {
 		String sql = "insert into BOOK_INFO values(?, ?, ?, ?, ?, ?, ?, ?, ?, sysdate, ?)";
 
@@ -54,6 +56,11 @@ public class bkDAO {
 
 		pstmt.executeUpdate();
 		
+		if(conn != null) {
+			conn.commit();
+			conn.close();
+		}
+		
 	}catch(Exception e){
 		e.printStackTrace();
 	}
@@ -62,23 +69,49 @@ public class bkDAO {
 	
 	
 
-
-	public bkBean selectBook() {
+	//책 상세정보 조회
+	public bkBean selectBook(int bk_number) {
 		
 		bkBean bBean = new bkBean();
 		conn = getConnection();
 		
 		try {
 			
-			String sql = "select * from book_info where bk_number = ?"
+			String sql = "select * from book_info where bk_number = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bk_number);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				
+				bBean.setBk_number(rs.getInt(1));
+				bBean.setBk_title(rs.getString(2));
+				bBean.setBk_writer(rs.getString(3));
+				bBean.setBk_publisher(rs.getString(4));
+				bBean.setBk_pubdate(rs.getDate(5).toString());
+				bBean.setBk_image(rs.getString(6));
+				bBean.setBk_local(rs.getInt(7));
+				bBean.setBk_genre(rs.getInt(8));
+				bBean.setBk_ebook(rs.getInt(9));
+				bBean.setBk_infodate(rs.getDate(10).toString());
+				bBean.setBk_detail(rs.getString(11));
+					
+			}
+			
+			if(conn != null) {
+				conn.commit();
+				conn.close();
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
 		}
 		
-		
-		return null;
+		return bBean;
 		
 	}
 	
-	
+	//검색어에 따른 책 리스트 조회
 	public Vector<bkBean> listBook() {
 		
 		
@@ -86,17 +119,34 @@ public class bkDAO {
 		
 	}
 	
-	public String getPassword() {
-		
-		
-		return null;
-		
-	}
-	
-	
+	//책 상세정보 수정
 	public void updateBook(bkBean bBean) {
 		
+		conn = getConnection();
 		
+		try {
+			
+			String sql = "update book_info set bk_title=?, bk_writer=?, bk_publisher=?, bk_pubdate=?, bk_local=?, bk_genre=?, bk_ebook=?, bk_detail=? where bk_number=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, bBean.getBk_title());
+			pstmt.setString(2, bBean.getBk_writer());
+			pstmt.setString(3, bBean.getBk_publisher());
+			pstmt.setString(4, bBean.getBk_pubdate());
+			pstmt.setInt(5, bBean.getBk_local());
+			pstmt.setInt(6, bBean.getBk_genre());
+			pstmt.setInt(7, bBean.getBk_ebook());
+			pstmt.setString(8, bBean.getBk_detail());
+			pstmt.setInt(9, bBean.getBk_number());
+			
+			pstmt.executeUpdate();
+			
+			if(conn != null) {
+				conn.commit();
+				conn.close();
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	

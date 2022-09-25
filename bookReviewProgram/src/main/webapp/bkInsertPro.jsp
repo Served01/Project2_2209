@@ -16,8 +16,10 @@
 <meta charset="UTF-8">
 <title>책 입력 정보 저장</title>
 </head>
+
 <body>
 <%
+	// 책 이미지 파일을 저장하는 부분
 	// location에 해당하는 위치에 폴더를 만들어야 한다. 사용자마다 폴더를 지정을 해 주어야함. 즉, 입력값으로 하는 것이 좋을 듯
 	String location	= "E:\\Github_WS\\Project2_2209\\bookReviewProgram\\src\\main\\webapp\\image";//사진이 저장될 경로
 	String filename = "";
@@ -47,6 +49,7 @@
 	}
 	
 %>
+	<!-- 책 상세정보를 DB에 올리는 기능 -->
 	<jsp:useBean id="bBean" class="BKRV.book.bkBean" scope="page">
 		
 	</jsp:useBean>	
