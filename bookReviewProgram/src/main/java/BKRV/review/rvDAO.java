@@ -117,12 +117,11 @@ public class rvDAO {
 			String sql = "select * from Review_info where RV_bknumber = ? order by RV_date";
 			
 			pstmt = conn.prepareStatement(sql);
-			
-			rs = pstmt.executeQuery();
 			pstmt.setInt(1, Rv_bknumber);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
+				
 				rvBean rbean = new rvBean();
 				
 				rbean.setRv_number(rs.getInt(1));
