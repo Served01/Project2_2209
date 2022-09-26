@@ -1,8 +1,10 @@
+=\=\=\=\=\=\=
 //org.eclipse.ui.commands/state/org.eclipse.ui.navigator.resources.nested.changeProjectPresentation/org.eclipse.ui.commands.radioState=false
 //org.eclipse.ui.commands/state/org.eclipse.wst.xml.views.XPathView.processor.xpathprocessor/org.eclipse.ui.commands.radioState=xpath10
+<<<<<<<=HEAD
+>>>>>>>=Project2_2209_Home/\u00EA\u00B9\u0080\u00EB\u0082\u00A8\u00EC\u0098\u0081
 PLUGINS_NOT_ACTIVATED_ON_STARTUP=;org.eclipse.m2e.discovery;
 eclipse.preferences.version=1
-<<<<<<< HEAD
 org.eclipse.compare.contentmergeviewer.TextMergeViewer=1|Consolas|14.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Consolas;
 org.eclipse.debug.ui.DetailPaneFont=1|Consolas|14.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Consolas;
 org.eclipse.debug.ui.MemoryViewTableFont=1|Consolas|14.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Consolas;
@@ -18,14 +20,9 @@ org.eclipse.jface.textfont=1|Consolas|14.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0
 org.eclipse.mylyn.wikitext.ui.presentation.textFont=1|Consolas|14.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Consolas;
 org.eclipse.pde.internal.ui.compare.ManifestContentMergeViewer=1|Consolas|14.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Consolas;
 org.eclipse.pde.internal.ui.compare.PluginContentMergeViewer=1|Consolas|14.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Consolas;
-=======
->>>>>>> Project2_2209_Home/김남영
 org.eclipse.ui.workbench.ACTIVE_NOFOCUS_TAB_BG_START=37,41,45
 org.eclipse.ui.workbench.ACTIVE_NOFOCUS_TAB_TEXT_COLOR=16,16,16
 org.eclipse.ui.workbench.ACTIVE_TAB_BG_START=37,41,45
 org.eclipse.ui.workbench.INACTIVE_TAB_BG_START=53,60,65
-<<<<<<< HEAD
 org.eclipse.wst.sse.ui.textfont=1|Consolas|14.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Consolas;
 terminal.views.view.font.definition=1|Consolas|14.0|0|WINDOWS|1|0|0|0|0|0|0|0|0|1|0|0|0|0|Consolas;
-=======
->>>>>>> Project2_2209_Home/김남영
