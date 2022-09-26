@@ -21,8 +21,6 @@
 	</jsp:useBean>
 	
 <%
-
-	request.setCharacterEncoding("UTF-8");
 	
 	rvDAO rdao = new rvDAO();
 	rdao.insertReview(rBean);

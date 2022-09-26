@@ -7,26 +7,27 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>글 수정</title>
+<title>리뷰 수정 페이지</title>
 </head>
+
+<style>
+table{
+margin: auto;
+}
+</style>
+
 <body>
 
-	<h2>글 수정</h2>
-
-<%-- 
 <%
-	회원 ID, 책 번호, 리뷰 번호 받기
-	int Rv_number = Integer.parseInt(request.getParameter("Rv_number"));
-	int Rv_bknumber = Integer.parseInt(request.getParameter("Rv_bknumber"));
-	String Rv_id = request.getParameter("Rv_id");
-	
-	rvDAO rdao = new rvDAO();
-	rvBean rBean = rdao.updateoneselectboard(Rv_number, Rv_bknumber, Rv_id);
+	int rv_number= 
+	int bk_number= 20220002; //Integer.parseInt(request.getParameter("bk_number")); 
+	String mb_id = "hyun2"; //request.getParameter("mb_id");
 %>
 
- --%>
+	<h2 align="center">리뷰 수정 페이지</h2>
+
 <form action="rvUpdatePro.jsp" method="post">
-	<table border="1" align="center" width"600" bgccolor="yellow">
+	<table border="1">
 		<%-- <tr height="40" align="center">
 			<td width="150">작성자</td>
 			<td width="250"><%=rBean.getNick() %></td>

@@ -28,6 +28,14 @@ margin: auto;
 <form action="rvInsertPro.jsp" method="post">
 	<table border="1">
 		<tr align="center">
+			<td>책 제목</td>
+			<td></td>
+		</tr>
+		<tr align="center">
+			<td>리뷰 작성자</td>
+			<td></td>
+		</tr>
+		<tr align="center">
 			<td>평점</td>
 			<td>
 			<input type="radio" name="rv_score" value=1 />1점&nbsp;&nbsp;

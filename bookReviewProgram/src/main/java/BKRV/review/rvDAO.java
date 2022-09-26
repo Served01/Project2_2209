@@ -8,7 +8,6 @@ import java.util.Vector;
 
 public class rvDAO {
 	
-	public class bkDAO {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -149,7 +148,7 @@ public class rvDAO {
 	
 	
 	//한 리뷰에 대한 수정을 위해 해당 리뷰 내용 로드
-	public rvBean updateoneselectboard(int Rv_number, int Rv_bknumber, String Rv_id) {
+	public rvBean updateoneselectboard(int rv_number, int rv_bknumber, String rv_id) {
 		rvBean rbean = new rvBean();
 		
 		try {
@@ -318,5 +317,5 @@ public class rvDAO {
 			return rb;
 	}
 }
-}
+
 
