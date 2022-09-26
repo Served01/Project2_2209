@@ -1,9 +1,17 @@
 applyBackground=false
 approved.defs.file.last.changed.time=1649720987000
+<<<<<<< HEAD
 configurationInstallLocation=/E\:/Googledrive_WS/Computer/Program/eclipse/
 eclipse.preferences.version=1
 iconcolormode=primary
 last.download.attempt.time=1664085231096
 lastConfiguration=1663986181012
+=======
+configurationInstallLocation=/D\:/\uD559\uC0DD\uBC29/Program/eclipse/
+eclipse.preferences.version=1
+iconcolormode=primary
+last.download.attempt.time=1664158403739
+lastConfiguration=1663823880475
+>>>>>>> Project2_2209_Home/김남영
 newinstall=true
 workbench.theme=Dark Gray
