@@ -112,11 +112,47 @@ public class bkDAO {
 	}
 	
 	//검색어에 따른 책 리스트 조회
-	public Vector<bkBean> listBook() {
+	public Vector<bkBean> selectBookList(String search_word){
+
+		Vector<bkBean> vec = new Vector<bkBean>();
 		
+		conn=getConnection();
 		
-		return null;
+		try {
+			
+			String sql = "select * from book_info where bk_title like \'%"+search_word+"%\'";
+			
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				
+				bkBean bBean = new bkBean();
+				
+				bBean.setBk_number(rs.getInt(1));
+				bBean.setBk_title(rs.getString(2));
+				bBean.setBk_writer(rs.getString(3));
+				bBean.setBk_publisher(rs.getString(4));
+				bBean.setBk_pubdate(rs.getString(5));
+				bBean.setBk_image(rs.getString(6));
+				bBean.setBk_local(rs.getInt(7));
+				bBean.setBk_genre(rs.getInt(8));
+				bBean.setBk_ebook(rs.getInt(9));
+				bBean.setBk_infodate(rs.getString(10));
+				bBean.setBk_detail(rs.getString(11));
+				
+				vec.add(bBean);
+			}
+			if(conn != null) {
+				conn.commit();
+				conn.close();
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 		
+		return vec;
 	}
 	
 	//책 상세정보 수정

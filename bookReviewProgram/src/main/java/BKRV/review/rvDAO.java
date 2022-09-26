@@ -12,6 +12,8 @@ public class rvDAO {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs  = null;
+		PreparedStatement pstmt2 = null;
+		ResultSet rs2  = null;
 		
 		public Connection getConnection(){
 			
@@ -315,6 +317,59 @@ public class rvDAO {
 			}		
 			return rb;
 	}
+	
+	//각 서적별 평점 평균 구하기
+	public double getScore(int bk_number){
+		
+		conn=getConnection();
+		
+		int sum = 0;
+		int count =0;
+		double average = 0;
+		
+		try {
+			
+			String sql = "select count(*) from review_info where rv_bknumber=?";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bk_number);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+			if(rs.getInt(1)==0) {
+				average=0;
+			} else {
+			count = rs.getInt(1);	
+			
+			
+			String sql2 = "select sum(rv_score) from review_info where rv_bknumber = ?";
+			
+			pstmt2 = conn.prepareStatement(sql2);
+			pstmt2.setInt(1, bk_number);
+			rs2 = pstmt2.executeQuery();
+			
+			if(rs2.next()) {
+				
+				sum = rs2.getInt(1);
+			}
+			average = sum/count;
+			}
+			
+			if(conn != null) {
+				conn.commit();
+				conn.close();
+			}
+		}
+			
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return average;
+	}
+	
 }
 
 
