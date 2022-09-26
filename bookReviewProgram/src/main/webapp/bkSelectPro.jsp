@@ -23,7 +23,7 @@ margin: auto;
 
 <!-- bean이 없는 상태에서 가져올 때는 아래와 같이 이용 -->
 <%
-	int bk_number = 20220004; //Integer.parseInt(request.getParameter("bk_number"));
+	int bk_number = 20220003; //Integer.parseInt(request.getParameter("bk_number"));
 	
 	bkDAO bdao = new bkDAO();
 	bkBean bBean = bdao.selectBook(bk_number);
@@ -60,17 +60,60 @@ margin: auto;
 	<tr align = "center">
 		<!-- <td> rowspan=6 -->
 		<td>지역</td>
-		<td><%=bBean.getBk_local()%></td>
+		<td>
+		<% 
+		
+		if(bBean.getBk_local()==0){ %>
+		<input type="radio" name="bk_local" value="0" checked="checked" onclick="return(false);" />국내도서
+		&nbsp;&nbsp;
+		<input type="radio" name="bk_local" value="1" onclick="return(false);" />해외도서
+		<%} 
+		
+		else if(bBean.getBk_local()==1){ %>
+		<input type="radio" name="bk_local" value="0" onclick="return(false);" />국내도서
+		&nbsp;&nbsp;
+		<input type="radio" name="bk_local" value="1" checked="checked" onclick="return(false);" />해외도서
+		<%}; 
+		
+		%>
+		</td>
 	</tr>
 	<tr align="center">
-		<td rowspan="2">평점</td>
+		<td rowspan="2">평점:&nbsp;3</td>
 		<td>장르</td>
-		<td><%=bBean.getBk_genre()%></td>
+		<td>
+		<%if(bBean.getBk_genre()==0){%>	
+			문학		
+		<%}
+		
+		else if(bBean.getBk_genre()==1){%>
+			역사
+		<%} 
+		else if(bBean.getBk_genre()==2){%>
+			소설
+		<%} 
+		else if(bBean.getBk_genre()==3){%>
+			만화
+		<%}
+		else if(bBean.getBk_genre()==4){%>
+			기타
+		<%} 
+		%>
+		</td>
 	</tr>
 	<tr align="center">
 		<!-- <td> rowspan=2 -->
 		<td>ebook 유무</td>
-		<td><%=bBean.getBk_ebook()%></td>
+		<td>
+		<%if(bBean.getBk_ebook()==0){ %>
+			<input type="radio" name="bk_ebook" value="0" checked="checked" onclick="return(false);" /> O
+			<input type="radio" name="bk_ebook" value="1" onclick="return(false);" /> X
+		<%}
+		else if(bBean.getBk_ebook()==1){%>
+			<input type="radio" name="bk_ebook" value="0" onclick="return(false);" /> O
+			<input type="radio" name="bk_ebook" value="1" checked="checked" onclick="return(false);" /> X
+		<%} %>
+		</td>
 	</tr>
 	<!-- 작성일 sysdate 처리 -->
 	<tr align="center">

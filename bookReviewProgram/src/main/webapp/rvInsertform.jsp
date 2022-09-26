@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ page import="BKRV.review.rvDAO" %>
 <%@ page import="BKRV.review.rvBean" %>
+<%@ page import="BKRV.book.bkDAO" %>
+<%@ page import="BKRV.book.bkBean" %>
 <%	request.setCharacterEncoding("UTF-8");	%>
 <!DOCTYPE html>
 <html>
@@ -19,8 +21,13 @@ margin: auto;
 <body>
 
 <% 
-	int bk_number= 20220002; //Integer.parseInt(request.getParameter("bk_number")); 
-	String mb_id = "hyun2"; //request.getParameter("mb_id");
+
+	int rv_bknumber= 20220001; //Integer.parseInt(request.getParameter("bk_number")); 
+	String rv_id = "hyun"; //request.getParameter("mb_id");
+	
+	bkDAO bdao = new bkDAO();
+	bkBean bBean = bdao.selectBook(rv_bknumber);
+	
 %>
 
 <h2 align="center">리뷰 작성 페이지</h2>
@@ -29,11 +36,11 @@ margin: auto;
 	<table border="1">
 		<tr align="center">
 			<td>책 제목</td>
-			<td></td>
+			<td><%=bBean.getBk_title() %></td>
 		</tr>
 		<tr align="center">
 			<td>리뷰 작성자</td>
-			<td></td>
+			<td><%=rv_id %></td>
 		</tr>
 		<tr align="center">
 			<td>평점</td>
@@ -52,10 +59,10 @@ margin: auto;
 			</td>
 		</tr>
 		
-		<tr height="40" align="center">
+		<tr align="center">
 			<td colspan="2">
-				<input type="hidden" name="rv_bknumber" value=<%=bk_number %> />
-				<input type="hidden" name="rv_id" value=<%=mb_id %> />
+				<input type="hidden" name="rv_bknumber" value=<%=rv_bknumber %> />
+				<input type="hidden" name="rv_id" value=<%=rv_id %> />
 				<input type="submit" value="등록"/>&nbsp;&nbsp;
 				<input type="button" value="취소"/>&nbsp;&nbsp;
 				<input type="button" value="뒤로가기" onclick="location.href='history.back()'" />

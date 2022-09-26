@@ -158,9 +158,9 @@ public class rvDAO {
 			String sql = "select * from Review_info where RV_number = ? and RV_bknumber = ? and RV_id = ? order by RV_date";
 			
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, Rv_number);
-			pstmt.setInt(2, Rv_bknumber);
-			pstmt.setString(3, Rv_id);
+			pstmt.setInt(1, rv_number);
+			pstmt.setInt(2, rv_bknumber);
+			pstmt.setString(3, rv_id);
 			
 			rs = pstmt.executeQuery();
 			

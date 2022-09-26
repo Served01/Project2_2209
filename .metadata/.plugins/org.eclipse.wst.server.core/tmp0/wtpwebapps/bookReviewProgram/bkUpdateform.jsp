@@ -22,7 +22,7 @@ margin: auto;
 <body>
 
 <%
-	int bk_number = 20220004; //Integer.parseInt(request.getParameter("bk_number"));
+	int bk_number = 20220001; //Integer.parseInt(request.getParameter("bk_number"));
 	
 	bkDAO bdao = new bkDAO();
 	bkBean bBean = bdao.selectBook(bk_number);
