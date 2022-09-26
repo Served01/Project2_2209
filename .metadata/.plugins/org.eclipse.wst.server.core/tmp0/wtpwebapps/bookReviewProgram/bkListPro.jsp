@@ -45,28 +45,32 @@ margin: auto;
 <table border="1">
 	<tr align = "center">
 		<td rowspan="4">이미지</td>
-		<td>책 제목</td>
-		<td><%=bBean.getBk_title()%></td>
+		<td>책 일련번호</td>
+		<td colspan="3"><%=bBean.getBk_number()%></td>
 	</tr>
 	<tr align = "center">
 		<!-- <td> rowspan=4 -->
-		<td>저자</td>
+		<td>책 제목</td>
+		<td><%=bBean.getBk_title()%></td>
+		<td>책 저자</td>
 		<td><%=bBean.getBk_writer()%></td>
 	</tr>
 	<tr align = "center">
-		<!-- <td> rowspan=4 -->
+		<!-- <td> rowspan=4-->
+		<td>출판사</td>
+		<td><%=bBean.getBk_publisher()%></td>
 		<td>출판사</td>
 		<td><%=bBean.getBk_publisher()%></td>
 	</tr>
 	<tr align = "center">
 		<!-- <td> rowspan=4 -->
 		<td>평점</td>
-		<td>
+		<td colspan="3">
 		<%if(bk_score==0){%>
 			등록된 평점이 없습니다.
 		<%
 		} else { %>
-			<%=bk_score%>
+			<%=bk_score%>점
 		<%}%></td>
 	</tr>
 </table>

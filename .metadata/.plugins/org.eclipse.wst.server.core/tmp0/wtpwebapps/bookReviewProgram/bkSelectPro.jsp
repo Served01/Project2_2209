@@ -121,13 +121,14 @@ margin: auto;
 			<button type="button">수정</button>&nbsp;&nbsp;
 			<button type="button">삭제</button>&nbsp;&nbsp;
 			<button type="button">이전</button>
+			<input type="hidden" name="bk_number" value=<%=bk_number%> />
 	</tr>	
 </table>
 
 <!-- 책 리뷰 목록 표시 -->
-<br>
+<hr>
 <h2 align="center">리뷰</h2>
-<br>
+
 <%
 	int rv_bknumber = bk_number; 
 	
@@ -145,6 +146,7 @@ margin: auto;
 		<td>
 		<button type="button">수정</button>
 		<button type="button">삭제</button>
+		
 		</td>
 	</tr>
 	<tr>

@@ -163,6 +163,7 @@ public class bkDAO {
 		try {
 			
 			String sql = "update book_info set bk_title=?, bk_writer=?, bk_publisher=?, bk_pubdate=?, bk_local=?, bk_genre=?, bk_ebook=?, bk_detail=? where bk_number=?";
+			
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, bBean.getBk_title());
 			pstmt.setString(2, bBean.getBk_writer());
@@ -185,6 +186,32 @@ public class bkDAO {
 		}
 	}
 	
+	//책 정보 삭제 기능
+	public void deleteBook(int bk_number) {
+		
+		conn = getConnection();
+		
+		try {
+			
+				String sql = "delete from book_info where bk_number=?";
+				
+				pstmt=conn.prepareStatement(sql);
+				
+				pstmt.setInt(1, bk_number);
+				
+				pstmt.executeQuery();
+			
+			if(conn != null) {
+				conn.commit();
+				conn.close();
+				}
+			
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			
+		}	
 	
+	}
 	
 }

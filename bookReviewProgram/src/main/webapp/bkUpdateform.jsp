@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>책 정보 수정 페이지</title>
+<title>책 정보 수정</title>
 </head>
 
 <style>
