@@ -77,9 +77,8 @@ public class rvDAO {
 			String sql = "select * from Review_info where RV_id = ? order by RV_date";
 			
 			pstmt = conn.prepareStatement(sql);
-			
-			rs = pstmt.executeQuery();
 			pstmt.setInt(1, Rv_id);
+			
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
@@ -149,7 +148,7 @@ public class rvDAO {
 	
 	
 	//한 리뷰에 대한 수정을 위해 해당 리뷰 내용 로드
-	public rvBean updateoneselectboard(int rv_number, int rv_bknumber, String rv_id) {
+	public rvBean updateOneSelectReview(int rv_number, int rv_bknumber, String rv_id) {
 		rvBean rbean = new rvBean();
 		
 		try {
@@ -238,37 +237,6 @@ public class rvDAO {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-	}
-	
-	
-
-	//전체리뷰수 파악 후 반환
-	public int getAllcount(){
-		
-		conn=getConnection();
-		
-		int count = 0;
-		
-		try {
-			String sql = "select count(*) from Review_info";
-			
-			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			
-			if(rs.next()) {
-				count = rs.getInt(1);
-				
-			}
-			if(conn != null) {
-				conn.commit();
-				conn.close();
-			}
-			
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-		
-		return count;
 	}
 	
 	
@@ -370,6 +338,35 @@ public class rvDAO {
 		return average;
 	}
 	
+	
+	//전체리뷰수 파악 후 반환 (여기서는 안쓰고 있음)
+		public int getAllcount(){
+			
+			conn=getConnection();
+			
+			int count = 0;
+			
+			try {
+				String sql = "select count(*) from Review_info";
+				
+				pstmt = conn.prepareStatement(sql);
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					count = rs.getInt(1);
+					
+				}
+				if(conn != null) {
+					conn.commit();
+					conn.close();
+				}
+				
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+			return count;
+		}
 }
 
 

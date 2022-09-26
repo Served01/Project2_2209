@@ -27,7 +27,7 @@ margin: auto;
 	String rv_id = "hyun"; //request.getParameter("mb_id");
 	
 	rvDAO rdao = new rvDAO();
-	rvBean rbean = rdao.updateoneselectboard(rv_number, rv_bknumber, rv_id);
+	rvBean rbean = rdao.updateOneSelectReview(rv_number, rv_bknumber, rv_id);
 	
 	bkDAO bdao = new bkDAO();
 	bkBean bBean = bdao.selectBook(rv_bknumber);

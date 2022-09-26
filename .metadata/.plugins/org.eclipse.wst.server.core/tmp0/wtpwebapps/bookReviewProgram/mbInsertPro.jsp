@@ -15,6 +15,7 @@
 <%
 
 	request.setCharacterEncoding("UTF-8");
+
 	String password2=request.getParameter("mb_pw2");
 
 %>

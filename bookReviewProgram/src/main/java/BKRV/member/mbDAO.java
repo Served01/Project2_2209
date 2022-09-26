@@ -57,137 +57,137 @@ public class mbDAO {
 	
 	
 	//회원정보 반환
-	public Vector<mbBean> allselectmember() throws SQLException {
-		
-		Vector<mbBean> v = new Vector<mbBean>();
-		String sql = "select * from member";
-		
-		
-		try {
-			getConnection();
+	public Vector<mbBean> allselectmember(){
 			
-			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery();
+			Vector<mbBean> v = new Vector<mbBean>();
+			String sql = "select * from member_info";
 			
-			while(rs.next()) {
-				mbBean Bean = new mbBean();
-				Bean.setMb_id(rs.getString(1));
-				Bean.setMb_pw(rs.getString(2));
-				Bean.setMb_name(rs.getString(3));
-				Bean.setMb_nick(rs.getString(4));
-				Bean.setMb_email(rs.getString(5));
-				Bean.setMb_tel(rs.getString(6));
-				Bean.setMb_gender(rs.getString(7));
-				v.add(Bean);
-			}
-			conn.commit();
-			conn.close();
-			} catch(SQLException e){
-				e.printStackTrace();
-			}
-		
-		return v;
-		
-	}
-
-	//해당 id에 내용을 반환해 주는 메소드 호출
-	public mbBean oneselectmember(String mb_id){
-				
-		mbBean Bean = new mbBean();
-				
-		try {
+			
+			try {
 				getConnection();
 				
-			String sql = "select * from member where mb_id = ?";
+				pstmt = conn.prepareStatement(sql);
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					mbBean Bean = new mbBean();
+					Bean.setMb_id(rs.getString(1));
+					Bean.setMb_pw(rs.getString(2));
+					Bean.setMb_name(rs.getString(3));
+					Bean.setMb_nick(rs.getString(4));
+					Bean.setMb_email(rs.getString(5));
+					Bean.setMb_tel(rs.getString(6));
+					Bean.setMb_gender(rs.getString(7));
+					v.add(Bean);
+				}
+				conn.commit();
+				conn.close();
+				} catch(Exception e){
+					e.printStackTrace();
+				}
 			
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, mb_id);
+			return v;
 			
-			rs = pstmt.executeQuery();
-		
-			while(rs.next()) {
-					
-				Bean.setMb_id(rs.getString(1));
-				Bean.setMb_pw(rs.getString(2));
-				Bean.setMb_name(rs.getString(3));
-				Bean.setMb_nick(rs.getString(4));
-				Bean.setMb_email(rs.getString(5));
-				Bean.setMb_tel(rs.getString(6));
-				Bean.setMb_gender(rs.getString(7));		
-		}		
-		conn.close();
-	}catch (SQLException e) {
-		e.printStackTrace();
-	}
-		return Bean;
-	}
+		}
 
-	//id에 해당하는 비밀번호를 찾아서 반환하는 메소드 호출 	
-	public String getPassword(String id){		
-		String password = null;		
-		
-		try {
-			getConnection();			
+	//해당 id에 내용을 반환해 주는 메소드 호출
+		public mbBean oneselectmember(String id){
+					
+			mbBean Bean = new mbBean();
+					
+			try {
+				getConnection();
+					
+				String sql = "select * from member_info where mb_id = ?";
+				
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, id);
+				
+				rs = pstmt.executeQuery();
 			
-			String sql = "select passwd1 from member where mb_id = ?";
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, id);
-			rs = pstmt.executeQuery();
+				while(rs.next()) {
+						
+					Bean.setMb_id(rs.getString(1));
+					Bean.setMb_pw(rs.getString(2));				
+					Bean.setMb_name(rs.getString(3));
+					Bean.setMb_nick(rs.getString(4));
+					Bean.setMb_email(rs.getString(5));
+					Bean.setMb_tel(rs.getString(6));
+					Bean.setMb_gender(rs.getString(7));		
+			}		
+			conn.close();
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+			return Bean;
+		}
+
+		//id에 해당하는 비밀번호를 찾아서 반환하는 메소드 호출 	
+		public String getPassword(String id){		
+			String password = null;		
 			
-			if(rs.next()) {
-				password = rs.getString(1);
+			try {
+				getConnection();			
+				
+				String sql = "select mb_pw from member_info where mb_id = ?";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, id);
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					password = rs.getString(1);
+				}
+				if(conn != null) {
+					conn.close();
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
 			}
-			if(conn != null) {
-				conn.close();
-			}
-		}catch(Exception e) {
-			e.printStackTrace();
+			return password;		
 		}
-		return password;		
-	}
-	
-	// id에 해당하는 회원정보를 수정합니다. 
-	public void updatemember(mbBean Bean){
-	
-		try {
-			conn = getConnection();
-			
-			String sql = "update member set mb_email=?, mb_tel=? where mb_id=?";
-			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setString(1, Bean.getMb_email());
-			pstmt.setString(2, Bean.getMb_nick());
-			pstmt.setString(3, Bean.getMb_id());
-			
-			pstmt.executeUpdate();
-			
-			if(conn != null) {
-				conn.commit();
-				conn.close();
-			}			
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
-	
-	// id에 해당하는 회원정보 삭제
-	public void deletemember(String mb_id){
 		
-		try {
-			getConnection();
+		// id에 해당하는 회원정보를 수정합니다. 
+		public void updatemember(mbBean Bean){
+		
+			try {
+				getConnection();
+				
+				String sql = "update member_info set mb_email=?, mb_nick=? where mb_id=?";
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setString(1, Bean.getMb_email());
+				pstmt.setString(2, Bean.getMb_nick());
+				pstmt.setString(3, Bean.getMb_id());
+				
+				pstmt.executeUpdate();
+				
+				if(conn != null) {
+					conn.commit();
+					conn.close();
+				}			
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		// id에 해당하는 회원정보 삭제
+		public void deletemember(String mb_id){
 			
-			String sql = "delete from member where mb_id=?";
-			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setString(1, mb_id);			
-			pstmt.executeUpdate();
-			
-			if(conn != null) {
-				conn.commit();
-				conn.close();
-			}			
-		}catch(Exception e) {
-			e.printStackTrace();
+			try {
+				getConnection();
+				
+				String sql = "delete from member_info where mb_id=?";
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setString(1, mb_id);			
+				pstmt.executeUpdate();
+				
+				if(conn != null) {
+					conn.commit();
+					conn.close();
+				}			
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
-}
