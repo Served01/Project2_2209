@@ -12,21 +12,21 @@
 <%
 request.setCharacterEncoding("UTF-8");
 %>
-	<jsp:useBean id="mBean" class="BKRV.member.mbBean">
-		<jsp:setProperty name="mBean" property="*"/>
+	<jsp:useBean id="Bean" class="BKRV.member.mbBean">
+		<jsp:setProperty name="Bean" property="*"/>
 	</jsp:useBean>
 
 <%
-String id = request.getParameter("id");
+String id = request.getParameter("mb_id");
 	String password = request.getParameter("password");
 	
 	mbDAO mdao = new mbDAO();
 	String pass = mdao.getPassword(id);
 	
 	if(pass.equals(password)){
-		mdao.updatemember(mBean);
+		mdao.updatemember(Bean);
 		
-		response.sendRedirect("mbListPro.jsp");
+		response.sendRedirect("mbList.jsp");
 	}else{
 %>
 	<script type="text/javascript">

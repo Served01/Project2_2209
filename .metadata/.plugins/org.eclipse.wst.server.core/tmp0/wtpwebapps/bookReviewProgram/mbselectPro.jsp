@@ -10,7 +10,7 @@
 </head>
 <body>
 <%
-	String id = request.getParameter("Mb_id");
+	String id = request.getParameter("mb_id");
 
 	mbDAO mdao = new mbDAO();
 	mbBean Bean = mdao.oneselectmember(id);
@@ -62,13 +62,13 @@
 		</tr>
 		<tr style="height: 40; ">
 			<td colspan="2">
-			<button onclick="location.href='memberUpdateform.jsp?id=<%=Bean.getMb_id() %>'">수정</button>&nbsp;&nbsp;
+			<button onclick="location.href='mbUpdateform.jsp?mb_id=<%=Bean.getMb_id() %>'">수정</button>&nbsp;&nbsp;
 			
 			<%
 
 			if(id != "admin") {  %>
 	
-				<button onclick="location.href='memberDeleteform.jsp?id=<%=Bean.getMb_id() %>'">삭제</button>&nbsp;&nbsp;
+				<button onclick="location.href='mbDeleteform.jsp?mb_id=<%=Bean.getMb_id() %>'">삭제</button>&nbsp;&nbsp;
 	
 			<% }else if(id == " admin") { %>
 			

@@ -3,14 +3,12 @@ package BKRV.member;
 public class mbBean {
 
 	private String mb_id;
-	private String mb_pw1;
-	private String mb_pw2;
+	private String mb_pw;	
 	private String mb_name;
 	private String mb_nick;
 	private String mb_email;
 	private String mb_tel;
-	private String mb_gender;
-	private String mb_hobby;
+	private String mb_gender;	
 	
 	
 	public String getMb_id() {
@@ -19,18 +17,12 @@ public class mbBean {
 	public void setMb_id(String mb_id) {
 		this.mb_id = mb_id;
 	}
-	public String getMb_pw1() {
-		return mb_pw1;
+	public String getMb_pw() {
+		return mb_pw;
 	}
-	public void setMb_pw1(String mb_pw1) {
-		this.mb_pw1 = mb_pw1;
-	}
-	public String getMb_pw2() {
-		return mb_pw2;
-	}
-	public void setMb_pw2(String mb_pw2) {
-		this.mb_pw2 = mb_pw2;
-	}
+	public void setMb_pw(String mb_pw) {
+		this.mb_pw = mb_pw;
+	}	
 	public String getMb_name() {
 		return mb_name;
 	}
@@ -61,16 +53,13 @@ public class mbBean {
 	public void setMb_gender(String mb_gender) {
 		this.mb_gender = mb_gender;
 	}
-	public String getMb_hobby() {
-		return mb_hobby;
-	}
-	public void setMb_hobby(String mb_hobby) {
-		this.mb_hobby = mb_hobby;
-	}
+	
+}
 	
 	
 	
 	
 	
 
-}
+
+

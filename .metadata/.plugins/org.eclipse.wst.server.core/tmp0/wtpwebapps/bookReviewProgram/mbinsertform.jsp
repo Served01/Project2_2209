@@ -8,41 +8,41 @@
 </head>
 <body>
 <h2 align = "center">회원가입 페이지</h2>
-<form action = "mbinsertformPro.jsp" method = "post" align = "center">
+<form action = "mbInsertPro.jsp" method = "post" align = "center">
 	<table border = "1" align = "center" width = "650">
 		<tr height = "40" align = "center">
 			<td width = "150">ID</td>
-			<td width = "250"><input type = "text" name = "id" size = "67" placeholder="id입력"/></td>
+			<td width = "250"><input type = "text" name = "mb_id" size = "67" placeholder="id입력"/></td>
 		</tr>
 		<tr height = "40" align = "center">
 			<td width = "150">PW</td>
-			<td width = "250"><input type = "text" name = "pw1" size = "67" placeholder="pw입력"/></td>
+			<td width = "250"><input type = "password" name = "mb_pw" size = "67" placeholder="pw입력"/></td>
 		</tr>
 		<tr height = "40" align = "center">
 			<td width = "150">비밀번호 확인</td>
-			<td width = "250"><input type = "text" name = "pw2" size = "67" placeholder="pw입력"/></td>
+			<td width = "250"><input type = "password" name = "mb_pw2" size = "67" placeholder="pw입력"/></td>
 		</tr>
 		<tr height = "40" align = "center">
 			<td width = "150">이름</td>
-			<td width = "250"><input type = "text" name = "name" size = "67" placeholder="이름입력"/></td>
+			<td width = "250"><input type = "text" name = "mb_name" size = "67" placeholder="이름입력"/></td>
 		</tr>
 		<tr height = "40" align = "center">
 			<td width = "150">닉네임</td>
-			<td width = "250"><input type = "text" name = "nick" size = "67" placeholder="닉네임입력"/></td>
+			<td width = "250"><input type = "text" name = "mb_nick" size = "67" placeholder="닉네임입력"/></td>
 		</tr>
 		<tr height = "40" align = "center">
 			<td width = "150">이메일</td>
-			<td width = "250"><input type = "text" name = "email" size = "67" placeholder="이메일입력"/></td>
+			<td width = "250"><input type = "email" name = "mb_email" size = "67" placeholder="이메일입력"/></td>
 		</tr>
 		<tr height = "40" align = "center">
 			<td width = "150">전화번호</td>
-			<td width = "250"><input type = "text" name = "tel" size = "67" placeholder="전화번호입력"/></td>
+			<td width = "250"><input type = "text" name = "mb_tel" size = "67" placeholder="전화번호입력"/></td>
 		</tr>
 		<tr height="40" align="center">
 			<td width="150">성별</td>
 			<td width="250">
-				<input type="radio" name="hobby" value="남자"/>남자
-				<input type="radio" name="hobby" value="여자"/>여자				
+				<input type="radio" name="mb_gender" value="1"/>남자
+				<input type="radio" name="mb_gender" value="2"/>여자				
 			</td>
 		</tr>
 		<tr height = "40" align = "center">

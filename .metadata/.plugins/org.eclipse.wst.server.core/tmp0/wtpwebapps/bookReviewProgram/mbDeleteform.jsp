@@ -15,7 +15,7 @@
 	<table border="1" style="width: 800px; text-align: center;">
 		<tr style="height: 40; background: pink;">
 			<td width="100">아이디</td>
-			<td><%=request.getParameter("id") %></td> 
+			<td><%=request.getParameter("mb_id") %></td> 
 		</tr>				
 		<tr align="center" style="height: 40; background: yellow;">
 			<td width="120">비밀번호</td>
@@ -25,9 +25,9 @@
 		</tr>		
 		<tr style="height: 60;">
 			<td colspan="2"> 
-				<input type="hidden" name="id" value="<%=request.getParameter("id") %>">
+				<input type="hidden" name="mb_id" value="<%=request.getParameter("mb_id") %>">
 				<input type="submit" value="회원정보삭제">&nbsp;&nbsp;		
-				<input type="button" value="회원목록보기" onclick="location.href='mbListPro.jsp?'"/>&nbsp;&nbsp;
+				<input type="button" value="회원목록보기" onclick="location.href='mbList.jsp?'"/>&nbsp;&nbsp;
 				<input type="button" value="회원가입" onclick="location.href='mbinsertform.jsp?'"/>
 			</td>	
 		</tr>		

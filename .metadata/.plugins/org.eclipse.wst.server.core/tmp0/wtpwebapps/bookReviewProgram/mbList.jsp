@@ -33,7 +33,7 @@
 	%>
 	
 	<tr height="40" align="center">
-		<td><a href="mbselectPro.jsp?id=<%=Bean.getMb_id() %>"><%=Bean.getMb_id() %></a></td>
+		<td><a href="mbselectPro.jsp?mb_id=<%=Bean.getMb_id() %>"><%=Bean.getMb_id() %></a></td>
 		<td><%=Bean.getMb_name() %></td>
 		<td><%=Bean.getMb_nick() %></td>
 		<td><%=Bean.getMb_email() %></td>

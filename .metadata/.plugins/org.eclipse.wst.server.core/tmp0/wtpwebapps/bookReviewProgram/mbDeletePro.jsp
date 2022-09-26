@@ -10,13 +10,13 @@
 </head>
 <body>
 <jsp:useBean id="Bean" class="BKRV.member.mbBean">
-		<jsp:setProperty name="mBean" property="*"/>
+		<jsp:setProperty name="Bean" property="*"/>
 	</jsp:useBean>
 
 <%
 request.setCharacterEncoding("utf-8");
 
-	String id = request.getParameter("id");
+	String id = request.getParameter("mb_id");
 	String password = request.getParameter("password");
 	
 	mbDAO mdao = new mbDAO();
@@ -24,7 +24,7 @@ request.setCharacterEncoding("utf-8");
 	
 	if(pass.equals(password)){
 		mdao.deletemember(Bean.getMb_id());
-		response.sendRedirect("mbListPro.jsp");
+		response.sendRedirect("mbList.jsp");
 	}else{
 %>
 	<script type="text/javascript">
