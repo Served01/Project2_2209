@@ -55,7 +55,7 @@ margin: auto;
 		<tr align="center">
 			<td>내용</td>
 			<td>
-			<textarea rows="10" cols="67" name="content"></textarea>
+			<textarea rows="10" cols="67" name="rv_content"></textarea>
 			</td>
 		</tr>
 		
