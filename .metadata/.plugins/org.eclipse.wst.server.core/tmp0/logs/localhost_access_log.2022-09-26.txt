@@ -105,3 +105,5 @@
 0:0:0:0:0:0:0:1 - - [26/Sep/2022:15:04:42 +0900] "GET /bookReviewProgram/bkListPro.jsp HTTP/1.1" 200 2227
 0:0:0:0:0:0:0:1 - - [26/Sep/2022:15:05:42 +0900] "GET /bookReviewProgram/bkSelectPro.jsp HTTP/1.1" 200 3000
 0:0:0:0:0:0:0:1 - - [26/Sep/2022:15:10:22 +0900] "GET /bookReviewProgram/bkSelectPro.jsp HTTP/1.1" 200 3080
+127.0.0.1 - - [26/Sep/2022:15:19:37 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [26/Sep/2022:15:19:39 +0900] "GET /bookReviewProgram/bkDeletePro.jsp HTTP/1.1" 200 136

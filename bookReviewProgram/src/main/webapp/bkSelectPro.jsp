@@ -26,7 +26,7 @@ margin: auto;
 
 <!-- bean이 없는 상태에서 가져올 때는 아래와 같이 이용 -->
 <%
-	int bk_number = 20220001; //Integer.parseInt(request.getParameter("bk_number"));
+	int bk_number = 20220003; //Integer.parseInt(request.getParameter("bk_number"));
 	
 	bkDAO bdao = new bkDAO();
 	bkBean bBean = bdao.selectBook(bk_number);
@@ -118,10 +118,18 @@ margin: auto;
 	</tr>
 	<tr align="center">
 		<td colspan="3"> 				
-			<button type="button">수정</button>&nbsp;&nbsp;
-			<button type="button">삭제</button>&nbsp;&nbsp;
-			<button type="button">이전</button>
-			<input type="hidden" name="bk_number" value=<%=bk_number%> />
+			<button type="button" onclick="location.href='bkUpdateform.jsp?bk_number=<%=bk_number%>'">수정</button>&nbsp;&nbsp;
+			<button type="button" onclick="javascript:deleteConfirm(<%=bk_number%>)">삭제</button>&nbsp;&nbsp;
+			<script>
+				function deleteConfirm(){
+					var bk_number = '<%=bk_number%>'
+					var isDelete = confirm("정말로 삭제하시겠습니까?");
+					if(isDelete){
+						location.href = "bkDeletePro.jsp?bk_number="+bk_number;
+					}
+				}
+			</script>
+			<button type="button" onclick="javascript:history.go(-1)">이전</button>
 	</tr>	
 </table>
 

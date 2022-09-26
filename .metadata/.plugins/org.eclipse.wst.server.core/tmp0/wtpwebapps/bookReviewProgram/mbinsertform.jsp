@@ -57,7 +57,7 @@ margin: auto;
 		<tr height = "40" align = "center">
 			<td colspan = "2">				
 				<input type = "submit" value = "회원가입"/>&nbsp;&nbsp;
-				<input type = "reset" value = "취소"/>
+				<input type = "button" onclick="javascript:history.go(-1)" value = "취소"/>
 		</tr>
 	</table>
 </form>

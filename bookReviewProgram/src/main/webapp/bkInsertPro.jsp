@@ -82,8 +82,11 @@
 	bkDAO bdao = new bkDAO();
 	bdao.insertBook(bBean);
 	
-	//response.sendRedirect("mainsession.jsp");
-
 %>
+<script>
+	alert("책 정보를 입력하였습니다.");
+	history.go(-1);
+</script>
+
 </body>
 </html>

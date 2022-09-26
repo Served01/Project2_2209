@@ -20,8 +20,8 @@ public class mbBean {
 	public String getMb_pw() {
 		return mb_pw;
 	}
-	public void setMb_pw(String mb_pw1) {
-		this.mb_pw = mb_pw1;
+	public void setMb_pw(String mb_pw) {
+		this.mb_pw = mb_pw;
 	}
 	public String getMb_name() {
 		return mb_name;

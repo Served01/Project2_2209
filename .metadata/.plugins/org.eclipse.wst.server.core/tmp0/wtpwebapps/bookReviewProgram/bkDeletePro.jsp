@@ -12,13 +12,12 @@
 <body>
 
 <%
-	int bk_number = 20220003; //Integer.parseInt(request.getParameter("bk_number"));
-	
 	bkDAO bdao = new bkDAO();
-	bdao.deleteBook(bk_number);
+	bdao.deleteBook(Integer.parseInt(request.getParameter("bk_number")));
+	out.print("<script>alert('삭제되었습니다.');</script>");
 	
-	//out.print("<script>alert('삭제되었습니다.');</script>");
-	//response.sendRedirect("bkInsertform.jsp");//response.sendRedirect("mainsession.jsp");
+	//response.sendRedirect("bkInsertform.jsp");
+	
 %>
 </body>
 </html>

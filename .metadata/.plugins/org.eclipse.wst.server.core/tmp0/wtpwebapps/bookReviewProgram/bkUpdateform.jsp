@@ -22,7 +22,7 @@ margin: auto;
 <body>
 
 <%
-	int bk_number = 20220001; //Integer.parseInt(request.getParameter("bk_number"));
+	int bk_number = Integer.parseInt(request.getParameter("bk_number"));
 	
 	bkDAO bdao = new bkDAO();
 	bkBean bBean = bdao.selectBook(bk_number);
@@ -150,7 +150,7 @@ margin: auto;
 	<tr align="center">
 		<td colspan="2"> 				
 			<input type="submit" value="수정"/>&nbsp;&nbsp;
-			<button type="button">취소</button>
+			<button type="button" onclick="javascript:history.go(-1)">취소</button>
 			<input type="hidden" name="bk_number" value=<%=bBean.getBk_number()%> />
 	</tr>
 		
