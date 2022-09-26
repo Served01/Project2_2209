@@ -1,7 +1,6 @@
-INDEX VERSION 1.4+C:\Users\607호\Downloads\Project2_2209--\Project2_2209--\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+INDEX VERSION 1.4+D:\학생방\Github\Project2_유준수\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+574480810.index
+426713815.index
 3102893789.index
-4204749989.index
-2976940322.index
-2692922421.index
-161784459.index
-536146506.index
+1541308235.index
+1703661561.index
