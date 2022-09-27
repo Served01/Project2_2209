@@ -526,3 +526,17 @@
 0:0:0:0:0:0:0:1 - - [27/Sep/2022:16:58:15 +0900] "GET /bookReviewProgram/mainSession.jsp?center=mbPassform.jsp&mb_id=hyun HTTP/1.1" 200 8746
 0:0:0:0:0:0:0:1 - - [27/Sep/2022:16:58:16 +0900] "GET /bookReviewProgram/mainSession.jsp?center=mbPassform.jsp&mb_id=hyun HTTP/1.1" 200 8746
 0:0:0:0:0:0:0:1 - - [27/Sep/2022:16:58:16 +0900] "GET /bookReviewProgram/mainSession.jsp?center=mbPassform.jsp&mb_id=hyun HTTP/1.1" 200 8746
+127.0.0.1 - - [27/Sep/2022:17:18:53 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [27/Sep/2022:17:18:54 +0900] "GET /bookReviewProgram/startFile.html HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [27/Sep/2022:17:18:54 +0900] "GET /bookReviewProgram/mainSession.jsp HTTP/1.1" 200 13355
+0:0:0:0:0:0:0:1 - - [27/Sep/2022:17:18:54 +0900] "GET /bookReviewProgram/css/header.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [27/Sep/2022:17:18:54 +0900] "GET /bookReviewProgram/css/left.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [27/Sep/2022:17:18:54 +0900] "GET /bookReviewProgram/css/footer.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [27/Sep/2022:17:18:55 +0900] "GET /favicon.ico HTTP/1.1" 404 818
+0:0:0:0:0:0:0:1 - - [27/Sep/2022:17:19:03 +0900] "POST /bookReviewProgram/mainSession.jsp HTTP/1.1" 200 9313
+0:0:0:0:0:0:0:1 - - [27/Sep/2022:17:19:06 +0900] "GET /bookReviewProgram/mainSession.jsp?center=bkSelectPro.jsp&bk_number=20220001 HTTP/1.1" 200 12999
+0:0:0:0:0:0:0:1 - - [27/Sep/2022:17:19:12 +0900] "GET /bookReviewProgram/mainSession.jsp?center=bkUpdateform.jsp&bk_number=20220001 HTTP/1.1" 200 9767
+0:0:0:0:0:0:0:1 - - [27/Sep/2022:17:19:18 +0900] "GET /bookReviewProgram/mainSession.jsp?center=bkListMenuPro.jsp&bk_local=0&bk_genre=0 HTTP/1.1" 200 7781
+0:0:0:0:0:0:0:1 - - [27/Sep/2022:17:19:19 +0900] "GET /bookReviewProgram/mainSession.jsp?center=bkListMenuPro.jsp&bk_local=0&bk_genre=1 HTTP/1.1" 200 8426
+0:0:0:0:0:0:0:1 - - [27/Sep/2022:17:20:40 +0900] "POST /bookReviewProgram/mainSession.jsp HTTP/1.1" 200 9313
+0:0:0:0:0:0:0:1 - - [27/Sep/2022:17:20:43 +0900] "GET /bookReviewProgram/mainSession.jsp?center=bkSelectPro.jsp&bk_number=20220001 HTTP/1.1" 200 12999
