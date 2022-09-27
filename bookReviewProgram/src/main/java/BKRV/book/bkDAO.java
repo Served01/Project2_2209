@@ -245,5 +245,51 @@ public class bkDAO {
 			return bk_title;
 			
 		}
+		
+		//메뉴용 책 리스트 조회
+		public Vector<bkBean> selectMenuBookList(int bk_local, int bk_genre){
+
+			Vector<bkBean> vec = new Vector<bkBean>();
+			
+			conn=getConnection();
+			
+			try {
+				
+				String sql = "select * from book_info where bk_local = ? and bk_genre = ?";
+				
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, bk_local);
+				pstmt.setInt(2, bk_genre);
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					
+					bkBean bBean = new bkBean();
+					
+					bBean.setBk_number(rs.getInt(1));
+					bBean.setBk_title(rs.getString(2));
+					bBean.setBk_writer(rs.getString(3));
+					bBean.setBk_publisher(rs.getString(4));
+					bBean.setBk_pubdate(rs.getString(5));
+					bBean.setBk_image(rs.getString(6));
+					bBean.setBk_local(rs.getInt(7));
+					bBean.setBk_genre(rs.getInt(8));
+					bBean.setBk_ebook(rs.getInt(9));
+					bBean.setBk_infodate(rs.getString(10));
+					bBean.setBk_detail(rs.getString(11));
+					
+					vec.add(bBean);
+				}
+				if(conn != null) {
+					conn.commit();
+					conn.close();
+				}
+				
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			
+			return vec;
+		}
 	
 }

@@ -119,10 +119,10 @@ margin: auto;
 	<tr align="center">
 		<td colspan="3"> 				
 			<button type="button" onclick="location.href='bkUpdateform.jsp?bk_number=<%=bk_number%>'">수정</button>&nbsp;&nbsp;
-			<button type="button" onclick="javascript:deleteConfirm(<%=bk_number%>)">삭제</button>&nbsp;&nbsp;
+			<button type="button" onclick="javascript:deleteConfirm()">삭제</button>&nbsp;&nbsp;
 			<script>
 				function deleteConfirm(){
-					var bk_number = '<%=bk_number%>'
+					var bk_number = <%=bk_number%>;
 					var isDelete = confirm("정말로 삭제하시겠습니까?");
 					if(isDelete){
 						location.href = "bkDeletePro.jsp?bk_number="+bk_number;
