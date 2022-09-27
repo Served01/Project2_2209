@@ -24,8 +24,12 @@
 	
 	rvDAO rdao = new rvDAO();
 	rdao.insertReview(rBean);
-	
+
 %>
+<script>
+ location.href="mainSession.jsp?center=bkSelectPro.jsp&bk_number=<%=rBean.getRv_bknumber()%>";
+</script>
+
 
 </body>
 </html>

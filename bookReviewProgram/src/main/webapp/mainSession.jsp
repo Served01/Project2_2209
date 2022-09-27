@@ -44,6 +44,7 @@
 	String bk_local = request.getParameter("bk_local");
 	String bk_genre = request.getParameter("bk_genre");
 	String search_word = request.getParameter("search_word");
+	String bk_number = request.getParameter("bk_number");
 	String url = null;
 	
 	if(center == null){
@@ -60,7 +61,14 @@
 		
 		url = center+"? search_word='"+search_word+"'";
 		
-	}else {
+	} else if(center=="bkSelectPro.jsp"){
+		
+		int bk_number2 = Integer.parseInt(bk_number);
+		url = center+"? bk_number="+bk_number2;
+		
+	}
+	
+	else {
 		
 		url = center;
 		

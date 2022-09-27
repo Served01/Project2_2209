@@ -28,5 +28,9 @@
 	
 %>
 
+<script>
+location.href="mainSession.jsp?center=bkSelectPro.jsp&bk_number=<%=rbean.getRv_bknumber()%>";
+</script>
+
 </body>
 </html>

@@ -41,7 +41,7 @@ margin: auto;
 	%>
 	
 	<tr align="center">
-		<td><a href="mbSelectPro.jsp?mb_id=<%=Bean.getMb_id() %>"><%=Bean.getMb_id() %></a></td>
+		<td><a style="color:black" href="#" onclick="location.href='mainSession.jsp?center=mbSelectPro.jsp&mb_id=<%=Bean.getMb_id() %>'"><%=Bean.getMb_id() %></a></td>
 		<td><%=Bean.getMb_name() %></td>
 		<td><%=Bean.getMb_nick() %></td>
 		<td><%=Bean.getMb_email() %></td>

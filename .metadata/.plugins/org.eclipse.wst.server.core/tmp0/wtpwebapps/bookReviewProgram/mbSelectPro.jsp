@@ -20,8 +20,8 @@
 		
 		<p align="right">
 			<button onclick="location.href=''">My review</button><!-- reviewSelectMemberPro.jsp.만들기 -->
-			<button onclick="location.href='rvAllReviewPro.jsp'">리뷰목록</button><!-- reviewAllSelectMemberPro.jsp 만들기 -->
-			<button onclick="location.href='mbList.jsp'">회원목록</button>
+			<button onclick="location.href='mainSession.jsp?center=rvAllReviewPro.jsp'">리뷰목록</button><!-- reviewAllSelectMemberPro.jsp 만들기 -->
+			<button onclick="location.href='mainSession.jsp?center=mbList.jsp'">회원목록</button>
 	
 <div align="center">
 	<table border="1">
@@ -52,11 +52,11 @@
 		</tr>
 		<tr>
 			<td colspan="2">
-				<button onclick="location.href='mbUpdateform.jsp?mb_id=<%=Bean.getMb_id() %>'">수정</button>
-				<button onclick="location.href='mbDeleteform.jsp?mb_id=<%=Bean.getMb_id() %>'">삭제</button>
+				<button onclick="location.href='mainSession.jsp?center=mbUpdateform.jsp&mb_id=<%=id%>'">수정</button>
+				<button onclick="location.href='mainSession.jsp?center=mbDeleteform.jsp&mb_id=<%=id%>'">삭제</button>
 				<button onclick="location.href='mbList.jsp'">회원 목록 조회</button>
 				<button onclick="javascript:history.go(-1)">이전</button>
-				<button onclick="location.href='center.jsp">메인페이지</button>
+				<button onclick="location.href='mainSession.jsp">메인페이지</button>
 			</td>
 		</tr>
 	</table>

@@ -118,7 +118,7 @@ margin: auto;
 	</tr>
 	<tr align="center">
 		<td colspan="3"> 				
-			<button type="button" onclick="location.href='bkUpdateform.jsp?bk_number=<%=bk_number%>'">수정</button>&nbsp;&nbsp;
+			<button type="button" onclick="location.href='mainSession.jsp?center=bkUpdateform.jsp&bk_number=<%=bk_number%>'">수정</button>&nbsp;&nbsp;
 			<button type="button" onclick="javascript:deleteConfirm()">삭제</button>&nbsp;&nbsp;
 			<script>
 				function deleteConfirm(){
@@ -134,25 +134,36 @@ margin: auto;
 </table>
 
 <!-- 책 리뷰 목록 표시 -->
-<hr>
-<h2 align="center">리뷰</h2>
-
 <%
 	int rv_bknumber = bk_number; 
 	
-	rvDAO rdao = new rvDAO();
-	Vector<rvBean> rvVec = rdao.allbookselectReview(rv_bknumber);
-	
-	for(int i=0; i < rvVec.size(); i++){
+%>	
+
+<hr>
+<h2 align="center">리뷰</h2>
+<p align="center">
+	<button type="button" onclick="location.href='mainSession.jsp?center=rvInsertform.jsp&bk_number=<%=bBean.getBk_number() %>'">리뷰 등록</button>
+</p>
+
+<% 	
+
+		rvDAO rdao = new rvDAO();
+		Vector<rvBean> rvVec = rdao.allbookselectReview(rv_bknumber);
+
+		for(int i=0; i < rvVec.size(); i++){
 		
 		rvBean rbean = rvVec.get(i);
 %>
+
+
+
+
 <table border="1">
 	<tr align="center">
 		<td>닉네임:&nbsp;<%=rbean.getRv_id() %></td>
 		<td>평점:&nbsp;<%=rbean.getRv_score() %></td>
 		<td>
-		<button type="button">수정</button>
+		<button type="button" onclick="location.href='mainSession.jsp?center=rvUpdateform.jsp&rv_number=<%=rbean.getRv_number() %>&rv_bknumber=<%=rbean.getRv_bknumber() %>'">수정</button>
 		<button type="button">삭제</button>
 		
 		</td>

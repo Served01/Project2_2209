@@ -23,7 +23,7 @@
 	
 	bkDAO bdao = new bkDAO();
 	bdao.updateBook(bBean);
-	
+	out.print("location.href='mainSession.jsp'");
 %>
 
 </body>

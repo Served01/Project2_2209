@@ -37,8 +37,8 @@
     </form>
     
     	<ul class="navbar_links">
-            <a href="#" onclick="location.href='loginForm.jsp'">로그아웃</a>
-            <a href="#" onclick="location.href='mainSession.jsp?center=mbInsertform.jsp'">마이페이지</a>
+            <a href="#" onclick="location.href=''">로그아웃</a>
+            <a href="#" onclick="location.href='mainSession.jsp?center=mbSelectPro.jsp'">마이페이지</a>
         </ul>
     <!--     
 		<ul class="navbar_links">

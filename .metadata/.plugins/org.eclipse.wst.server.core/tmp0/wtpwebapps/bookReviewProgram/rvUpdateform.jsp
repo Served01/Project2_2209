@@ -22,8 +22,8 @@ margin: auto;
 
 <%
 
-	int rv_number= 1; //Integer.parseInt(request.getParameter("rv_number"));
-	int rv_bknumber= 20220001; //Integer.parseInt(request.getParameter("bk_number")); 
+	int rv_number= Integer.parseInt(request.getParameter("rv_number"));
+	int rv_bknumber= Integer.parseInt(request.getParameter("rv_bknumber")); 
 	String rv_id = "hyun"; //request.getParameter("mb_id");
 	
 	rvDAO rdao = new rvDAO();
