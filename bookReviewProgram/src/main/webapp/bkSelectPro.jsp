@@ -26,7 +26,7 @@ margin: auto;
 
 <!-- bean이 없는 상태에서 가져올 때는 아래와 같이 이용 -->
 <%
-	int bk_number = 20220003; //Integer.parseInt(request.getParameter("bk_number"));
+	int bk_number = 20220001; //Integer.parseInt(request.getParameter("bk_number"));
 	
 	bkDAO bdao = new bkDAO();
 	bkBean bBean = bdao.selectBook(bk_number);
@@ -148,7 +148,7 @@ margin: auto;
 		rvBean rbean = rvVec.get(i);
 %>
 <table border="1">
-	<tr>
+	<tr align="center">
 		<td>닉네임:&nbsp;<%=rbean.getRv_id() %></td>
 		<td>평점:&nbsp;<%=rbean.getRv_score() %></td>
 		<td>
@@ -161,6 +161,7 @@ margin: auto;
 		<td colspan="3">
 		<%=rbean.getRv_content()%>
 		</td>
+	</tr>
 </table>
 <%} %>
 

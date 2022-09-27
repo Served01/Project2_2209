@@ -10,7 +10,7 @@
 </head>
 <body>
 <%
-	String id = request.getParameter("mb_id");
+	String id = "hyun"; //request.getParameter("mb_id");
 
 	mbDAO mdao = new mbDAO();
 	mbBean Bean = mdao.oneselectmember(id);
@@ -20,7 +20,7 @@
 		
 		<p align="right">
 			<button onclick="location.href=''">My review</button><!-- reviewSelectMemberPro.jsp.만들기 -->
-			<button onclick="location.href=''">리뷰목록</button><!-- reviewAllSelectMemberPro.jsp 만들기 -->
+			<button onclick="location.href='rvAllReviewPro.jsp'">리뷰목록</button><!-- reviewAllSelectMemberPro.jsp 만들기 -->
 			<button onclick="location.href='mbList.jsp'">회원목록</button>
 	
 <div align="center">

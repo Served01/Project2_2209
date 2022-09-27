@@ -214,4 +214,36 @@ public class bkDAO {
 	
 	}
 	
+	//책 일련번호를 이용한 제목 조회
+		public String selecttitleBook(int bk_number) {
+			
+			
+			conn = getConnection();
+			String bk_title = null;
+			
+			try {
+				
+				String sql = "select bk_title from book_info where bk_number = ?";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, bk_number);
+				rs=pstmt.executeQuery();
+				
+				if(rs.next()) {
+					
+					bk_title = rs.getString(1);						
+				}
+				
+				if(conn != null) {
+					conn.commit();
+					conn.close();
+				}
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+			return bk_title;
+			
+		}
+	
 }

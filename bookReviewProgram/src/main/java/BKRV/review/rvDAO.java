@@ -367,6 +367,46 @@ public class rvDAO {
 			
 			return count;
 		}
+		
+		
+		//모든 리뷰 표시
+		public Vector<rvBean> allselectReview() {
+
+			Vector<rvBean> vec = new Vector<>();
+			
+			conn=getConnection();
+			
+			try {
+				
+				String sql = "select * from Review_info order by RV_number";
+				
+				pstmt = conn.prepareStatement(sql);
+				
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					rvBean rbean = new rvBean();
+					
+					rbean.setRv_number(rs.getInt(1));
+					rbean.setRv_bknumber(rs.getInt(2));
+					rbean.setRv_id(rs.getString(3));
+					rbean.setRv_date(rs.getString(4));
+					rbean.setRv_score(rs.getInt(5));
+					rbean.setRv_content(rs.getString(6));
+					
+					vec.add(rbean);
+				}
+				if(conn != null) {
+					conn.commit();
+					conn.close();
+				}
+				
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			
+			return vec;
+		}
 }
 
 
