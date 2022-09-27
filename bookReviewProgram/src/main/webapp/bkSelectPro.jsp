@@ -26,7 +26,7 @@ margin: auto;
 
 <!-- bean이 없는 상태에서 가져올 때는 아래와 같이 이용 -->
 <%
-	int bk_number = 20220001; //Integer.parseInt(request.getParameter("bk_number"));
+	int bk_number = Integer.parseInt(request.getParameter("bk_number"));
 	
 	bkDAO bdao = new bkDAO();
 	bkBean bBean = bdao.selectBook(bk_number);

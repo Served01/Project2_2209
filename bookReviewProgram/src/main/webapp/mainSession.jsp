@@ -39,18 +39,30 @@
 <body>
 	
 <%
+	request.setCharacterEncoding("UTF-8");
 	String center = request.getParameter("center");
 	String bk_local = request.getParameter("bk_local");
 	String bk_genre = request.getParameter("bk_genre");
+	String search_word = request.getParameter("search_word");
 	String url = null;
 	
 	if(center == null){
+		
 		url = "center.jsp";
-	} else {
+		
+	} else if(center=="bkListMenuPro.jsp") {
+		
 		int bk_local2 = Integer.parseInt(bk_local);
 		int bk_genre2 = Integer.parseInt(bk_genre);
 		url = center+"? bk_local="+bk_local2+" & bk_genre="+bk_genre2;
 		
+	} else if(center=="bkListPro.jsp"){
+		
+		url = center+"? search_word='"+search_word+"'";
+		
+	}else {
+		
+		url = center;
 		
 	}
 %>

@@ -13,7 +13,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>책 상세 정보 조회 화면</title>
+<title>책 리스트 조회 화면</title>
 </head>
 
 <style>
@@ -26,7 +26,7 @@ margin: auto;
 
 <!-- bean이 없는 상태에서 가져올 때는 아래와 같이 이용 -->
 <%
-	String search_word = "교육"; //request.getParameter("search_word");
+	String search_word = request.getParameter("search_word");
 	
 	bkDAO bdao = new bkDAO();
 	Vector<bkBean> bkVec = bdao.selectBookList(search_word);
@@ -39,6 +39,7 @@ margin: auto;
 		rvDAO rdao = new rvDAO();
 		double bk_score=rdao.getScore(bk_number);
 	
+		String bk_title= bBean.getBk_title();
 %>
 
 <!-- 책 일부 정보 표시 -->
@@ -48,10 +49,10 @@ margin: auto;
 		<td>책 일련번호</td>
 		<td colspan="3"><%=bBean.getBk_number()%></td>
 	</tr>
-	<tr align = "center">
+	<tr align = "center" >
 		<!-- <td> rowspan=4 -->
 		<td>책 제목</td>
-		<td><%=bBean.getBk_title()%></td>
+		<td><a style="color:black" href="#" onclick="location.href='mainSession.jsp?center=bkSelectPro.jsp&bk_number=<%=bBean.getBk_number()%>'"><%=bk_title %></a></td>
 		<td>책 저자</td>
 		<td><%=bBean.getBk_writer()%></td>
 	</tr>

@@ -19,7 +19,7 @@
 	  <div class="navbar">    
         <div class="navbar_logo">
             <i class="fa-solid fa-book"></i>
-            <a href="#" onclick="location.href='mainSession.jsp?center=center.jsp'">Book Review</a>  
+            <a href="#" onclick="location.href='mainSession.jsp'">Book Review</a>  
         </div>
         <ul class="navbar_menu">
             <li><a href="http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9791188331796&orderClick=LET&Kc=">교보문고</a></li>
@@ -28,16 +28,24 @@
             <li><a href="http://www.readersnews.com/">독서신문</a></li>
             <li><a href="http://www.gulnara.net/">글&nbsp;나라</a></li>
         </ul>
-
+	<form action="mainSession.jsp" method="post">
         <div class="search">
-            <input type="text" placeholder="검색어 입력">
-            <button>검색</button>
+            <input type="text" name="search_word" placeholder="검색어 입력">
+            <input type="hidden" name="center" value="bkListPro.jsp"/>
+            <button type="submit">검색</button>
         </div>
-			<ul class="navbar_links">
-            <a href="loginForm.jsp">로그인</a>
-            <a href="joinForm.jsp">회원가입</a>
+    </form>
+    
+    	<ul class="navbar_links">
+            <a href="#" onclick="location.href='loginForm.jsp'">로그아웃</a>
+            <a href="#" onclick="location.href='mainSession.jsp?center=mbInsertform.jsp'">마이페이지</a>
         </ul>
-        
+    <!--     
+		<ul class="navbar_links">
+            <a href="#" onclick="location.href='loginForm.jsp'">로그인</a>
+            <a href="#" onclick="location.href='mainSession.jsp?center=mbInsertform.jsp'">회원가입</a>
+        </ul>
+     -->    
     </div>     
 
   

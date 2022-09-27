@@ -15,6 +15,7 @@
 	bkDAO bdao = new bkDAO();
 	bdao.deleteBook(Integer.parseInt(request.getParameter("bk_number")));
 	out.print("<script>alert('삭제되었습니다.');</script>");
+	out.print("location.href='mainSession.jsp'");
 	
 	//response.sendRedirect("bkInsertform.jsp");
 	

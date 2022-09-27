@@ -20,8 +20,7 @@
 </head>
 <body>
 	 <ul class="hi">
-        
-        <li><a class="active" href="#" onclick="location.href='mainSession.jsp?center=null'">홈</a></li>
+        <li><a class="hello" href="#" onclick="location.href='mainSession.jsp'">홈</a></li>
         <li><a class="hello" href="#">공지사항</a></li>
         <li><a class="hello" href="#">소개</a></li>
         <h3>&nbsp;&nbsp;국내도서</h3>

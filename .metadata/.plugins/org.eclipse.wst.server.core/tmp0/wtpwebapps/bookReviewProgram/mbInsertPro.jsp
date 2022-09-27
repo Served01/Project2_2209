@@ -30,14 +30,14 @@
 %>  
 	<script>
 	alert("회원가입에 성공하였습니다.")
-	history.go(-1);
+	location.href = "mainSession.jsp";
 	</script>
   
 <%	} else{
 %>
 	<script>
 	alert("비밀번호가 다릅니다. 다시 확인해 주십시오.");
-	//location.href = "loginform.jsp";
+	history.go(-1);
 	</script>
 <% 	}
 %>	
