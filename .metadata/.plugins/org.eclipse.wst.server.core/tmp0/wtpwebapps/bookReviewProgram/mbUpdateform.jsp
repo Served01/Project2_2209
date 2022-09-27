@@ -48,8 +48,9 @@ String id = request.getParameter("mb_id");
 			<td colspan="2">
 				<input type="hidden" name="mb_id" value="<%=Bean.getMb_id() %>">
 				<input type="submit" value="회원정보수정">&nbsp;&nbsp;
-				<input type="button" value="회원정보조회" onclick="location.href='mbList.jsp'"/>&nbsp;&nbsp;
-				<input type="button" value="회원가입" onclick="location.href='mbInsertform.jsp'"/>
+				<input type="button" value="비밀번호 변경" onclick="location.href='mainSession.jsp?center=mbPassform.jsp&mb_id=<%=Bean.getMb_id() %>'"/>&nbsp;&nbsp;
+				<input type="button" value="회원정보조회" onclick="location.href='mainSession.jsp?center=mbList.jsp'"/>&nbsp;&nbsp;
+				<input type="button" value="회원가입" onclick="location.href='mainSession.jsp?center=mbInsertform.jsp'"/>
 			</td>
 		</tr>
 	</table>

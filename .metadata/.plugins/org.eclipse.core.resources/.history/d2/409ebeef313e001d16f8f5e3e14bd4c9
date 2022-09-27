@@ -26,7 +26,7 @@ margin: auto;
 
 <!-- bean이 없는 상태에서 가져올 때는 아래와 같이 이용 -->
 <%
-	int bk_number = 20220001; //Integer.parseInt(request.getParameter("bk_number"));
+	int bk_number = Integer.parseInt(request.getParameter("bk_number"));
 	
 	bkDAO bdao = new bkDAO();
 	bkBean bBean = bdao.selectBook(bk_number);
@@ -113,20 +113,80 @@ margin: auto;
 	<!-- 작성일 sysdate 처리 -->
 	<tr align="center">
 		<td colspan="3">
-			<textarea rows="10" cols="74" name="bk_detail" style ="resize:none"><%=bBean.getBk_detail()%></textarea></td>
+			<textarea rows="10" cols="74" name="bk_detail" style ="resize:none"><%=bBean.getBk_detail()%></textarea>
+		</td>
 	</tr>
 	<tr align="center">
 		<td colspan="3"> 				
-			<button type="button">수정</button>&nbsp;&nbsp;
-			<button type="button">삭제</button>&nbsp;&nbsp;
-			<button type="button">이전</button>
+			<button type="button" onclick="location.href='mainSession.jsp?center=bkUpdateform.jsp&bk_number=<%=bk_number%>'">수정</button>&nbsp;&nbsp;
+			<button type="button" onclick="javascript:deleteConfirm()">삭제</button>&nbsp;&nbsp;
+			<script>
+				function deleteConfirm(){
+					var bk_number = <%=bk_number%>;
+					var isDelete = confirm("정말로 삭제하시겠습니까?");
+					if(isDelete){
+						location.href = "bkDeletePro.jsp?bk_number="+bk_number;
+					}
+				}
+			</script>
+			<button type="button" onclick="javascript:history.go(-1)">이전</button>
 	</tr>	
 </table>
 
-
 <!-- 책 리뷰 목록 표시 -->
+<%
+	int rv_bknumber = bk_number; 
+	
+%>	
+
+<hr>
+<h2 align="center">리뷰</h2>
+<p align="center">
+	<button type="button" onclick="location.href='mainSession.jsp?center=rvInsertform.jsp&bk_number=<%=bBean.getBk_number() %>'">리뷰 등록</button>
+</p>
+
+<% 	
+
+		rvDAO rdao = new rvDAO();
+		Vector<rvBean> rvVec = rdao.allbookselectReview(rv_bknumber);
+
+		for(int i=0; i < rvVec.size(); i++){
+		
+		rvBean rbean = rvVec.get(i);
+%>
 
 
+
+
+<table border="1">
+	<tr align="center">
+		<td>닉네임:&nbsp;<%=rbean.getRv_id() %></td>
+		<td>평점:&nbsp;<%=rbean.getRv_score() %></td>
+		<td>
+		<button type="button" onclick="location.href='mainSession.jsp?center=rvUpdateform.jsp&rv_number=<%=rbean.getRv_number() %>&rv_bknumber=<%=rbean.getRv_bknumber() %>'">수정</button>
+		<input type="hidden" id="rv_number" value="<%=rbean.getRv_number() %>">
+		<button type="button" onclick="javascript:rvdeleteConfirm()">삭제</button>&nbsp;&nbsp;
+			<script>
+				function rvdeleteConfirm(){
+					
+					var rv_number = <%=rbean.getRv_number()%>;
+					var rv_id = <%=rbean.getRv_id()%>
+					var isDelete = confirm("정말로 삭제하시겠습니까?");
+					if(isDelete){
+						location.href = "rvDeletePro.jsp?rv_number="+rv_number+"&rv_id='"+rv_id+"'";
+					}
+				}
+			</script>
+		
+		</td>
+	</tr>
+	<tr>
+		<td colspan="3">
+		<%=rbean.getRv_content()%>
+		</td>
+	</tr>
+</table>
+<%} %>
 
 </body>
 </html>

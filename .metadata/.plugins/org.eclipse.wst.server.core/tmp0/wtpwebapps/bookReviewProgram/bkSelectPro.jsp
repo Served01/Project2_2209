@@ -153,6 +153,8 @@ margin: auto;
 		for(int i=0; i < rvVec.size(); i++){
 		
 		rvBean rbean = rvVec.get(i);
+		int rv_number = rbean.getRv_number();
+		String rv_id = rbean.getRv_id();
 %>
 
 
@@ -164,7 +166,19 @@ margin: auto;
 		<td>평점:&nbsp;<%=rbean.getRv_score() %></td>
 		<td>
 		<button type="button" onclick="location.href='mainSession.jsp?center=rvUpdateform.jsp&rv_number=<%=rbean.getRv_number() %>&rv_bknumber=<%=rbean.getRv_bknumber() %>'">수정</button>
-		<button type="button">삭제</button>
+		<button type="button" onclick="javascript:rvdeleteConfirm()">삭제</button>&nbsp;&nbsp;
+			<script>
+				function rvdeleteConfirm(){
+					
+					var rv_number = <%=rv_number%>;
+					var rv_id = "<%=rv_id%>";
+					var bk_number = <%=bk_number%>
+					var isDelete1 = confirm("정말로 삭제하시겠습니까?");
+					if(isDelete1){
+						location.href = "rvDeletePro.jsp?rv_number="+rv_number+"&rv_id="+rv_id+"&rv_bknumber="+bk_number;
+					}
+				}
+			</script>
 		
 		</td>
 	</tr>

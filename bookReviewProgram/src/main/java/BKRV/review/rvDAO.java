@@ -212,32 +212,32 @@ public class rvDAO {
 		}
 	}
 	
-	
+
 	//한 리뷰에 대한 해당 리뷰 삭제
-	public void deleteReview(int Rv_number, int Rv_bknumber, String Rv_id) {
-		try {
+		public void deleteReview(int rv_number) {
+			
 			conn=getConnection();
 			
-			String sql  = "delete from Review_info where RV_number = ? and RV_bknumber = ? and Rv_id = ?";
-			
-			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setInt(1, Rv_number);
-			pstmt.setInt(2, Rv_bknumber);
-			pstmt.setString(3, Rv_id);
-			
-			pstmt.executeUpdate();
-			
-			
-			if(conn != null) {
-				conn.commit();
-				conn.close();
+			try {
+				
+				String sql  = "delete from Review_info where rv_number = ?";
+				
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setInt(1, rv_number);
+				
+				pstmt.executeUpdate();
+				
+				
+				if(conn != null) {
+					conn.commit();
+					conn.close();
+				}
+				
+			}catch(Exception e) {
+				e.printStackTrace();
 			}
-			
-		}catch(Exception e) {
-			e.printStackTrace();
 		}
-	}
 	
 	
 	public Vector<rvBean> allselectBoard(int startRow, int endRow) {
