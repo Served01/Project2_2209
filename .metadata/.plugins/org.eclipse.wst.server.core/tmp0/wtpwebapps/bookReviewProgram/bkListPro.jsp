@@ -26,11 +26,20 @@ margin: auto;
 
 <!-- bean이 없는 상태에서 가져올 때는 아래와 같이 이용 -->
 <%
-	String search_word = request.getParameter("search_word");
-	
+	String search_word_or = request.getParameter("search_word");
+	String search_word = search_word_or.replace(" ","");
+	if(search_word==""){ %>
+	<script>
+		location.href="mainSession.jsp?center=noResultPro.jsp";
+	</script>
+<%	} else{
 	bkDAO bdao = new bkDAO();
 	Vector<bkBean> bkVec = bdao.selectBookList(search_word);
-	
+	if(bkVec.size()==0){ %>
+	<script>
+		location.href="mainSession.jsp?center=noResultPro.jsp";
+	</script>	
+<%	} else{
 	for(int i=0; i < bkVec.size(); i++){
 		
 		bkBean bBean = bkVec.get(i);
@@ -75,7 +84,8 @@ margin: auto;
 		<%}%></td>
 	</tr>
 </table>
-<%} %>
+	<%}} 
+}%>
 
 </body>
 </html>

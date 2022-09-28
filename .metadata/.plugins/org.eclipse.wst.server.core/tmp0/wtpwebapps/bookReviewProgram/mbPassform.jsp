@@ -24,18 +24,23 @@
 					<td><%=mBean.getMb_id()%></td>
 				</tr>
 				<tr align="center" style="height: 40; background: yellow;">
-					<td width="120">비밀번호</td>
+					<td width="120">변경 전 비밀번호</td>
 					<td><input type="password" id="mb_pw" name="mb_pw"></td>
 				</tr>
 				<tr align="center" style="height: 40; background: yellow;">
-					<td width="120">비밀번호 확인</td>
+					<td width="120">변경 후 비밀번호</td>
 					<td><input type="password" id="mb_pw2" name="mb_pw2"></td>
 				</tr>
+				<tr align="center" style="height: 40; background: yellow;">
+					<td width="120">변경 후 비밀번호 확인</td>
+					<td><input type="password" id="mb_pw3" name="mb_pw2"></td>
+				</tr>
 				<tr style="height: 40;">
-					<td colspan="2"><input type="hidden" name="mb_id" value="<%=mBean.getMb_id()%>">
+					<td colspan="2">
+						<input type="hidden" name="mb_id" value="<%=mBean.getMb_id()%>">
 						 <input type="submit" value="비밀번호 변경하기">&nbsp;&nbsp;
 						 <input type="button" value="회원정보조회" onclick="location.href='mbList.jsp?'" />
-						 <button type="button" onclick="javascript:history.go(-1)">뒤로가기</button>
+						 <button onclick="location.href='mainSession.jsp?center=mbUpdateform.jsp&mb_id=<%=id%>'">회원정보 수정화면</button>
 				   </td>
 				</tr>
 			</table>

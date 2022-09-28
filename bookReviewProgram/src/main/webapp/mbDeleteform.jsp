@@ -24,11 +24,11 @@
 			</td>
 		</tr>		
 		<tr>
-			<td colspan="2"> 
+			<td align="center" colspan="2"> 
 				<input type="hidden" name="mb_id" value="<%=request.getParameter("mb_id") %>">
 				<input type="submit" value="회원정보삭제">&nbsp;&nbsp;		
-				<input type="button" value="회원목록보기" onclick="location.href='mbList.jsp'"/>&nbsp;&nbsp;
-				<input type="button" value="회원가입" onclick="location.href='mbInsertform.jsp'"/>
+				<input type="button" value="회원목록보기" onclick="location.href='mbList.jsp'"/>&nbsp;&nbsp;	
+				<input type="button" value="마이페이지" onclick="location.href='mainSession.jsp?center=mbSelectPro.jsp&mb_id=<%=request.getParameter("mb_id") %>'" />
 			</td>	
 		</tr>		
 	</table>	

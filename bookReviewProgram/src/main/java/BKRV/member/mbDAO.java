@@ -32,7 +32,7 @@ public class mbDAO {
 	}
 	
 	//새로운 회원정보 입력
-	public void insertmember(mbBean Bean) {
+	public void insertmember(mbBean mBean) {
 		
 		conn = getConnection();
 		
@@ -40,13 +40,13 @@ public class mbDAO {
 		
 			String sql = "insert into member_info values (?,?,?,?,?,?,sysdate,?)";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, Bean.getMb_id());
-			pstmt.setString(2, Bean.getMb_pw());
-			pstmt.setString(3, Bean.getMb_name());
-			pstmt.setString(4, Bean.getMb_nick());
-			pstmt.setString(5, Bean.getMb_email());
-			pstmt.setString(6, Bean.getMb_tel());
-			pstmt.setString(7, Bean.getMb_gender());
+			pstmt.setString(1, mBean.getMb_id());
+			pstmt.setString(2, mBean.getMb_pw());
+			pstmt.setString(3, mBean.getMb_name());
+			pstmt.setString(4, mBean.getMb_nick());
+			pstmt.setString(5, mBean.getMb_email());
+			pstmt.setString(6, mBean.getMb_tel());
+			pstmt.setString(7, mBean.getMb_gender());
 			
 			pstmt.executeUpdate();
 		
@@ -70,15 +70,15 @@ public class mbDAO {
 				rs = pstmt.executeQuery();
 				
 				while(rs.next()) {
-					mbBean Bean = new mbBean();
-					Bean.setMb_id(rs.getString(1));
-					Bean.setMb_pw(rs.getString(2));
-					Bean.setMb_name(rs.getString(3));
-					Bean.setMb_nick(rs.getString(4));
-					Bean.setMb_email(rs.getString(5));
-					Bean.setMb_tel(rs.getString(6));
-					Bean.setMb_gender(rs.getString(7));
-					v.add(Bean);
+					mbBean mBean = new mbBean();
+					mBean.setMb_id(rs.getString(1));
+					mBean.setMb_pw(rs.getString(2));
+					mBean.setMb_name(rs.getString(3));
+					mBean.setMb_nick(rs.getString(4));
+					mBean.setMb_email(rs.getString(5));
+					mBean.setMb_tel(rs.getString(6));
+					mBean.setMb_gender(rs.getString(7));
+					v.add(mBean);
 				}
 				conn.commit();
 				conn.close();
@@ -93,7 +93,7 @@ public class mbDAO {
 	//해당 id에 내용을 반환해 주는 메소드 호출
 		public mbBean oneselectmember(String id){
 					
-			mbBean Bean = new mbBean();
+			mbBean mBean = new mbBean();
 					
 			try {
 				getConnection();
@@ -107,19 +107,19 @@ public class mbDAO {
 			
 				while(rs.next()) {
 						
-					Bean.setMb_id(rs.getString(1));
-					Bean.setMb_pw(rs.getString(2));				
-					Bean.setMb_name(rs.getString(3));
-					Bean.setMb_nick(rs.getString(4));
-					Bean.setMb_email(rs.getString(5));
-					Bean.setMb_tel(rs.getString(6));
-					Bean.setMb_gender(rs.getString(7));		
+					mBean.setMb_id(rs.getString(1));
+					mBean.setMb_pw(rs.getString(2));				
+					mBean.setMb_name(rs.getString(3));
+					mBean.setMb_nick(rs.getString(4));
+					mBean.setMb_email(rs.getString(5));
+					mBean.setMb_tel(rs.getString(6));
+					mBean.setMb_gender(rs.getString(7));		
 			}		
 			conn.close();
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}
-			return Bean;
+			return mBean;
 		}
 
 		//id에 해당하는 비밀번호를 찾아서 반환하는 메소드 호출 	
@@ -127,6 +127,7 @@ public class mbDAO {
 			String password = null;		
 			
 			try {
+				
 				getConnection();			
 				
 				String sql = "select mb_pw from member_info where mb_id = ?";
@@ -147,7 +148,7 @@ public class mbDAO {
 		}
 		
 		// id에 해당하는 회원정보를 수정합니다. 
-		public void updatemember(mbBean Bean){
+		public void updatemember(mbBean mBean){
 		
 			try {
 				getConnection();
@@ -155,9 +156,9 @@ public class mbDAO {
 				String sql = "update member_info set mb_email=?, mb_nick=? where mb_id=?";
 				pstmt = conn.prepareStatement(sql);
 				
-				pstmt.setString(1, Bean.getMb_email());
-				pstmt.setString(2, Bean.getMb_nick());
-				pstmt.setString(3, Bean.getMb_id());
+				pstmt.setString(1, mBean.getMb_email());
+				pstmt.setString(2, mBean.getMb_nick());
+				pstmt.setString(3, mBean.getMb_id());
 				
 				pstmt.executeUpdate();
 				

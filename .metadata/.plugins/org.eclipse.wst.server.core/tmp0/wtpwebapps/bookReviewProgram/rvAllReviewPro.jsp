@@ -25,13 +25,15 @@ margin: auto;
 <body>
 
 <!-- 책 리뷰 목록 표시 -->
-<hr>
+
 <h2 align="center">전체 리뷰 목록</h2>
+
+<input type="button" value="마이페이지" onclick="location.href='mainSession.jsp?center=mbSelectPro.jsp&mb_id=<%=request.getParameter("mb_id") %>'" />&nbsp;&nbsp;
+<button onclick="location.href='mainSession.jsp'">메인 페이지</button>
+<br><br>
 
 <%
 
-	
-	
 	rvDAO rdao = new rvDAO();
 	Vector<rvBean> rvVec = rdao.allselectReview();
 	
@@ -62,8 +64,8 @@ margin: auto;
 		<%=rbean.getRv_content()%>
 		</td>
 	</tr>
-</table>
-<%} %>
 
+<%} %>
+</table>
 </body>
 </html>

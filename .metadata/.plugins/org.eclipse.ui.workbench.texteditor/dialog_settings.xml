@@ -6,6 +6,7 @@
 		<item key="wholeword" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="selectAll"/>
 			<item value="datasource"/>
 		</list>
 		<list key="replacehistory">

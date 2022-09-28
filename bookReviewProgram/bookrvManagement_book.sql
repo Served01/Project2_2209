@@ -10,6 +10,7 @@ BK_genre number(2) not null,
 BK_ebook number(1) not null,
 BK_infodate date not null,
 BK_detail varchar2(1000) null
+
 );
 
 select * from book_info;

@@ -24,6 +24,9 @@ margin: auto;
 %>
 
 <h2 align="center">전체 회원 정보 조회</h2>
+<input type="button" value="마이페이지" onclick="location.href='mainSession.jsp?center=mbSelectPro.jsp&mb_id=<%=request.getParameter("mb_id") %>'" />&nbsp;&nbsp;
+<button onclick="location.href='mainSession.jsp'">메인 페이지</button>
+<br><br>
 
 <table border="1">
 	<tr align="center">
@@ -37,24 +40,18 @@ margin: auto;
 
 	<%
 		for(int i=0; i < vec.size(); i++){
-			mbBean Bean = vec.get(i);		
+			mbBean mBean = vec.get(i);		
 	%>
 	
 	<tr align="center">
-		<td><a style="color:black" href="#" onclick="location.href='mainSession.jsp?center=mbSelectPro.jsp&mb_id=<%=Bean.getMb_id() %>'"><%=Bean.getMb_id() %></a></td>
-		<td><%=Bean.getMb_name() %></td>
-		<td><%=Bean.getMb_nick() %></td>
-		<td><%=Bean.getMb_email() %></td>
-		<td><%=Bean.getMb_tel() %></td>
-		<td><%=Bean.getMb_gender() %></td>	
+		<td><a style="color:black" href="#" onclick="location.href='mainSession.jsp?center=mbSelectPro.jsp&mb_id=<%=mBean.getMb_id() %>'"><%=mBean.getMb_id() %></a></td>
+		<td><%=mBean.getMb_name() %></td>
+		<td><%=mBean.getMb_nick() %></td>
+		<td><%=mBean.getMb_email() %></td>
+		<td><%=mBean.getMb_tel() %></td>
+		<td><%=mBean.getMb_gender() %></td>	
 	</tr>
 	<%} %>	
-	<tr align="center">
-		<td colspan="6">
-			<button onclick="javascript:history.go(-1)">뒤로가기</button>&nbsp;&nbsp;
-			<button onclick="location.href='mainSession.jsp'">메인 페이지</button>
-		</td>
-	</tr>
 	</table>
 </body>
 </html>

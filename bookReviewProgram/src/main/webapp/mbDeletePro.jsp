@@ -9,12 +9,9 @@
 <title>회원정보삭제</title>
 </head>
 <body>
-<jsp:useBean id="Bean" class="BKRV.member.mbBean">
-		<jsp:setProperty name="Bean" property="*"/>
-	</jsp:useBean>
 
 <%
-request.setCharacterEncoding("utf-8");
+	request.setCharacterEncoding("utf-8");
 
 	String id = request.getParameter("mb_id");
 	String password = request.getParameter("password");
@@ -23,7 +20,7 @@ request.setCharacterEncoding("utf-8");
 	String pass = mdao.getPassword(id);
 	
 	if(pass.equals(password)){
-		mdao.deletemember(Bean.getMb_id());
+		mdao.deletemember(id);
 		response.sendRedirect("mbList.jsp");
 	}else{
 %>

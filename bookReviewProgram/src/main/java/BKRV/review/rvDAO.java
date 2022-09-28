@@ -66,7 +66,7 @@ public class rvDAO {
 	
 	
 	//한 회원에 대한 모든 리뷰 표시
-	public Vector<rvBean> allmemberselectReview(int Rv_id){
+	public Vector<rvBean> allmemberselectReview(String Rv_id){
 
 		Vector<rvBean> vec = new Vector<>();
 		
@@ -77,7 +77,7 @@ public class rvDAO {
 			String sql = "select * from Review_info where RV_id = ? order by RV_date";
 			
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, Rv_id);
+			pstmt.setString(1, Rv_id);
 			
 			rs = pstmt.executeQuery();
 			
@@ -339,34 +339,42 @@ public class rvDAO {
 	}
 	
 	
-	//전체리뷰수 파악 후 반환 (여기서는 안쓰고 있음)
-		public int getAllcount(){
-			
-			conn=getConnection();
-			
-			int count = 0;
-			
-			try {
-				String sql = "select count(*) from Review_info";
+	//전체리뷰수 파악 후 반환(칼럼, 값 유무 판단)
+			public int getAllcount(String column, String value){
 				
-				pstmt = conn.prepareStatement(sql);
-				rs = pstmt.executeQuery();
+				conn=getConnection();
 				
-				if(rs.next()) {
-					count = rs.getInt(1);
+				int count = 0;
+				
+				try {
 					
-				}
-				if(conn != null) {
-					conn.commit();
-					conn.close();
+					if(column != "" || value != "") {
+						String sql = "select count(*) from Review_info where " + column + " = ?";
+						
+						pstmt = conn.prepareStatement(sql);
+						pstmt.setString(1,value);
+						rs = pstmt.executeQuery();
+					}else if(column == "" && value == "") {
+						String sql = "select count(*) from Review_info";
+						
+						pstmt = conn.prepareStatement(sql);
+						rs = pstmt.executeQuery();
+					}
+					if(rs.next()) {
+						count = rs.getInt(1);
+						
+					}
+					if(conn != null) {
+						conn.commit();
+						conn.close();
+					}
+					
+				}catch(Exception e) {
+					e.printStackTrace();
 				}
 				
-			}catch(Exception e) {
-				e.printStackTrace();
+				return count;
 			}
-			
-			return count;
-		}
 		
 		
 		//모든 리뷰 표시
@@ -406,6 +414,62 @@ public class rvDAO {
 			}
 			
 			return vec;
+		}
+		
+		
+public Vector<rvBean> allselectBoard(int startRow, int endRow, String column, String value) {
+			
+			conn=getConnection();
+
+			Vector<rvBean> rb  = new Vector<rvBean>(); 
+			
+			try {
+				/*
+				
+				
+				Rownum - query 결과로 나오게 되는 각각의 행들의 순서 값
+						 특정 갯수의 그 이하 행 선택시 사용
+				RowID - 테이블에 저장된 각 행들이 저장된 주소 값
+						가장 최신 글 가져오기
+						Rownum 기준으로 Rnum 별칭 사용하여 Rnum이 srtRow보다 크고 endRow보다 작은 경우에 해당하는 모든 레코드 가져오기
+				
+				
+				*/
+				if(column != "" || value != "") {
+					String sql = "select * from (select A.*, Rownum Rnum from (select * from Review_info where " + column + " = ? order by Rv_date)A) where Rnum >= ? and Rnum <= ?";
+					
+					pstmt = conn.prepareStatement(sql);
+					pstmt.setString(1, value);
+					pstmt.setInt(2, startRow);
+					pstmt.setInt(3, endRow);
+				}else if(column == "" && value == "") {
+					String sql = "select * from (select A.*, Rownum Rnum from (select * from Review_info order by Rv_date)A) where Rnum >= ? and Rnum <= ?";
+					
+					pstmt = conn.prepareStatement(sql);
+					pstmt.setInt(1, startRow);
+					pstmt.setInt(2, endRow);
+					rs = pstmt.executeQuery();
+				}
+				
+				rs = pstmt.executeQuery();
+				
+				while(rs.next()) {
+					rvBean rbean = new rvBean();
+						
+					rbean.setRv_number(rs.getInt(1));
+					rbean.setRv_bknumber(rs.getInt(2));
+					rbean.setRv_id(rs.getString(3));
+					rbean.setRv_date(rs.getString(4));
+					rbean.setRv_score(rs.getInt(5));
+					rbean.setRv_content(rs.getString(6));
+						
+					rb.add(rbean);
+					}
+					
+				}catch(Exception e) {
+					e.printStackTrace();
+				}		
+				return rb;
 		}
 }
 

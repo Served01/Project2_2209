@@ -45,6 +45,8 @@
 	String bk_genre = request.getParameter("bk_genre");
 	String search_word = request.getParameter("search_word");
 	String bk_number = request.getParameter("bk_number");
+	String rv_id = request.getParameter("Rv_id");
+	String pageNum = request.getParameter("pageNum");
 	String url = null;
 	
 	if(center == null){
@@ -66,6 +68,11 @@
 		int bk_number2 = Integer.parseInt(bk_number);
 		url = center+"? bk_number="+bk_number2;
 		
+	} else if(center=="rvSelectMemberPro.jsp"){
+		
+		int pageNum2 = Integer.parseInt(pageNum);
+		
+		url = center+"? Rv_id='"+rv_id+"'&pageNum="+pageNum2;
 	}
 	
 	else {
