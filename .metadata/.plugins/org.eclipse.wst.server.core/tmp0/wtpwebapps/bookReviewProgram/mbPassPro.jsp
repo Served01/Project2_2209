@@ -25,16 +25,12 @@
 	
 	if (pw1.equals(pw2)) {
 		
+		mdao.updatepass(id,pw2);
+		
 		out.println("<script>");
 		out.println("alert('비밀번호 수정에 성공하였습니다.')");
 		out.println("location.href='loginForm.jsp'");
 		out.println("</script>");
-		
-		mdao.updatepass(mBean);
-		
-		out.println("비밀번호 수정에 성공하였습니다.");
-
-		//response.sendRedirect("loginForm.jsp");
 		
 	}else{
 	
@@ -49,7 +45,7 @@
 	<% } 
 	} else{%>
 		<script type="text/javascript">
-		alert("비밀번호가 틀립니다. 확인해 주세요.")
+		alert("변경전 비밀번호가 틀립니다. 확인해 주세요.")
 		history.back();//go(-1);
 	</script>
 	

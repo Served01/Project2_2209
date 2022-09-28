@@ -191,4 +191,55 @@ public class mbDAO {
 				e.printStackTrace();
 			}
 		}
+		
+		public void updatepass(String id, String pw){
+			
+			try {
+				getConnection();
+				
+				String sql = "update member_info set mb_pw=? where mb_id=?";
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setString(1, pw);
+				pstmt.setString(2, id);
+				
+				pstmt.executeUpdate();
+				
+				if(conn != null) {
+					conn.commit();
+					conn.close();
+				}			
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		//로그인을 시도하는 하나의 함수
+		public int login(String id, String pass) {
+
+			String sql = "select mb_pw from member_info where mb_id =?";
+			
+			try {
+				
+				getConnection();
+				
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, id);
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					if(rs.getString(1).equals(pass)) {
+						return 1; // 로그인성공
+					}else {
+						return 0; // 비밀번호 불일치
+					}
+				} else {
+				return -1; // 아이디가 없음
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+				return -2; // 데이터베이스 오류
+			}
+			
+		}
 	}

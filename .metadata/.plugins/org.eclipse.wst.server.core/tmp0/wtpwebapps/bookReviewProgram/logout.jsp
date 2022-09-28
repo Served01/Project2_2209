@@ -4,20 +4,27 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>sessionlogout.jsp</title>
+<title></title>
 </head>
 <body>
 <%
-	String logout  = request.getParameter("logout");
+	request.setCharacterEncoding("UTF-8");
+	String logout  = (String)session.getAttribute("id");
 
 	if(logout != null){
+		
 		session.setMaxInactiveInterval(0);
 		session.invalidate();
-		
-		response.sendRedirect("mainSession.jsp");
-	}
+		%>
+		<script>
+		location.href="mainSession.jsp";
+		</script>
+		<% }else if(logout == null){%>
+		<script>
+		alert("세션이 만료되었습니다.\n자동으로 로그아웃됩니다.");
+		location.href="mainSession.jsp";
+		</script>
+	<%}%>
 
-
-%>
 </body>
 </html>

@@ -35,17 +35,28 @@
             <button type="submit">검색</button>
         </div>
     </form>
-    
-    	<ul class="navbar_links">
-            <a href="#" onclick="location.href=''">로그아웃</a>
-            <a href="#" onclick="location.href='mainSession.jsp?center=mbSelectPro.jsp'">마이페이지</a>
-        </ul>
-    <!--     
-		<ul class="navbar_links">
-            <a href="#" onclick="location.href='loginForm.jsp'">로그인</a>
+<%if((String)session.getAttribute("id")==null){ %>
+    <ul class="navbar_links">
+            <a href="#" onclick="location.href='loginform.jsp'">로그인</a>
             <a href="#" onclick="location.href='mainSession.jsp?center=mbInsertform.jsp'">회원가입</a>
-        </ul>
-     -->    
+    </ul>
+<%} else if((String)session.getAttribute("id")!=null){ %>      
+     <ul class="navbar_links">
+            <a href="#" onclick="javascript:logoutFunction()">로그아웃</a>
+            <script>
+				function logoutFunction(){
+			
+					var isLogout = confirm("정말로 로그아웃하시겠습니까?");
+					if(isLogout){
+						
+						location.href = "logout.jsp";
+						
+					}
+				}
+			</script>
+            <a href="#" onclick="location.href='mainSession.jsp?center=mbSelectPro.jsp'">마이페이지</a>
+     </ul>
+<%} %>
     </div>     
 
   

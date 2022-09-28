@@ -113,7 +113,7 @@ margin: auto;
 	<!-- 작성일 sysdate 처리 -->
 	<tr align="center">
 		<td colspan="3">
-			<textarea rows="10" cols="74" name="bk_detail" style ="resize:none"><%=bBean.getBk_detail()%></textarea>
+			<%=bBean.getBk_detail()%>
 		</td>
 	</tr>
 	<tr align="center">

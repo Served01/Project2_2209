@@ -25,7 +25,7 @@
 				</tr>
 				<tr align="center" style="height: 40; background: yellow;">
 					<td width="120">변경 전 비밀번호</td>
-					<td><input type="password" id="mb_pw" name="mb_pw"></td>
+					<td><input type="password" id="mb_pw" name="mb_pw1"></td>
 				</tr>
 				<tr align="center" style="height: 40; background: yellow;">
 					<td width="120">변경 후 비밀번호</td>

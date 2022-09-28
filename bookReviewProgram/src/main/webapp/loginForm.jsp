@@ -13,24 +13,25 @@
 <title>Insert title here</title>
 </head>
 <body>
-		  <div class="wrap">
+		 <div class="wrap">
         <div class="login">
             <h2>Log-in</h2>
             <div class="login_sns">
             </div>
+            <form action="loginformPro2.jsp" method="post">
             <div class="login_id">
                 <h4>ID</h4>
-                <input type="text" name="" id="" placeholder="Input ID">
+                <input type="text" name="id" placeholder="Input ID">
             </div>
             <div class="login_pw">  
                 <h4>Password</h4>
-                <input type="password" name="" id="" placeholder="Password">
+                <input type="password" name="pass" placeholder="Password">
             </div>
             <div class="submit">
                 <input type="submit" value="Login">
                 <input type="button" value="BACK" onClick="history.go(-1)"> 
-
             </div>
+            </form>
         </div>
     </div>
 </body>

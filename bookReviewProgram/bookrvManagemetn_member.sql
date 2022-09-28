@@ -13,4 +13,4 @@ create table Member_info(
 select * from member_info;
 
 insert into member_info values ('hyun', 'a1234', 'hyun', 'hyun', 'hyun@naver.com', '02-1234-5678', sysdate , 1);
-
+insert into member_info values ('admin', '1234', 'hyun', 'hyun', 'hyun@naver.com', '02-1234-5678', sysdate , 1);
