@@ -21,9 +21,24 @@
 
 <%
 	
+	int bk_number = bBean.getBk_number();
+
 	bkDAO bdao = new bkDAO();
 	bdao.updateBook(bBean);
-	out.print("location.href='mainSession.jsp'");
+	
+	if (bdao.selectcheckBook(bk_number)==1){
+		%>
+		<script>
+			alert("책 정보를 수정하였습니다.");
+			location.href="mainSession.jsp?center=bkUpdateform.jsp&bk_number=<%=bk_number%>";
+		</script>
+		<%} else{ %>
+		<script>
+			alert("책 정보를 수정하지 못하였습니다./n다시 확인해 주십시오.");
+			history.go(-1);
+		</script>
+		<%} %>
+	
 %>
 
 </body>

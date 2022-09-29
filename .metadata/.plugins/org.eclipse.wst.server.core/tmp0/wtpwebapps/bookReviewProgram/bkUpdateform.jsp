@@ -38,19 +38,19 @@ margin: auto;
 	</tr>
 	<tr align = "center">
 		<td>제목</td>
-		<td><input type="text" name="bk_title" value=<%=bBean.getBk_title() %> /></td>
+		<td><input type="text" name="bk_title" value=<%=bBean.getBk_title() %> required  /></td>
 	</tr>
 	<tr align = "center">
 		<td>저자</td>
-		<td><input type="text" name="bk_writer" value=<%=bBean.getBk_writer() %> /></td>
+		<td><input type="text" name="bk_writer" value=<%=bBean.getBk_writer() %> required  /></td>
 	</tr>
 	<tr align = "center">
 		<td>출판사</td>
-		<td><input type="text" name="bk_publisher" value=<%=bBean.getBk_publisher() %> /></td>
+		<td><input type="text" name="bk_publisher" value=<%=bBean.getBk_publisher()%>  required /></td>
 	</tr>
 	<tr align = "center">
 		<td>출간일</td>
-		<td><input type="date" name="bk_pubdate" value=<%=bBean.getBk_pubdate() %> /></td>
+		<td><input type="date" name="bk_pubdate" value=<%=bBean.getBk_pubdate() %> required  /></td>
 	</tr>
 	<tr align = "center">
 		<td>이미지</td>
@@ -150,7 +150,7 @@ margin: auto;
 	<tr align="center">
 		<td colspan="2"> 				
 			<input type="submit" value="수정"/>&nbsp;&nbsp;
-			<button type="button" onclick="javascript:history.go(-1)">취소</button>
+			<input type="button" value="마이페이지" onclick="location.href='mainSession.jsp?center=mbSelectPro.jsp&mb_id=<%=request.getParameter("mb_id") %>'" />
 			<input type="hidden" name="bk_number" value=<%=bBean.getBk_number()%> />
 	</tr>
 		

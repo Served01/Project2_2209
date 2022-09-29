@@ -192,6 +192,7 @@ public class mbDAO {
 			}
 		}
 		
+		//비밀번호 변경 기능
 		public void updatepass(String id, String pw){
 			
 			try {
@@ -242,4 +243,35 @@ public class mbDAO {
 			}
 			
 		}
+		
+		
+		//해당 id에 해당되는 데이터가 있는지 체크하는 기능
+				public int onecheckmember(String id){
+							
+					int check = 0;
+							
+					try {
+						getConnection();
+							
+						String sql = "select * from member_info where mb_id = ?";
+						
+						pstmt = conn.prepareStatement(sql);
+						pstmt.setString(1, id);
+						
+						rs = pstmt.executeQuery();
+					
+						if(rs.next()) {
+							check = 1;
+								
+						}else {
+							check=-1;
+						}
+					conn.commit();
+					conn.close();
+				}catch (SQLException e) {
+					e.printStackTrace();
+				}
+					return check;
+				}
+
 	}

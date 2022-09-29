@@ -471,6 +471,39 @@ public Vector<rvBean> allselectBoard(int startRow, int endRow, String column, St
 				}		
 				return rb;
 		}
+
+		//모든 리뷰 데이터 유무 확인
+		public int checkReview(int rv_number) {
+
+			int check = 0;
+			
+			conn=getConnection();
+			
+			try {
+				
+				String sql = "select * from Review_info where rv_number=?";
+				
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, rv_number);
+				rs = pstmt.executeQuery();
+				
+				
+				if(rs.next()) {
+					check=1;
+				} else {
+					check=-1;
+				}
+				if(conn != null) {
+					conn.commit();
+					conn.close();
+				}
+				
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			
+			return check;
+		}
 }
 
 

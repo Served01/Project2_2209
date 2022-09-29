@@ -1,19 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import = "java.sql.*" %>
-<%@ page import="javax.sql.*"%>
-<%@ page import="javax.naming.*"%>
-<%@ page import="BKRV.book.bkDAO"%>
-<%@ page import="BKRV.book.bkBean"%>
 <%@ page import="BKRV.review.rvDAO" %>
 <%@ page import="BKRV.review.rvBean" %>
-<%@ page import="java.util.Vector" %>  
-<%request.setCharacterEncoding("UTF-8");%>
+<%@ page import="BKRV.book.bkDAO" %>
+<%@ page import="BKRV.book.bkBean" %>
+<%	request.setCharacterEncoding("UTF-8");	%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>책 상세 정보 조회 화면</title>
+<title>리뷰 데이터 입력 페이지</title>
 </head>
 
 <style>
@@ -24,16 +20,15 @@ margin: auto;
 
 <body>
 
-<!-- bean이 없는 상태에서 가져올 때는 아래와 같이 이용 -->
-<%
-	int bk_number = 20220001; //Integer.parseInt(request.getParameter("bk_number"));
+<% 
+
+	int rv_bknumber= Integer.parseInt(request.getParameter("bk_number")); 
+	String rv_id = (String)session.getAttribute("id");
 	
 	bkDAO bdao = new bkDAO();
-	bkBean bBean = bdao.selectBook(bk_number);
+	bkBean bBean = bdao.selectBook(rv_bknumber);
 	
 %>
-
-<!-- 책 상세 정보 표시 -->
 <table border="1">
 	<tr align = "center">
 		<td rowspan="6">이미지</td>
@@ -116,45 +111,45 @@ margin: auto;
 			<textarea rows="10" cols="74" name="bk_detail" style ="resize:none"><%=bBean.getBk_detail()%></textarea>
 		</td>
 	</tr>
-	<tr align="center">
-		<td colspan="3"> 				
-			<button type="button">수정</button>&nbsp;&nbsp;
-			<button type="button">삭제</button>&nbsp;&nbsp;
-			<button type="button">이전</button>
-			<input type="hidden" name="bk_number" value=<%bBean.getBk_number()%> />
-	</tr>	
+	
 </table>
 
-<!-- 책 리뷰 목록 표시 -->
 <hr>
-<h2 align="center">리뷰</h2>
+<h2 align="center">리뷰 작성</h2>
 
-<%
-	int rv_bknumber = bk_number; 
-	
-	rvDAO rdao = new rvDAO();
-	Vector<rvBean> rvVec = rdao.allbookselectReview(rv_bknumber);
-	
-	for(int i=0; i < rvVec.size(); i++){
+<form action="rvInsertPro.jsp" method="post">
+	<table border="1">
+		<tr align="center">
+			<td>리뷰 작성자</td>
+			<td><%=rv_id %></td>
+		</tr>
+		<tr align="center">
+			<td>평점</td>
+			<td>
+			<input type="radio" name="rv_score" value=1 />1점&nbsp;&nbsp;
+			<input type="radio" name="rv_score" value=2 />2점&nbsp;&nbsp;
+			<input type="radio" name="rv_score" value=3 />3점&nbsp;&nbsp;
+			<input type="radio" name="rv_score" value=4 />4점&nbsp;&nbsp;
+			<input type="radio" name="rv_score" value=5 />5점
+			</td>
+		</tr>
+		<tr align="center">
+			<td>내용</td>
+			<td>
+			<textarea rows="10" cols="67" name="rv_content"></textarea>
+			</td>
+		</tr>
 		
-		rvBean rbean = rvVec.get(i);
-%>
-<table border="1">
-	<tr>
-		<td>닉네임:&nbsp;<%=rbean.getRv_id() %></td>
-		<td>평점:&nbsp;<%=rbean.getRv_score() %></td>
-		<td>
-		<button type="button">수정</button>
-		<button type="button">삭제</button>
-		
-		</td>
-	</tr>
-	<tr>
-		<td colspan="3">
-		<%=rbean.getRv_content()%>
-		</td>
-</table>
-<%} %>
-
+		<tr align="center">
+			<td colspan="2">
+				<input type="hidden" name="rv_bknumber" value=<%=rv_bknumber %> />
+				<input type="hidden" name="rv_id" value=<%=rv_id %> />
+				<input type="submit" value="등록"/>&nbsp;&nbsp;
+				<input type="button" value="취소"/>&nbsp;&nbsp;
+				<input type="button" value="뒤로가기" onclick="location.href='history.back()'" />
+			</td>
+		</tr>
+	</table>
+</form>
 </body>
 </html>

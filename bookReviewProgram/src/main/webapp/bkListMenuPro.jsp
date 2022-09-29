@@ -31,7 +31,11 @@ margin: auto;
 	
 	bkDAO bdao = new bkDAO();
 	Vector<bkBean> bkVec = bdao.selectMenuBookList(bk_local,bk_genre);
-	
+	if(bkVec.size()==0){ %>
+	<script>
+		location.href="mainSession.jsp?center=noResultPro.jsp";
+	</script>	
+<%	} else{
 	for(int i=0; i < bkVec.size(); i++){
 		
 		bkBean bBean = bkVec.get(i);
@@ -75,7 +79,7 @@ margin: auto;
 		<%}%></td>
 	</tr>
 </table>
-<%} %>
+<%}} %>
 
 </body>
 </html>

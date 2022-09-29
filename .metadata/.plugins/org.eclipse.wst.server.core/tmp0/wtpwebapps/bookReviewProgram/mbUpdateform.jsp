@@ -31,17 +31,17 @@ String id = request.getParameter("mb_id");
 		<tr align="center">
 			<td>전자우편</td>
 			<td>
-				<input type="email" name="mb_email" value="<%=mBean.getMb_email() %>">
+				<input type="email" name="mb_email" value="<%=mBean.getMb_email() %>" required >
 			</td>
 		</tr>
 		<tr align="center">
 			<td>닉네임</td>
-			<td><input type="text" name="mb_nick" value="<%=mBean.getMb_nick() %>"></td>
+			<td><input type="text" name="mb_nick" value="<%=mBean.getMb_nick() %>" required ></td>
 		</tr>
 		<tr align="center">
 			<td>비밀번호</td>
 			<td>
-				<input type="password" name="password">
+				<input type="password" name="password" required >
 			</td>
 		</tr>
 		<tr style="height: 40; ">

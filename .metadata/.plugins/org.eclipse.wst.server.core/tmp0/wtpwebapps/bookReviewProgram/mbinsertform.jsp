@@ -21,36 +21,36 @@ margin: auto;
 	<table border = "1">
 		<tr align = "center">
 			<td>ID</td>
-			<td><input type = "text" name = "mb_id" placeholder="id입력"/></td>
+			<td><input type = "text" name = "mb_id" placeholder="id입력" required /></td>
 		</tr>
 		<tr align = "center">
 			<td>PW</td>
-			<td><input type = "password" name = "mb_pw" placeholder="pw입력"/></td>
+			<td><input type = "password" name = "mb_pw" placeholder="pw입력" required /></td>
 		</tr>
 		<tr align = "center">
 			<td>비밀번호 확인</td>
-			<td><input type = "password" name = "mb_pw2" placeholder="pw입력"/></td>
+			<td><input type = "password" name = "mb_pw2" placeholder="pw입력" required /></td>
 		</tr>
 		<tr align = "center">
 			<td>이름</td>
-			<td><input type = "text" name = "mb_name" placeholder="이름입력"/></td>
+			<td><input type = "text" name = "mb_name" placeholder="이름입력" required /></td>
 		</tr>
 		<tr align = "center">
 			<td>닉네임</td>
-			<td><input type = "text" name = "mb_nick" placeholder="닉네임입력"/></td>
+			<td><input type = "text" name = "mb_nick" placeholder="닉네임입력" required /></td>
 		</tr>
 		<tr align = "center">
 			<td>이메일</td>
-			<td><input type = "email" name = "mb_email" placeholder="이메일입력"/></td>
+			<td><input type = "email" name = "mb_email" placeholder="이메일입력" required /></td>
 		</tr>
 		<tr align = "center">
 			<td>전화번호</td>
-			<td><input type = "text" name = "mb_tel" placeholder="전화번호입력"/></td>
+			<td><input type = "text" name = "mb_tel" placeholder="전화번호입력" required /></td>
 		</tr>
 		<tr align="center">
 			<td>성별</td>
 			<td>
-				<input type="radio" name="mb_gender" value="1"/>남자
+				<input type="radio" name="mb_gender" value="1" checked/>남자
 				<input type="radio" name="mb_gender" value="2"/>여자				
 			</td>
 		</tr>

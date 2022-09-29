@@ -26,19 +26,19 @@ margin: auto;
 	</tr>
 	<tr align = "center">
 		<td>제목</td>
-		<td><input type="text" name="bk_title"/></td>
+		<td><input type="text" name="bk_title" required /></td>
 	</tr>
 	<tr align = "center">
 		<td>저자</td>
-		<td><input type="text" name="bk_writer"/></td>
+		<td><input type="text" name="bk_writer" required /></td>
 	</tr>
 	<tr align = "center">
 		<td>출판사</td>
-		<td><input type="text" name="bk_publisher"/></td>
+		<td><input type="text" name="bk_publisher" required /></td>
 	</tr>
 	<tr align = "center">
 		<td>출간일</td>
-		<td><input type="date" name="bk_pubdate"/></td>
+		<td><input type="date" name="bk_pubdate" required /></td>
 	</tr>
 	<tr align = "center">
 		<td>이미지</td>
@@ -47,7 +47,7 @@ margin: auto;
 	<tr align = "center">
 		<td>지역</td>
 		<td>
-		<input type="radio" name="bk_local" value="0"/>국내도서
+		<input type="radio" name="bk_local" value="0" checked />국내도서
 		&nbsp;&nbsp;
 		<input type="radio" name="bk_local" value="1"/>해외도서
 		</td>
@@ -67,7 +67,7 @@ margin: auto;
 	<tr align="center">
 		<td>ebook 유무</td>
 		<td>
-			<input type="radio" name="bk_ebook" value="0"/> O
+			<input type="radio" name="bk_ebook" value="0" checked /> O
 			<input type="radio" name="bk_ebook" value="1"/> X
 		</td>
 	</tr>

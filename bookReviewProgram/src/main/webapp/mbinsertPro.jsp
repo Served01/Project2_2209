@@ -25,22 +25,26 @@
 
 <%
 	if(password2.equals(mbean.getMb_pw())){
+		
 	mbDAO mdao = new mbDAO();
 	mdao.insertmember(mbean);
-%>  
-	<script>
-	alert("회원가입에 성공하였습니다.")
-	location.href = "mainSession.jsp";
-	</script>
-  
-<%	} else{
-%>
+	if (mdao.onecheckmember(mbean.getMb_id())==1){
+		%>
+		<script>
+			alert("회원가입에 성공하였습니다. 로그인 해 주십시오.");
+			location.href="loginform.jsp";
+		</script>
+		<%} else{ %>
+		<script>
+			alert("회원가입에 실패하였습니다./n다시 확인해 주십시오.");
+			history.go(-1);
+  		</script>
+<%	} }else{ %>
 	<script>
 	alert("비밀번호가 다릅니다. 다시 확인해 주십시오.");
 	history.go(-1);
 	</script>
-<% 	}
-%>	
+<% 	} %>	
 
 	
 </body>

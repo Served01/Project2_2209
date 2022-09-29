@@ -184,6 +184,11 @@ margin: auto;
 	</tr>
 	<tr>
 		<td colspan="3">
+		등록날짜:&nbsp;<%=rbean.getRv_date() %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="3">
 		<%=rbean.getRv_content()%>
 		</td>
 	</tr>

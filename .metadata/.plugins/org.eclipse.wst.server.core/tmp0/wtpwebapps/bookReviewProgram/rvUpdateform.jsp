@@ -24,7 +24,7 @@ margin: auto;
 
 	int rv_number= Integer.parseInt(request.getParameter("rv_number"));
 	int rv_bknumber= Integer.parseInt(request.getParameter("rv_bknumber")); 
-	String rv_id = "hyun"; //request.getParameter("mb_id");
+	String rv_id = (String)session.getAttribute("id");
 	
 	rvDAO rdao = new rvDAO();
 	rvBean rbean = rdao.updateOneSelectReview(rv_number, rv_bknumber, rv_id);
@@ -167,7 +167,7 @@ margin: auto;
 		<tr align="center">
 			<td>내용</td>
 			<td>
-			<textarea rows="10" cols="67" name="rv_content"><%=rbean.getRv_content()%></textarea>
+			<textarea rows="10" cols="67" name="rv_content"  required ><%=rbean.getRv_content()%></textarea>
 			</td>
 		</tr>
 		<tr align="center">

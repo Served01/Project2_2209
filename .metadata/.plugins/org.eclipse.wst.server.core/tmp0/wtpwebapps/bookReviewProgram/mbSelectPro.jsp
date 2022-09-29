@@ -11,7 +11,7 @@
 <body>
 <%
 	
-	String id = "hyun"; //request.getParameter("mb_id");
+	String id = request.getParameter("mb_id");
 
 	mbDAO mdao = new mbDAO();
 	mbBean mBean = mdao.oneselectmember(id);
@@ -55,6 +55,10 @@
 		<tr align="center">
 			<td>성별</td>
 			<td><%=mBean.getMb_gender() %></td>
+		</tr>
+		<tr align="center">
+			<td>가입일자</td>
+			<td><%=mBean.getMb_date() %></td>
 		</tr>
 		<tr>
 			<td colspan="2">

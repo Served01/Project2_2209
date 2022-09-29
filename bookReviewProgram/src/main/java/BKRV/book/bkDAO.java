@@ -336,5 +336,40 @@ public class bkDAO {
 			
 			return vec;
 		}
+		
+		public int selectcheckBook(int bk_number) {
+			
+			int check = 0;
+					
+			conn = getConnection();
+			
+			try {
+				
+				String sql = "select * from book_info where bk_number = ?";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, bk_number);
+				rs=pstmt.executeQuery();
+				
+				if(rs.next()) {
+					//데이터가 있는 경우
+					check=1;
+						
+				}else {
+					//데이터가 없는 경우
+					check=-1;
+				}
+				
+				if(conn != null) {
+					conn.commit();
+					conn.close();
+				}
+				
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+			return check;
+			
+		}
 	
 }

@@ -82,11 +82,17 @@
 	bkDAO bdao = new bkDAO();
 	bdao.insertBook(bBean);
 	
+	if (bdao.selectcheckBook(Integer.parseInt(bk_number))==1){
 %>
 <script>
 	alert("책 정보를 입력하였습니다.");
 	history.go(-1);
 </script>
-
+<%} else{ %>
+<script>
+	alert("책 정보를 입력하지 못하였습니다./n다시 확인해 주십시오.");
+	history.go(-1);
+</script>
+<%} %>
 </body>
 </html>

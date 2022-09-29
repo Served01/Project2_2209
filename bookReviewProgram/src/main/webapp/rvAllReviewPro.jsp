@@ -37,6 +37,11 @@ margin: auto;
 	rvDAO rdao = new rvDAO();
 	Vector<rvBean> rvVec = rdao.allselectReview();
 	
+	if(rvVec.size()==0){
+%>
+		<h2>리뷰 목록이 존재하지 않습니다.</h2>
+<%	}else{
+	
 	for(int i=0; i < rvVec.size(); i++){
 		
 		rvBean rbean = rvVec.get(i);
@@ -61,11 +66,16 @@ margin: auto;
 	</tr>
 	<tr>
 		<td colspan="3">
+		등록날짜:&nbsp;<%=rbean.getRv_date() %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="3">
 		<%=rbean.getRv_content()%>
 		</td>
 	</tr>
 
-<%} %>
+<%} }%>
 </table>
 </body>
 </html>

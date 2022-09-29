@@ -23,7 +23,7 @@ margin: auto;
 <% 
 
 	int rv_bknumber= Integer.parseInt(request.getParameter("bk_number")); 
-	String rv_id = "hyun"; //request.getParameter("mb_id");
+	String rv_id = (String)session.getAttribute("id");
 	
 	bkDAO bdao = new bkDAO();
 	bkBean bBean = bdao.selectBook(rv_bknumber);
@@ -130,13 +130,13 @@ margin: auto;
 			<input type="radio" name="rv_score" value=2 />2점&nbsp;&nbsp;
 			<input type="radio" name="rv_score" value=3 />3점&nbsp;&nbsp;
 			<input type="radio" name="rv_score" value=4 />4점&nbsp;&nbsp;
-			<input type="radio" name="rv_score" value=5 />5점
+			<input type="radio" name="rv_score" value=5 checked />5점
 			</td>
 		</tr>
 		<tr align="center">
 			<td>내용</td>
 			<td>
-			<textarea rows="10" cols="67" name="rv_content"></textarea>
+			<textarea rows="10" cols="67" name="rv_content"  required ></textarea>
 			</td>
 		</tr>
 		

@@ -8,6 +8,7 @@ public class mbBean {
 	private String mb_nick;
 	private String mb_email;
 	private String mb_tel;
+	private String mb_date;
 	private String mb_gender;	
 	
 	
@@ -46,6 +47,12 @@ public class mbBean {
 	}
 	public void setMb_tel(String mb_tel) {
 		this.mb_tel = mb_tel;
+	}
+	public String getMb_date() {
+		return mb_date;
+	}
+	public void setMb_date(String mb_date) {
+		this.mb_date = mb_date;
 	}
 	public String getMb_gender() {
 		return mb_gender;

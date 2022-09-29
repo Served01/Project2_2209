@@ -13,11 +13,16 @@
 
 <%
 	bkDAO bdao = new bkDAO();
-	bdao.deleteBook(Integer.parseInt(request.getParameter("bk_number")));
+	int bk_number=Integer.parseInt(request.getParameter("bk_number"));
+	
+	if(bdao.selectcheckBook(bk_number)==1){
+	bdao.deleteBook(bk_number);
 	out.print("<script>alert('삭제되었습니다.');</script>");
 	out.print("<script>location.href='mainSession.jsp'</script>");
-	
-	//response.sendRedirect("bkInsertform.jsp");
+	} else{
+		out.print("<script>alert('삭제하려는 정보가 없습니다.');</script>");
+		out.print("<script>history.go(-1);</script>");
+	}
 	
 %>
 </body>

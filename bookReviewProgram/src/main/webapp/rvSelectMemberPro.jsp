@@ -15,7 +15,7 @@
 <body>
 <h2 align="center">회원리뷰조회</h2>
 <%
-	String Rv_id = "hyun";/*  request.getParameter("Rv_id"); */
+	String Rv_id = request.getParameter("Rv_id");
 	
 	String column = "Rv_id";
 	String value = Rv_id;
@@ -23,6 +23,11 @@
 	rvDAO rdao = new rvDAO();
 	Vector<rvBean> vec = rdao.allmemberselectReview(Rv_id);
 	
+	if(vec.size()==0){
+%>
+		<h2>작성한 댓글이 없습니다.</h2>	
+<%		
+	}else{
 	
 	int pageSize = 5;
 	String pageNum = request.getParameter("pageNum");
@@ -70,6 +75,11 @@
 	<tr align="center">
 		<td colspan="2">책 제목:&nbsp;<%=bk_title %></td>
 		<td>책 일련번호: &nbsp;<%=bk_number %></td>
+	</tr>
+	<tr>
+		<td colspan="3">
+		등록날짜:&nbsp;<%=rBean.getRv_date() %>
+		</td>
 	</tr>
 	<tr>
 		<td colspan="3">
@@ -124,7 +134,7 @@
 			<a align="center" href="mainSession.jsp?center=rvSelectMemberPro.jsp?Rv_id=<%=Rv_id %>&pageNum=<%=startPage + 10 %>">[next]</a>
 	<%
 		}
-	}
+	}}
 	%>
 	</div>
 	

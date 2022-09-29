@@ -24,11 +24,10 @@
 	rvDAO rdao = new rvDAO();
 	rdao.updateReview(rbean);
 	
-	//response.sendRedirect("boardList.jsp");
-	
 %>
 
 <script>
+alert("댓글정보를 변경하였습니다.");
 location.href="mainSession.jsp?center=bkSelectPro.jsp&bk_number=<%=rbean.getRv_bknumber()%>";
 </script>
 

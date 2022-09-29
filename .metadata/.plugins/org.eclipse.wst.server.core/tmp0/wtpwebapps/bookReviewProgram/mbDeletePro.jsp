@@ -20,8 +20,23 @@
 	String pass = mdao.getPassword(id);
 	
 	if(pass.equals(password)){
+		
 		mdao.deletemember(id);
-		response.sendRedirect("mbList.jsp");
+		
+	if (mdao.onecheckmember(id)==-1){
+			%>
+			<script>
+				alert("회원 정보를 삭제하였습니다.");
+				location.href="mainSession.jsp";
+				//response.sendRedirect("mbList.jsp"); 관리자일 때
+			</script>
+			<%} else{ %>
+			<script>
+				alert("회원 정보 삭제에 실패하였습니다./n문의해 주십시오.");
+				history.go(-1);
+			</script>
+			<%} %>	
+		
 	}else{
 %>
 	<script type="text/javascript">
@@ -29,7 +44,6 @@
 		history.back();//go(-1);
 	</script>		
 <%
-	}
-%>		
+	}%>	
 </body>
 </html>
