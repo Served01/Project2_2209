@@ -18,30 +18,30 @@ margin: auto;
 
 <h2 align = "center">책 정보 입력</h2>
 <!-- 책 상세정보 입력 -->
-<form action="bkInsertPro.jsp" method="post" enctype="multipart/form-data">
+<form action="bkInsertform2.jsp" method="post">
 <table border="1">
 	<tr align = "center">
 	
 		<td>일련번호</td>
-		<td><input type="text" name="bk_number" placeholder="8자리 일련번호"/>
+		<td><input type="text" name="bk_number" placeholder="8자리 일련번호" required />
 			&nbsp; &nbsp;
-			<button type="button">중복확인</button></td>
+			<button type="submit">중복확인</button></td>
 	</tr>
 	<tr align = "center">
 		<td>제목</td>
-		<td><input type="text" name="bk_title" required /></td>
+		<td><input type="text" name="bk_title"/></td>
 	</tr>
 	<tr align = "center">
 		<td>저자</td>
-		<td><input type="text" name="bk_writer" required /></td>
+		<td><input type="text" name="bk_writer"/></td>
 	</tr>
 	<tr align = "center">
 		<td>출판사</td>
-		<td><input type="text" name="bk_publisher" required /></td>
+		<td><input type="text" name="bk_publisher"/></td>
 	</tr>
 	<tr align = "center">
 		<td>출간일</td>
-		<td><input type="date" name="bk_pubdate" required /></td>
+		<td><input type="date" name="bk_pubdate"></td>
 	</tr>
 	<tr align = "center">
 		<td>이미지</td>
@@ -82,8 +82,8 @@ margin: auto;
 	</tr>
 	<tr align="center">
 		<td colspan="2"> 				
-			<input type="submit" value="저장"/>&nbsp;&nbsp;
-			<input type="button" value="취소"/>
+			<button type="button" onclick="javascript:alert('일련번호 중복확인을 해주십시오.')">저장</button>&nbsp;&nbsp;
+			<button type="button" onclick="location.href='mainSession.jsp'">취소</button>
 	</tr>
 		
 </table>

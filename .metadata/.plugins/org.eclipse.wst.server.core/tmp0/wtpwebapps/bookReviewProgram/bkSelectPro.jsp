@@ -36,7 +36,7 @@ margin: auto;
 <!-- 책 상세 정보 표시 -->
 <table border="1">
 	<tr align = "center">
-		<td rowspan="6">이미지</td>
+		<td rowspan="6"><img src="/image/<%=bBean.getBk_image()%>"></td>
 		<td>일련번호</td>
 		<td><%=bBean.getBk_number()%></td>
 	</tr>

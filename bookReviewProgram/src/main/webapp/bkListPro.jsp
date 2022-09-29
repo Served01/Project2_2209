@@ -40,7 +40,7 @@ margin: auto;
 		location.href="mainSession.jsp?center=noResultPro.jsp";
 	</script>	
 <%	} else{
-	String column = "BK_title";
+	String column = "BK_title_upper";
 	String value = search_word;
 	int pageSize = 5;
 	String pageNum = request.getParameter("pageNum");
@@ -78,7 +78,7 @@ margin: auto;
 <!-- 책 일부 정보 표시 -->
 <table border="1">
 	<tr align = "center">
-		<td rowspan="4">이미지</td>
+		<td rowspan="4"><img src="/image/<%=bBean.getBk_image()%>"></td>
 		<td>책 일련번호</td>
 		<td colspan="3"><%=bBean.getBk_number()%></td>
 	</tr>

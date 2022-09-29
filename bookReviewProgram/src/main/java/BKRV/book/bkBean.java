@@ -13,6 +13,8 @@ public class bkBean {
 	private int bk_ebook;
 	private String bk_infodate;
 	private String bk_detail;
+	private String bk_title_upper;
+	
 	public int getBk_number() {
 		return bk_number;
 	}
@@ -78,6 +80,12 @@ public class bkBean {
 	}
 	public void setBk_detail(String bk_detail) {
 		this.bk_detail = bk_detail;
+	}
+	public String getBk_title_upper() {
+		return bk_title_upper;
+	}
+	public void setBk_title_upper(String bk_title_upper) {
+		this.bk_title_upper = bk_title_upper;
 	}
 	
 	

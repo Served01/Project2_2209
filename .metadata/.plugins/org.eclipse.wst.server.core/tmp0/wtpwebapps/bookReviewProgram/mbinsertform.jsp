@@ -17,35 +17,37 @@ margin: auto;
 
 <h2 align = "center">회원 가입 페이지</h2>
 
-<form action = "mbInsertPro.jsp" method = "post">
+<form action = "mbInsertform2.jsp" method = "post">
 	<table border = "1">
 		<tr align = "center">
 			<td>ID</td>
-			<td><input type = "text" name = "mb_id" placeholder="id입력" required /></td>
+			<td><input type="text" name="mb_id" placeholder="id입력" required />
+				&nbsp;&nbsp;
+				<button type="submit">중복확인</button></td>
 		</tr>
 		<tr align = "center">
 			<td>PW</td>
-			<td><input type = "password" name = "mb_pw" placeholder="pw입력" required /></td>
+			<td><input type = "password" name = "mb_pw" placeholder="pw입력"  /></td>
 		</tr>
 		<tr align = "center">
 			<td>비밀번호 확인</td>
-			<td><input type = "password" name = "mb_pw2" placeholder="pw입력" required /></td>
+			<td><input type = "password" name = "mb_pw2" placeholder="pw입력" /></td>
 		</tr>
 		<tr align = "center">
 			<td>이름</td>
-			<td><input type = "text" name = "mb_name" placeholder="이름입력" required /></td>
+			<td><input type = "text" name = "mb_name" placeholder="이름입력" /></td>
 		</tr>
 		<tr align = "center">
 			<td>닉네임</td>
-			<td><input type = "text" name = "mb_nick" placeholder="닉네임입력" required /></td>
+			<td><input type = "text" name = "mb_nick" placeholder="닉네임입력" /></td>
 		</tr>
 		<tr align = "center">
 			<td>이메일</td>
-			<td><input type = "email" name = "mb_email" placeholder="이메일입력" required /></td>
+			<td><input type = "email" name = "mb_email" placeholder="이메일입력" /></td>
 		</tr>
 		<tr align = "center">
 			<td>전화번호</td>
-			<td><input type = "text" name = "mb_tel" placeholder="전화번호입력" required /></td>
+			<td><input type = "text" name = "mb_tel" placeholder="전화번호입력" ></td>
 		</tr>
 		<tr align="center">
 			<td>성별</td>
@@ -56,8 +58,9 @@ margin: auto;
 		</tr>
 		<tr height = "40" align = "center">
 			<td colspan = "2">				
-				<input type = "submit" value = "회원가입"/>&nbsp;&nbsp;
-				<input type = "button" onclick="javascript:history.go(-1)" value = "취소"/>
+				<button type="button" onclick="javascript:alert('아이디 중복확인을 해주십시오.')">회원가입</button>&nbsp;&nbsp;
+				<button type="button" onclick="location.href='mainSession.jsp'">취소</button>
+			</td>
 		</tr>
 	</table>
 </form>

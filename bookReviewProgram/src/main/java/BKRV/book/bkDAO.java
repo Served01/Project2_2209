@@ -39,7 +39,7 @@ public class bkDAO {
 		conn=getConnection();
 		
 	try {
-		String sql = "insert into BOOK_INFO values(?, ?, ?, ?, ?, ?, ?, ?, ?, sysdate, ?)";
+		String sql = "insert into BOOK_INFO values(?, ?, ?, ?, ?, ?, ?, ?, ?, sysdate, ?, upper(?))";
 
 		pstmt = conn.prepareStatement(sql);
 
@@ -53,6 +53,7 @@ public class bkDAO {
 		pstmt.setInt(8, bBean.getBk_genre());
 		pstmt.setInt(9, bBean.getBk_ebook());
 		pstmt.setString(10, bBean.getBk_detail());
+		pstmt.setString(11, bBean.getBk_title());
 
 		pstmt.executeUpdate();
 		
@@ -95,6 +96,7 @@ public class bkDAO {
 				bBean.setBk_ebook(rs.getInt(9));
 				bBean.setBk_infodate(rs.getDate(10).toString());
 				bBean.setBk_detail(rs.getString(11));
+				bBean.setBk_title_upper(rs.getString(12));
 					
 			}
 			
@@ -116,11 +118,13 @@ public class bkDAO {
 
 		Vector<bkBean> vec = new Vector<bkBean>();
 		
+		
+		
 		conn=getConnection();
 		
 		try {
 			
-			String sql = "select * from book_info where bk_title like \'%"+search_word+"%\'";
+			String sql = "select * from book_info where bk_title_upper like upper(\'%"+search_word+"%\')";
 			
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -140,6 +144,7 @@ public class bkDAO {
 				bBean.setBk_ebook(rs.getInt(9));
 				bBean.setBk_infodate(rs.getString(10));
 				bBean.setBk_detail(rs.getString(11));
+				bBean.setBk_title_upper(rs.getString(12));
 				
 				vec.add(bBean);
 			}
@@ -162,7 +167,7 @@ public class bkDAO {
 		
 		try {
 			
-			String sql = "update book_info set bk_title=?, bk_writer=?, bk_publisher=?, bk_pubdate=?, bk_local=?, bk_genre=?, bk_ebook=?, bk_detail=? where bk_number=?";
+			String sql = "update book_info set bk_title=?, bk_writer=?, bk_publisher=?, bk_pubdate=?, bk_local=?, bk_genre=?, bk_ebook=?, bk_detail=?, bk_title_upper = upper(?) where bk_number=?";
 			
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, bBean.getBk_title());
@@ -173,7 +178,8 @@ public class bkDAO {
 			pstmt.setInt(6, bBean.getBk_genre());
 			pstmt.setInt(7, bBean.getBk_ebook());
 			pstmt.setString(8, bBean.getBk_detail());
-			pstmt.setInt(9, bBean.getBk_number());
+			pstmt.setString(9, bBean.getBk_title());
+			pstmt.setInt(10, bBean.getBk_number());
 			
 			pstmt.executeUpdate();
 			
@@ -322,6 +328,7 @@ public class bkDAO {
 					bBean.setBk_ebook(rs.getInt(9));
 					bBean.setBk_infodate(rs.getString(10));
 					bBean.setBk_detail(rs.getString(11));
+					bBean.setBk_title_upper(rs.getString(12));
 					
 					vec.add(bBean);
 				}
@@ -374,10 +381,12 @@ public class bkDAO {
 		
 		
 		//게시판형태 X개당 Y페이지
-				public Vector<bkBean> allselectBoard(int startRow, int endRow, String column, String value) {
+				public Vector<bkBean> allselectBoard(int startRow, int endRow, String column, String value1) {
 					
 					conn=getConnection();
-
+					
+					String value = value1.toUpperCase();
+					
 					Vector<bkBean> bb  = new Vector<bkBean>(); 
 					
 					try {
@@ -424,6 +433,7 @@ public class bkDAO {
 							bBean.setBk_ebook(rs.getInt(9));
 							bBean.setBk_infodate(rs.getString(10));
 							bBean.setBk_detail(rs.getString(11));
+							bBean.setBk_title_upper(rs.getString(12));
 								
 							bb.add(bBean);
 							}

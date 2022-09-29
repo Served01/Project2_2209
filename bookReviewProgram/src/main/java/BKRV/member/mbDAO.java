@@ -356,5 +356,33 @@ public class mbDAO {
 					
 					return count;
 				}
+				
+				
+				//일련번호 중복확인
+				public int duplecateMbid(String mb_id){
+					
+					int check=0;
+					conn=getConnection();
+					
+					try{
+				    	
+				        String sql = "SELECT * FROM member_INFO WHERE mb_id = ?";
+				        
+				        pstmt = conn.prepareStatement(sql);
+				       
+				        pstmt.setString(1, mb_id);       
+				        
+				        rs=pstmt.executeQuery();
+				        
+				        if(rs.next()){
+				        	check=1;
+				        } else{
+					check=-1;
+				    }}catch(Exception e){
+				     	System.out.println("아이디 중복 확인 실패 : " + e);
+				    }//try end
+					return check;
+				}//duplecateID end
+	
 
 	}
