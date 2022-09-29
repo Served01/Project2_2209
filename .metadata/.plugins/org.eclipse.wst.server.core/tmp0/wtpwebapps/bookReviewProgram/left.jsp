@@ -21,8 +21,6 @@
 <body>
 	 <ul class="hi">
         <li><a class="hello" href="#" onclick="location.href='mainSession.jsp'">홈</a></li>
-        <li><a class="hello" href="#">공지사항</a></li>
-        <li><a class="hello" href="#">소개</a></li>
         <h3>&nbsp;&nbsp;국내도서</h3>
         <li><a class="hello" href="#" onclick="location.href='mainSession.jsp?center=bkListMenuPro.jsp&bk_local=0&bk_genre=0'">문화</a></li>
         <li><a class="hello" href="#" onclick="location.href='mainSession.jsp?center=bkListMenuPro.jsp&bk_local=0&bk_genre=1'">역사</a></li>

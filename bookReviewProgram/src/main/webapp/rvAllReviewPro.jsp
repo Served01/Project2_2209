@@ -56,8 +56,17 @@ margin: auto;
 		<td>닉네임:&nbsp;<%=rbean.getRv_id() %></td>
 		<td>평점:&nbsp;<%=rbean.getRv_score() %></td>
 		<td>
-		<button type="button">수정</button>
-		<button type="button">삭제</button>
+		<button type="button" onclick="location.href='mainSession.jsp?center=bkUpdateform.jsp&bk_number=<%=bk_number%>'">수정</button>&nbsp;&nbsp;
+			<button type="button" onclick="javascript:deleteConfirm()">삭제</button>&nbsp;&nbsp;
+			<script>
+				function deleteConfirm(){
+					var rv_number = <%=rbean.getRv_number()%>;
+					var isDelete = confirm("정말로 삭제하시겠습니까?");
+					if(isDelete){
+						location.href = "rvDeletePro.jsp?rv_number="+rv_number;
+					}
+				}
+			</script>
 		</td>
 	</tr>
 	<tr align="center">

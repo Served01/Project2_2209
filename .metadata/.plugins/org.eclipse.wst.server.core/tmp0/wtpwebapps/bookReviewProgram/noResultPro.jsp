@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="BKRV.book.bkDAO"%>
-<%@ page import="BKRV.book.bkBean"%>
 <% request.setCharacterEncoding("utf-8");%>
 <!DOCTYPE html>
 <html>

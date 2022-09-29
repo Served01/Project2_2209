@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@ page import="BKRV.member.mbDAO" %>  
 <%@ page import="BKRV.member.mbBean" %> 
+<%request.setCharacterEncoding("UTF-8");%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,7 +30,7 @@
 		
 		out.println("<script>");
 		out.println("alert('비밀번호 수정에 성공하였습니다.')");
-		out.println("location.href='loginForm.jsp'");
+		out.println("location.href='loginform.jsp'");
 		out.println("</script>");
 		
 	}else{

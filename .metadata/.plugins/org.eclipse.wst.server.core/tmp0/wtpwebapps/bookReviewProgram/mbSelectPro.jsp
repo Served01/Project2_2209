@@ -11,7 +11,7 @@
 <body>
 <%
 	
-	String id = request.getParameter("mb_id");
+	String id = "admin"; //request.getParameter("mb_id");
 
 	mbDAO mdao = new mbDAO();
 	mbBean mBean = mdao.oneselectmember(id);
@@ -64,7 +64,6 @@
 			<td colspan="2">
 				<button onclick="location.href='mainSession.jsp?center=mbUpdateform.jsp&mb_id=<%=id%>'">수정</button>
 				<button onclick="location.href='mainSession.jsp?center=mbDeleteform.jsp&mb_id=<%=id%>'">삭제</button>
-				<button onclick="location.href='mbList.jsp'">회원 목록 조회</button>
 				<button onclick="location.href='mainSession.jsp">메인페이지</button>
 			</td>
 		</tr>

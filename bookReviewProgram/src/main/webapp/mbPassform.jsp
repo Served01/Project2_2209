@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="BKRV.member.mbDAO"%>
 <%@ page import="BKRV.member.mbBean"%>
+<%request.setCharacterEncoding("UTF-8");%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,7 +34,7 @@
 				</tr>
 				<tr align="center" style="height: 40; background: yellow;">
 					<td width="120">변경 후 비밀번호 확인</td>
-					<td><input type="password" id="mb_pw3" name="mb_pw2"></td>
+					<td><input type="password" id="mb_pw3" name="mb_pw3"></td>
 				</tr>
 				<tr style="height: 40;">
 					<td colspan="2">

@@ -50,9 +50,11 @@ margin: auto;
 %>
 
 <h2 align="center">전체 회원 정보 조회</h2>
+<p align="center">
 <input type="button" value="마이페이지" onclick="location.href='mainSession.jsp?center=mbSelectPro.jsp&mb_id=<%=request.getParameter("mb_id") %>'" />&nbsp;&nbsp;
 <button onclick="location.href='mainSession.jsp'">메인 페이지</button>
-<br><br>
+</p>
+<br>
 
 <% if(vec.size()==0){%>
 	<h2>회원 목록이 없습니다.</h2>	
