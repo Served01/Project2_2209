@@ -27,7 +27,7 @@
 
 %>
 <script>
- location.href="mainSession.jsp?center=bkSelectPro.jsp&bk_number=<%=rBean.getRv_bknumber()%>";
+	location.href="mainSession.jsp?center=bkSelectPro.jsp&bk_number=<%=rBean.getRv_bknumber()%>";
 </script>
 
 

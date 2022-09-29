@@ -150,6 +150,35 @@ margin: auto;
 		rvDAO rdao = new rvDAO();
 		Vector<rvBean> rvVec = rdao.allbookselectReview(rv_bknumber);
 
+		String Rv_bknumber = Integer.toString(rv_bknumber);/*  request.getParameter("Rv_id"); */
+		
+		String column = "Rv_bknumber";
+		String value = Rv_bknumber;
+		
+		
+		int pageSize = 5;
+		String pageNum = request.getParameter("pageNum");
+		
+		if(pageNum == null){
+			pageNum = "1";
+		}
+		
+		int count = 0;	//전체 글 개수
+		int number = 0;	//페이지 넘버링 변수
+		
+		int currentPage = Integer.parseInt(pageNum);	//현재 페이지 저장
+				
+		count = rdao.getAllcount(column, value);		//전체 게시글 숫자 저장
+		
+		//현재 페이지에 보여줄 시작번호 설정과 끝 페이지 설정
+		//데이터베이스에서 불러올 시작번호 - 1
+		int startRow = (currentPage - 1) * pageSize + 1;	//1page (1 - 1) * 10 + 1 = 1
+		int endRow = currentPage * pageSize;				//1page 1 * 10 = 10
+		
+		rvVec = rdao.allselectBoard(startRow, endRow, column, value);
+		
+		number = count - (currentPage - 1) * pageSize;		//테이블에 표시할 번호 설정
+		
 		for(int i=0; i < rvVec.size(); i++){
 		
 		rvBean rbean = rvVec.get(i);
@@ -194,6 +223,53 @@ margin: auto;
 	</tr>
 </table>
 <%} %>
+<!-- 스타트 페이지 -->
+	<%
+	
+	if(count > 0){
+		//
+		int pagecount = count / pageSize + (count % pageSize == 0 ? 0 : 1);
+		int startPage = 1;
+		
+		if(currentPage % 10 != 0){
+			startPage = (currentPage / 10) * 10 + 1;	
+		}else{
+			startPage = (currentPage / 10 ) * 10 - 1;
+		}
+		
+		int pageBlock = 10;
+		
+		int endPage = startPage + pageBlock - 1;
+		%>
+		
+	<div align="center">
+		<%
+		//[이전] 링크 제작
+		if(endPage > pagecount){
+			endPage = pagecount;	
+		}
+		
+		if(startPage > 10){
+	%>
+			<a align="center" href="bkSelectPro.jsp?pageNum=<%=startPage - 10 %>">[previous]</a>
+	<%
+		}
+			for(int i = startPage; i <= endPage; i++){
+	%>
+			<a align="center" href="bkSelectPro.jsp?pageNum=<%=i %>">[<%=i %>]</a>
+	<%
+			}
+			
+		//[이후] 링크 제작
+		if(endPage < pagecount){
+			endPage = pagecount;		
+	%>
+			<a align="center" href="bkSelectPro.jsp?pageNum=<%=startPage + 10 %>">[next]</a>
+	<%
+		}
+	}
+	%>
+	</div>
 
 </body>
 </html>

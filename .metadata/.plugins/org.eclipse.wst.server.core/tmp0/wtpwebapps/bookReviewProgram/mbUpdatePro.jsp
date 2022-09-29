@@ -17,7 +17,7 @@ request.setCharacterEncoding("UTF-8");
 	</jsp:useBean>
 
 <%
-String id = request.getParameter("mb_id");
+    String id = request.getParameter("mb_id");
 	String password = request.getParameter("password");
 	
 	mbDAO mdao = new mbDAO();
@@ -25,8 +25,14 @@ String id = request.getParameter("mb_id");
 	
 	if(pass.equals(password)){
 		mdao.updatemember(mBean);
+%>
+	<script>
+	alert("회원 정보를 변경하였습니다.");
+	location.href="mainSession.jsp?center=mbSelectPro.jsp";
+	</script>
+
+<% 
 		
-		response.sendRedirect("mbList.jsp");
 	}else{
 %>
 	<script type="text/javascript">

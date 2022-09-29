@@ -273,5 +273,88 @@ public class mbDAO {
 				}
 					return check;
 				}
+				
+				//게시판형태 X개당 Y페이지
+				public Vector<mbBean> allselectBoard(int startRow, int endRow) {
+					
+					conn=getConnection();
+
+					Vector<mbBean> mb  = new Vector<mbBean>(); 
+					
+					try {
+						/*
+						
+						
+						Rownum - query 결과로 나오게 되는 각각의 행들의 순서 값
+								 특정 갯수의 그 이하 행 선택시 사용
+						RowID - 테이블에 저장된 각 행들이 저장된 주소 값
+								가장 최신 글 가져오기
+								Rownum 기준으로 Rnum 별칭 사용하여 Rnum이 srtRow보다 크고 endRow보다 작은 경우에 해당하는 모든 레코드 가져오기
+						
+						
+						*/
+						
+							String sql = "select * from (select A.*, Rownum Rnum from (select * from member_info order by mb_id)A) where Rnum >= ? and Rnum <= ?";
+							
+							pstmt = conn.prepareStatement(sql);
+							pstmt.setInt(1, startRow);
+							pstmt.setInt(2, endRow);
+						
+						
+						rs = pstmt.executeQuery();
+						
+						while(rs.next()) {
+							
+							mbBean mBean = new mbBean();
+							
+							mBean.setMb_id(rs.getString(1));
+							mBean.setMb_pw(rs.getString(2));				
+							mBean.setMb_name(rs.getString(3));
+							mBean.setMb_nick(rs.getString(4));
+							mBean.setMb_email(rs.getString(5));
+							mBean.setMb_tel(rs.getString(6));
+							mBean.setMb_gender(rs.getString(7));		
+								
+							mb.add(mBean);
+							}
+							
+						}catch(Exception e) {
+							e.printStackTrace();
+						}		
+						return mb;
+				}
+				
+				
+				//전체회원수 파악 후 반환
+				public int getAllcount(){
+					
+					conn=getConnection();
+					
+					int count = 0;
+					
+					try {
+						
+						
+							String sql = "select count(*) from member_info";
+							
+							pstmt = conn.prepareStatement(sql);
+						
+						rs = pstmt.executeQuery();
+						
+						if(rs.next()) {
+							count = rs.getInt(1);
+							
+						}
+						if(conn != null) {
+							conn.commit();
+							conn.close();
+						}
+						
+					}catch(Exception e) {
+						e.printStackTrace();
+					}
+					
+					return count;
+				}
 
 	}

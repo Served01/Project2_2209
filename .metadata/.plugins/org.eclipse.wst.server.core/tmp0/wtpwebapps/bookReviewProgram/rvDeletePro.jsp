@@ -21,10 +21,17 @@
 	rvDAO rdao = new rvDAO();
 	rdao.deleteReview(rv_number);
 	
+	if(rdao.checkReview(rv_number)==-1){
 %>		
 <script>
-	alert('삭제되었습니다.');
+	alert("삭제되었습니다.");
 	location.href="mainSession.jsp?center=bkSelectPro.jsp&bk_number=<%=rv_bknumber%>";
 </script>
+<%} else{ %>
+<script>
+	alert("삭제를 실패하였습니다./n문의해 주십시오.");
+	location.href="mainSession.jsp?center=bkSelectPro.jsp&bk_number=<%=rv_bknumber%>";
+</script>
+<%} %>
 </body>
 </html>

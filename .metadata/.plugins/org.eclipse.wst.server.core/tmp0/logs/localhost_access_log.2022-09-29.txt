@@ -18,3 +18,6 @@
 0:0:0:0:0:0:0:1 - - [29/Sep/2022:09:22:05 +0900] "GET /bookReviewProgram/mainSession.jsp?center=mbSelectPro.jsp&mb_id=null HTTP/1.1" 200 9308
 0:0:0:0:0:0:0:1 - - [29/Sep/2022:09:22:08 +0900] "GET /bookReviewProgram/mainSession.jsp?center=rvSelectMemberPro.jsp?rv_id=hyun HTTP/1.1" 200 9378
 0:0:0:0:0:0:0:1 - - [29/Sep/2022:09:22:19 +0900] "GET /bookReviewProgram/mainSession.jsp?center=mbSelectPro.jsp HTTP/1.1" 200 9308
+127.0.0.1 - - [29/Sep/2022:13:08:03 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [29/Sep/2022:13:08:05 +0900] "GET /bookReviewProgram/bkInsertform.jsp HTTP/1.1" 200 2630
+0:0:0:0:0:0:0:1 - - [29/Sep/2022:13:08:05 +0900] "GET /favicon.ico HTTP/1.1" 404 818

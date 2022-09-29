@@ -23,7 +23,7 @@
 	String pw3 = request.getParameter("mb_pw3");
 
 	
-	if (pw1.equals(pw2)) {
+	if (pw2.equals(pw3)) {
 		
 		mdao.updatepass(id,pw2);
 		

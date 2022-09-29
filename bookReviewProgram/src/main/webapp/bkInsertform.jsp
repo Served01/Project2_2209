@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="BKRV.book.bkDAO"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,11 +15,13 @@ margin: auto;
 </style>
 
 <body>
+
 <h2 align = "center">책 정보 입력</h2>
 <!-- 책 상세정보 입력 -->
 <form action="bkInsertPro.jsp" method="post" enctype="multipart/form-data">
 <table border="1">
 	<tr align = "center">
+	
 		<td>일련번호</td>
 		<td><input type="text" name="bk_number" placeholder="8자리 일련번호"/>
 			&nbsp; &nbsp;

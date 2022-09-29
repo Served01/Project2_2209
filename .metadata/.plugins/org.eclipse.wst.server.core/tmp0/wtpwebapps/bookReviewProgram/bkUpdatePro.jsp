@@ -30,7 +30,7 @@
 		%>
 		<script>
 			alert("책 정보를 수정하였습니다.");
-			location.href="mainSession.jsp?center=bkUpdateform.jsp&bk_number=<%=bk_number%>";
+			location.href="mainSession.jsp?center=bkSelectPro.jsp&bk_number=<%=bk_number%>";
 		</script>
 		<%} else{ %>
 		<script>

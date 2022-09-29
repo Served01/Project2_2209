@@ -371,5 +371,218 @@ public class bkDAO {
 			return check;
 			
 		}
+		
+		
+		//게시판형태 X개당 Y페이지
+				public Vector<bkBean> allselectBoard(int startRow, int endRow, String column, String value) {
+					
+					conn=getConnection();
+
+					Vector<bkBean> bb  = new Vector<bkBean>(); 
+					
+					try {
+						/*
+						
+						
+						Rownum - query 결과로 나오게 되는 각각의 행들의 순서 값
+								 특정 갯수의 그 이하 행 선택시 사용
+						RowID - 테이블에 저장된 각 행들이 저장된 주소 값
+								가장 최신 글 가져오기
+								Rownum 기준으로 Rnum 별칭 사용하여 Rnum이 srtRow보다 크고 endRow보다 작은 경우에 해당하는 모든 레코드 가져오기
+						
+						
+						*/
+						if(column != "" || value != "") {
+							String sql = "select * from (select A.*, Rownum Rnum from (select * from Book_info where " + column + " like ? order by Bk_number)A) where Rnum >= ? and Rnum <= ?";
+							
+							pstmt = conn.prepareStatement(sql);
+							pstmt.setString(1, '%' + value + '%');
+							pstmt.setInt(2, startRow);
+							pstmt.setInt(3, endRow);
+						}else if(column == "" && value == "") {
+							String sql = "select * from (select A.*, Rownum Rnum from (select * from Book_info order by BK_number)A) where Rnum >= ? and Rnum <= ?";
+							
+							pstmt = conn.prepareStatement(sql);
+							pstmt.setInt(1, startRow);
+							pstmt.setInt(2, endRow);
+						}
+						
+						rs = pstmt.executeQuery();
+						
+						while(rs.next()) {
+							
+							bkBean bBean = new bkBean();
+							
+							bBean.setBk_number(rs.getInt(1));
+							bBean.setBk_title(rs.getString(2));
+							bBean.setBk_writer(rs.getString(3));
+							bBean.setBk_publisher(rs.getString(4));
+							bBean.setBk_pubdate(rs.getString(5));
+							bBean.setBk_image(rs.getString(6));
+							bBean.setBk_local(rs.getInt(7));
+							bBean.setBk_genre(rs.getInt(8));
+							bBean.setBk_ebook(rs.getInt(9));
+							bBean.setBk_infodate(rs.getString(10));
+							bBean.setBk_detail(rs.getString(11));
+								
+							bb.add(bBean);
+							}
+							
+						}catch(Exception e) {
+							e.printStackTrace();
+						}		
+						return bb;
+				}
+				
+				
+				//전체책수 파악 후 반환
+				public int getAllcount(String column, String value){
+					
+					conn=getConnection();
+					
+					int count = 0;
+					
+					try {
+						
+						if(column != "" || value != "") {
+						String sql = "select count(*) from Book_info where " + column + " like ?";
+						
+						pstmt = conn.prepareStatement(sql);
+						pstmt.setString(1, '%' + value + '%');
+						
+						}else if(column == "" && value == "") {
+							String sql = "select count(*) from Book_info";
+							
+							pstmt = conn.prepareStatement(sql);
+						}
+						rs = pstmt.executeQuery();
+						
+						if(rs.next()) {
+							count = rs.getInt(1);
+							
+						}
+						if(conn != null) {
+							conn.commit();
+							conn.close();
+						}
+						
+					}catch(Exception e) {
+						e.printStackTrace();
+					}
+					
+					return count;
+				}
+				
+				//게시판형태 X개당 Y페이지
+				public Vector<bkBean> allselectBoardbkall(int startRow, int endRow) {
+					
+					conn=getConnection();
+
+					Vector<bkBean> bb  = new Vector<bkBean>(); 
+					
+					try {
+						/*
+						
+						
+						Rownum - query 결과로 나오게 되는 각각의 행들의 순서 값
+								 특정 갯수의 그 이하 행 선택시 사용
+						RowID - 테이블에 저장된 각 행들이 저장된 주소 값
+								가장 최신 글 가져오기
+								Rownum 기준으로 Rnum 별칭 사용하여 Rnum이 srtRow보다 크고 endRow보다 작은 경우에 해당하는 모든 레코드 가져오기
+						
+						
+						*/
+						String sql = "select * from (select A.*, Rownum Rnum from (select * from Book_info order by BK_number)A) where Rnum >= ? and Rnum <= ?";
+							
+							pstmt = conn.prepareStatement(sql);
+							pstmt.setInt(1, startRow);
+							pstmt.setInt(2, endRow);
+						
+						
+						rs = pstmt.executeQuery();
+						
+						while(rs.next()) {
+							
+							bkBean bBean = new bkBean();
+							
+							bBean.setBk_number(rs.getInt(1));
+							bBean.setBk_title(rs.getString(2));
+							bBean.setBk_writer(rs.getString(3));
+							bBean.setBk_publisher(rs.getString(4));
+							bBean.setBk_pubdate(rs.getString(5));
+							bBean.setBk_image(rs.getString(6));
+							bBean.setBk_local(rs.getInt(7));
+							bBean.setBk_genre(rs.getInt(8));
+							bBean.setBk_ebook(rs.getInt(9));
+							bBean.setBk_infodate(rs.getString(10));
+							bBean.setBk_detail(rs.getString(11));
+								
+							bb.add(bBean);
+							}
+							
+						}catch(Exception e) {
+							e.printStackTrace();
+						}		
+						return bb;
+				}
+				
+				
+				//전체책수 파악 후 반환
+				public int getAllcountbkall(){
+					
+					conn=getConnection();
+					
+					int count = 0;
+					
+					try {
+						
+						String sql = "select count(*) from Book_info";
+							
+							pstmt = conn.prepareStatement(sql);
+						
+						rs = pstmt.executeQuery();
+						
+						if(rs.next()) {
+							count = rs.getInt(1);
+							
+						}
+						if(conn != null) {
+							conn.commit();
+							conn.close();
+						}
+						
+					}catch(Exception e) {
+						e.printStackTrace();
+					}
+					
+					return count;
+				}
+				
+				
+				//일련번호 중복확인
+				public int duplecateBKnum(int bk_number){
+					
+					int check=0;
+					conn=getConnection();
+					
+					try{
+				    	
+				        String sql = "SELECT * FROM BOOK_INFO WHERE bk_number = ?";
+				        
+				        pstmt = conn.prepareStatement(sql);
+				       
+				        pstmt.setInt(1, bk_number);       
+				        
+				        rs=pstmt.executeQuery();
+				        
+				        if(rs.next()){
+				        	check=1;
+				        } else{
+					check=-1;
+				    }}catch(Exception e){
+				     	System.out.println("일련번호 중복 확인 실패 : " + e);
+				    }//try end
+					return check;
+				}//duplecateID end
 	
 }

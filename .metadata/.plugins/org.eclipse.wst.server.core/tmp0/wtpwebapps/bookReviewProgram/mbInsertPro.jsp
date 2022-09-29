@@ -32,7 +32,7 @@
 		%>
 		<script>
 			alert("회원가입에 성공하였습니다. 로그인 해 주십시오.");
-			response.redirect("mainSession.jsp");
+			location.href="loginform.jsp";
 		</script>
 		<%} else{ %>
 		<script>

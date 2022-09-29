@@ -23,6 +23,11 @@
 	rvDAO rdao = new rvDAO();
 	Vector<rvBean> vec = rdao.allmemberselectReview(Rv_id);
 	
+	if(vec.size()==0){
+%>
+		<h2>작성한 댓글이 없습니다.</h2>	
+<%		
+	}else{
 	
 	int pageSize = 5;
 	String pageNum = request.getParameter("pageNum");
@@ -129,7 +134,7 @@
 			<a align="center" href="mainSession.jsp?center=rvSelectMemberPro.jsp?Rv_id=<%=Rv_id %>&pageNum=<%=startPage + 10 %>">[next]</a>
 	<%
 		}
-	}
+	}}
 	%>
 	</div>
 	
