@@ -56,6 +56,7 @@ margin: auto;
 			<td colspan = "2">				
 				<button type="button" onclick="javascript:alert('아이디 중복확인을 해주십시오.')">회원가입</button>&nbsp;&nbsp;
 				<button type="button" onclick="location.href='mainSession.jsp'">취소</button>
+				<input type="hidden" name="center" value="mbInsertform2.jsp"/>
 			</td>
 		</tr>
 	</table>

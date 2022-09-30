@@ -311,10 +311,10 @@ public class mbDAO {
 							mBean.setMb_id(rs.getString(1));
 							mBean.setMb_pw(rs.getString(2));				
 							mBean.setMb_name(rs.getString(3));
+							
 							mBean.setMb_email(rs.getString(4));
 							mBean.setMb_tel(rs.getString(5));
-							mBean.setMb_date(rs.getString(6));
-							mBean.setMb_gender(rs.getInt(7));		
+							mBean.setMb_gender(rs.getInt(6));		
 								
 							mb.add(mBean);
 							}
