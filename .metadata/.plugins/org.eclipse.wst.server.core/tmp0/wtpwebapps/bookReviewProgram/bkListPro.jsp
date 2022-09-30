@@ -77,29 +77,29 @@ margin: auto;
 
 <!-- 책 일부 정보 표시 -->
 <table border="1">
-	<tr align = "center">
-		<td rowspan="4"><img src="/image/<%=bBean.getBk_image()%>"></td>
-		<td>책 일련번호</td>
-		<td colspan="3"><%=bBean.getBk_number()%></td>
+	<tr align = "center" height="80" width="1150">
+		<td rowspan="4" width="250"><div style="height:100%; width:100%;"><img src="/image/<%=bBean.getBk_image()%>" height="100%" width="100%"></div></td>
+		<td height="20" width="200">책 일련번호</td>
+		<td colspan="3" height="20" width="400"><%=bBean.getBk_number()%></td>
 	</tr>
 	<tr align = "center" >
 		<!-- <td> rowspan=4 -->
-		<td>책 제목</td>
-		<td><a style="color:black" href="#" onclick="location.href='mainSession.jsp?center=bkSelectPro.jsp&bk_number=<%=bBean.getBk_number()%>'"><%=bk_title %></a></td>
-		<td>책 저자</td>
-		<td><%=bBean.getBk_writer()%></td>
+		<td height="20" width="200">책 제목</td>
+		<td height="20" width="400"><a style="color:black" href="#" onclick="location.href='mainSession.jsp?center=bkSelectPro.jsp&bk_number=<%=bBean.getBk_number()%>'"><%=bk_title %></a></td>
+		<td height="20" width="200">책 저자</td>
+		<td height="20" width="400"><%=bBean.getBk_writer()%></td>
 	</tr>
 	<tr align = "center">
 		<!-- <td> rowspan=4-->
-		<td>출판사</td>
-		<td><%=bBean.getBk_publisher()%></td>
-		<td>출판사</td>
-		<td><%=bBean.getBk_publisher()%></td>
+		<td height="20" width="200">출판사</td>
+		<td height="20" width="400"><%=bBean.getBk_publisher()%></td>
+		<td height="20" width="200">출간일</td>
+		<td height="20" width="400"><%=bBean.getBk_pubdate()%></td>
 	</tr>
 	<tr align = "center">
 		<!-- <td> rowspan=4 -->
-		<td>평점</td>
-		<td colspan="3">
+		<td height="20" width="200">평점</td>
+		<td colspan="3" height="20" width="400">
 		<%if(bk_score==0){%>
 			등록된 평점이 없습니다.
 		<%

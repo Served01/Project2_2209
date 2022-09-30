@@ -40,26 +40,26 @@
 <div align="center">
 	<table border="1">
 		<tr align="center">
-			<td>아이디</td>
-			<td><%=mBean.getMb_id() %></td>
+			<td height="20" width="150">아이디</td>
+			<td height="20" width="300"><%=mBean.getMb_id() %></td>
 		</tr>
 		<tr align="center">
-			<td>이름</td>
-			<td><%=mBean.getMb_name() %></td>
+			<td height="20" width="150">이름</td>
+			<td height="20" width="300"><%=mBean.getMb_name() %></td>
 		</tr>
 
 		<tr align="center">
-			<td>이메일</td>
-			<td><%=mBean.getMb_email() %></td>
+			<td height="20" width="150">이메일</td>
+			<td height="20" width="300"><%=mBean.getMb_email() %></td>
 		</tr>
 		<tr align="center">
-			<td>전화번호</td>
-			<td><%=mBean.getMb_tel() %></td>
+			<td height="20" width="150">전화번호</td>
+			<td height="20" width="300"><%=mBean.getMb_tel() %></td>
 		</tr>
 		
 		<tr align="center">
-			<td>성별</td>
-			<td>
+			<td height="20" width="150">성별</td>
+			<td height="20" width="300">
 			<%if(mBean.getMb_gender()==1){ %>
 			남성
 			<%} else if(mBean.getMb_gender()==2) {%>
@@ -68,11 +68,11 @@
 			</td>
 		</tr>
 		<tr align="center">
-			<td>가입일자</td>
-			<td><%=mBean.getMb_date() %></td>
+			<td height="20" width="150">가입일자</td>
+			<td height="20" width="300"><%=mBean.getMb_date() %></td>
 		</tr>
 		<tr>
-			<td colspan="2">
+			<td colspan="2" align="center">
 				<button onclick="location.href='mainSession.jsp?center=mbUpdateform.jsp&mb_id=<%=mBean.getMb_id()%>'">수정</button>
 				<button onclick="location.href='mainSession.jsp?center=mbDeleteform.jsp&mb_id=<%=mBean.getMb_id()%>'">삭제</button>
 				<button onclick="location.href='mainSession.jsp'">메인페이지</button>

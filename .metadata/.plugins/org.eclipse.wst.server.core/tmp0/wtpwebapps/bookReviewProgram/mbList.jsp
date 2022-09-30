@@ -71,15 +71,14 @@ margin: auto;
 <%} else{%>
 
 
-<table border="1">
+<table border="1" width="1000">
 	<tr align="center">
-		<td>ID</td>
-		<td>이름</td>
-
-		<td>이메일</td>
-		<td>전화번호</td>
-		<td>성별</td>
-		<td>가입일시</td>	
+		<td height="10" width="100">ID</td>
+		<td height="10" width="100">이름</td>
+		<td height="10" width="100">이메일</td>
+		<td height="10" width="100">전화번호</td>
+		<td height="10" width="100">성별</td>
+		<td height="10" width="100">가입일시</td>	
 	</tr>
 
 	<%

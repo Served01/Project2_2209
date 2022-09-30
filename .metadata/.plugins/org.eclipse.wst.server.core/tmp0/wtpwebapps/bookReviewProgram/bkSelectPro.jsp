@@ -33,39 +33,43 @@ margin: auto;
 	bkDAO bdao = new bkDAO();
 	bkBean bBean = bdao.selectBook(bk_number);
 	
+	rvDAO rdao = new rvDAO();
+	double bk_score=rdao.getScore(bk_number);
+	
+	
 %>
 
 <!-- 책 상세 정보 표시 -->
 <table border="1">
-	<tr align = "center">
-		<td rowspan="6"><img src="./image/<%=bBean.getBk_image()%>"></td>
+	<tr align = "center" height="360" width="1150">
+		<td rowspan="6"><div style="height:100%; width:100%;"><img src="/image/<%=bBean.getBk_image()%>" height="100%" width="100%"></div></td>
 		<td>일련번호</td>
-		<td><%=bBean.getBk_number()%></td>
+		<td height="20" width="400"><%=bBean.getBk_number()%></td>
 	</tr>
 	<tr align = "center">
 		<!-- <td> rowspan=6 -->
-		<td>제목</td>
-		<td><%=bBean.getBk_title()%></td>
+		<td height="20" width="200">제목</td>
+		<td height="20" width="400"><%=bBean.getBk_title()%></td>
 	</tr>
 	<tr align = "center">
 		<!-- <td> rowspan=6 -->
-		<td>저자</td>
-		<td><%=bBean.getBk_writer()%></td>
+		<td height="20" width="200">저자</td>
+		<td height="20" width="400"><%=bBean.getBk_writer()%></td>
 	</tr>
 	<tr align = "center">
 		<!-- <td> rowspan=6 -->
-		<td>출판사</td>
-		<td><%=bBean.getBk_publisher()%></td>
+		<td height="20" width="200">출판사</td>
+		<td height="20" width="400"><%=bBean.getBk_publisher()%></td>
 	</tr>
 	<tr align = "center">
 		<!-- <td> rowspan=6 -->
-		<td>출간일</td>
-		<td><%=bBean.getBk_pubdate()%></td>
+		<td height="20" width="200">출간일</td>
+		<td height="20" width="400"><%=bBean.getBk_pubdate()%></td>
 	</tr>
 	<tr align = "center">
 		<!-- <td> rowspan=6 -->
-		<td>지역</td>
-		<td>
+		<td height="20" width="200">지역</td>
+		<td height="20" width="400">
 		<% 
 		if(bBean.getBk_local()==0){ %>
 		국내도서
@@ -78,9 +82,16 @@ margin: auto;
 		</td>
 	</tr>
 	<tr align="center">
-		<td rowspan="2">평점:&nbsp;3</td>
-		<td>장르</td>
-		<td>
+		<td rowspan="2" height="20" width="400">평점:&nbsp;
+		<%if(bk_score==0){%>
+			등록된 평점이 없습니다.
+		<%
+		} else { %>
+			<%=bk_score%>점
+		<%}%>
+		</td>
+		<td height="20" width="200">장르</td>
+		<td height="20" width="400">
 		<%if(bBean.getBk_genre()==0){%>	
 			문학		
 		<%}
@@ -102,8 +113,8 @@ margin: auto;
 	</tr>
 	<tr align="center">
 		<!-- <td> rowspan=2 -->
-		<td>ebook 유무</td>
-		<td>
+		<td height="20" width="200">ebook 유무</td>
+		<td height="20" width="400">
 		<%if(bBean.getBk_ebook()==0){ %>
 			O
 		<%}
@@ -114,7 +125,7 @@ margin: auto;
 	</tr>
 	<!-- 작성일 sysdate 처리 -->
 	<tr align="center">
-		<td colspan="3">
+		<td colspan="3" height="200" width="400">
 			<%=bBean.getBk_detail()%>
 		</td>
 	</tr>
@@ -152,7 +163,6 @@ margin: auto;
 
 <% 	
 
-		rvDAO rdao = new rvDAO();
 		Vector<rvBean> rvVec = rdao.allbookselectReview(rv_bknumber);
 
 		String Rv_bknumber = Integer.toString(rv_bknumber);

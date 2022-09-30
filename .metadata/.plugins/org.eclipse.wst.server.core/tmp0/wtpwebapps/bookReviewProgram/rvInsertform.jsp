@@ -43,35 +43,35 @@ margin: auto;
 	
 %>
 <table border="1">
-	<tr align = "center">
-		<td rowspan="6">이미지</td>
+	<tr align = "center" height="230" width="1150">
+		<td rowspan="6" width="250"><div style="height:100%; width:100%;"><img src="/image/<%=bBean.getBk_image()%>" height="100%" width="100%"></div></td>
 		<td>일련번호</td>
 		<td><%=bBean.getBk_number()%></td>
 	</tr>
 	<tr align = "center">
 		<!-- <td> rowspan=6 -->
 		<td>제목</td>
-		<td><%=bBean.getBk_title()%></td>
+		<td height="20" width="400"><%=bBean.getBk_title()%></td>
 	</tr>
 	<tr align = "center">
 		<!-- <td> rowspan=6 -->
 		<td>저자</td>
-		<td><%=bBean.getBk_writer()%></td>
+		<td height="20" width="400"><%=bBean.getBk_writer()%></td>
 	</tr>
 	<tr align = "center">
 		<!-- <td> rowspan=6 -->
 		<td>출판사</td>
-		<td><%=bBean.getBk_publisher()%></td>
+		<td height="20" width="400"><%=bBean.getBk_publisher()%></td>
 	</tr>
 	<tr align = "center">
 		<!-- <td> rowspan=6 -->
 		<td>출간일</td>
-		<td><%=bBean.getBk_pubdate()%></td>
+		<td height="20" width="400"><%=bBean.getBk_pubdate()%></td>
 	</tr>
 	<tr align = "center">
 		<!-- <td> rowspan=6 -->
 		<td>지역</td>
-		<td>
+		<td height="20" width="400">
 		<% 
 		if(bBean.getBk_local()==0){ %>
 		국내도서
@@ -84,7 +84,7 @@ margin: auto;
 		</td>
 	</tr>
 	<tr align="center">
-		<td rowspan="2">평점:&nbsp;
+		<td rowspan="2" height="20" width="400">평점:&nbsp;
 		<%if(bk_score==0){%>
 			등록된 평점이 없습니다.
 		<%
@@ -92,7 +92,7 @@ margin: auto;
 			<%=bk_score%>점
 		<%}%>
 		</td>
-		<td>장르</td>
+		<td height="20" width="400">장르</td>
 		<td>
 		<%if(bBean.getBk_genre()==0){%>	
 			문학		
@@ -115,7 +115,7 @@ margin: auto;
 	</tr>
 	<tr align="center">
 		<!-- <td> rowspan=2 -->
-		<td>ebook 유무</td>
+		<td height="20" width="400">ebook 유무</td>
 		<td>
 		<%if(bBean.getBk_ebook()==0){ %>
 			O

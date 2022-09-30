@@ -41,9 +41,9 @@
 			<%} 	
 		
 	}else{
-		%>
+%>
 	<script type="text/javascript">
-		alert("비밀번호가 틀립니다. 확인해 주세요.");
+		alert("비밀번호가 틀립니다. 확인해 주세요.")
 		history.back();//go(-1);
 	</script>		
 <%

@@ -7,6 +7,14 @@
 <meta charset="UTF-8">
 <title>검색 결과 없음</title>
 </head>
+<style>
+h2{
+display: flex;
+height: 100%;
+justify-content: center;
+align-items: center;
+}
+</style>
 <body>
 
 	<h2>검색 결과가 존재하지 않습니다.</h2>

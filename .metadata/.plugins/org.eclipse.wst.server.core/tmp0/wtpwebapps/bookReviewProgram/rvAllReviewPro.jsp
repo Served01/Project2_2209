@@ -64,10 +64,10 @@ margin: auto;
 		
 %>
 <table border="1">
-	<tr align="center">
-		<td>아이디:&nbsp;<%=rbean.getRv_id() %></td>
-		<td>평점:&nbsp;<%=rbean.getRv_score() %></td>
-		<td>
+	<tr align="center" height="230" width="1150">
+		<td height="10" width="200">아이디:&nbsp;<%=rbean.getRv_id() %></td>
+		<td height="10" width="200">평점:&nbsp;<%=rbean.getRv_score() %></td>
+		<td align="center">
 		<button type="button" onclick="location.href='mainSession.jsp?center=bkUpdateform.jsp&bk_number=<%=bk_number%>'">수정</button>&nbsp;&nbsp;
 		<button type="button" onclick="javascript:deleteConfirm()">삭제</button>&nbsp;&nbsp;
 			<script>
@@ -82,16 +82,16 @@ margin: auto;
 		</td>
 	</tr>
 	<tr align="center">
-		<td colspan="2">책 제목:&nbsp;<%=bk_title %></td>
+		<td colspan="2" height="10" width="200">책 제목:&nbsp;<%=bk_title %></td>
 		<td>책 일련번호: &nbsp;<%=bk_number %></td>
 	</tr>
 	<tr>
-		<td colspan="3">
+		<td colspan="3" height="10" width="200">
 		등록날짜:&nbsp;<%=rbean.getRv_date() %>
 		</td>
 	</tr>
 	<tr>
-		<td colspan="3">
+		<td colspan="3" height="200" width="1150">
 		<%=rbean.getRv_content()%>
 		</td>
 	</tr>

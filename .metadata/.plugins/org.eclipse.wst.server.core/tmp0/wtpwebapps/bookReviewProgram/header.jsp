@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page session = "true" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,19 +11,19 @@
     <link rel="stylesheet" type="text/css" href="css/header.css">
 </script>
 <meta charset="UTF-8">
-<title>header</title>
+<title>Insert title here</title>
 
 </head>
 <body>
-<% String id = (String)session.getAttribute("id");%>
+
 	  <div class="navbar">    
         <div class="navbar_logo">
             <i class="fa-solid fa-book"></i>
             <a href="#" onclick="location.href='mainSession.jsp'">Book Review</a>  
         </div>
         <ul class="navbar_menu">
-            <li><a href="http://www.kyobobook.co.kr">교보문고</a></li>
-            <li><a href="https://www.aladin.co.kr">알라딘</a></li>
+            <li><a href="http://www.kyobobook.co.kr/product/detailViewKor.laf?ejkGb=KOR&mallGb=KOR&barcode=9791188331796&orderClick=LET&Kc=">교보문고</a></li>
+            <li><a href="https://www.aladin.co.kr/home/welcome.aspx?partner=googlek&BSCPN=ORM&BSPRG=ADWORDS&BSCCN1=83566&utm_source=ADWORDS&utm_medium=cpc&utm_term=%EB%8F%84%EC%84%9C%EC%82%AC%EC%9D%B4%ED%8A%B8&gclid=EAIaIQobChMI6MbRuOyj-gIVGMFMAh0eQwdZEAAYAiAAEgJUUPD_BwE">알라딘</a></li>
             <li><a href="http://www.yes24.com/Main/default.aspx">YES 24</a></li>
             <li><a href="http://www.readersnews.com/">독서신문</a></li>
             <li><a href="http://www.gulnara.net/">글&nbsp;나라</a></li>
@@ -36,12 +35,12 @@
             <button type="submit">검색</button>
         </div>
     </form>
-<%if(id==null){ %>
+<%if((String)session.getAttribute("id")==null){ %>
     <ul class="navbar_links">
-            <a href="#" onclick="location.href='loginform.jsp'">로그인</a>
-            <a href="#" onclick="location.href='mainSession.jsp?center=mbInsertform.jsp'">회원가입</a>
+            <a href="#" onclick="location.href='loginForm.jsp'">로그인</a>
+            <a href="#" onclick="location.href='mainSession.jsp?center=mbinsertform.jsp'">회원가입</a>
     </ul>
-<%} else if(id!=null){ %>      
+<%} else if((String)session.getAttribute("id")!=null){ %>      
      <ul class="navbar_links">
             <a href="#" onclick="javascript:logoutFunction()">로그아웃</a>
             <script>

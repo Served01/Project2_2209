@@ -13,14 +13,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/def66b134a.js" crossorigin="anonymous"></script>
 <meta charset="UTF-8">
-<title>left</title>
+<title>Insert title here</title>
 </head>
 <body>
 	 <ul class="hi">
-        <li><a class="hello" href="#" onclick="location.href='mainSession.jsp'">홈</a></li>
+        <div style="text-align:center; color:skyblue">
+        <i class="fa-solid fa-book-open fa-6x"></i>
+    	</div>
         <h3>&nbsp;&nbsp;국내도서</h3>
         <li><a class="hello" href="#" onclick="location.href='mainSession.jsp?center=bkListMenuPro.jsp&bk_local=0&bk_genre=0'">문화</a></li>
         <li><a class="hello" href="#" onclick="location.href='mainSession.jsp?center=bkListMenuPro.jsp&bk_local=0&bk_genre=1'">역사</a></li>

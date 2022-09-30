@@ -18,13 +18,18 @@
 <meta charset="UTF-8">
 <title>메인 세션</title>
 <style>
+
+html{
+background-image:url('https://png.pngtree.com/background/20211215/original/pngtree-the-background-photography-of-the-empty-library-bookstore-indoors-picture-image_1474812.jpg');
+}
 	
 		table {
     margin-left:auto; 
     margin-right:auto;
+    	
     
      
-     max-height:100%;
+   
      background-color:white;
     
 }
@@ -33,7 +38,10 @@
     border-collapse : collapse;
     border : 1px solid black;
     
+    
 }
+
+
 </style>
 </head>
 <body>
@@ -91,21 +99,21 @@
 	}
 %>
 
-<table border="1" height="1000px" width="1000px"style="align:center">
-	<tr height="5px" width="300px">
-		  <td align="center" colspan="2">
+<table border="1" height="900px" width="1300px" style="align:center">
+	<tr height="100px"width="1300px">
+		  <td align="center" width="1300px" colspan="2">
 			<jsp:include page="header.jsp"></jsp:include>
 		</td>
 	</tr>
-	<tr width="500px">
-	 <td align="left" width="85" height="100">
+	<tr height="700px" width="1300px">
+	 <td align="left" margin="0" width="100px" height="800px">
 			<jsp:include page="left.jsp"></jsp:include>
 		</td> 
-		<td align="center" width="400px">
-			<jsp:include page="<%=url %>"></jsp:include>
+		<td align="center" width="1200px">
+			<div style="background-color:#f7f1e3;height:100%; width:100%"><jsp:include page="<%=url %>"></jsp:include></div>
 		</td>
 	</tr>
-	<tr height="80" width="150">
+	<tr  width="1300px" height="100px">
 		<td align="center" colspan="2">
 			<jsp:include page="footer.jsp"></jsp:include>
 		</td>
