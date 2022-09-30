@@ -81,7 +81,7 @@ margin: auto;
 <!-- 책 일부 정보 표시 -->
 <table border="1">
 	<tr align = "center">
-		<td rowspan="4"><img src="./image/<%=bBean.getBk_image()%>"></td>
+		<td rowspan="4">이미지</td>
 		<td>책 일련번호</td>
 		<td colspan="3"><%=bBean.getBk_number()%></td>
 	</tr>
@@ -141,12 +141,12 @@ margin: auto;
 		
 		if(startPage > 10){
 	%>
-			<a align="center" href="mainSession.jsp?center=bkListPro.jsp&pageNum=<%=startPage - 10 %>">[previous]</a>
+			<a align="center" href="location.href='mainSession.jsp?center=bkListPro.jsp&pageNum=<%=startPage - 10 %>">[previous]</a>
 	<%
 		}
 			for(int i = startPage; i <= endPage; i++){
 	%>
-			<a align="center" href="mainSession.jsp?center=bkListPro.jsp&pageNum=<%=i %>">[<%=i %>]</a>
+			<a align="center" href="location.href='mainSession.jsp?center=bkListPro.jsp&pageNum=<%=i %>">[<%=i %>]</a>
 	<%
 			}
 			
@@ -154,7 +154,7 @@ margin: auto;
 		if(endPage < pagecount){
 			endPage = pagecount;		
 	%>
-			<a align="center" href="mainSession.jsp?center=bkListPro.jsp&pageNum=<%=startPage + 10 %>">[next]</a>
+			<a align="center" href="location.href='mainSession.jsp?center=bkListPro.jsp&pageNum=<%=startPage + 10 %>">[next]</a>
 	<%
 		}
 	}

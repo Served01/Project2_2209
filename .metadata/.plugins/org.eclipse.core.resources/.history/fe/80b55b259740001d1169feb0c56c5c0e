@@ -94,8 +94,8 @@ margin: auto;
 		<!-- <td> rowspan=4-->
 		<td>출판사</td>
 		<td><%=bBean.getBk_publisher()%></td>
-		<td>출간일</td>
-		<td><%=bBean.getBk_pubdate()%></td>
+		<td>출판사</td>
+		<td><%=bBean.getBk_publisher()%></td>
 	</tr>
 	<tr align = "center">
 		<!-- <td> rowspan=4 -->

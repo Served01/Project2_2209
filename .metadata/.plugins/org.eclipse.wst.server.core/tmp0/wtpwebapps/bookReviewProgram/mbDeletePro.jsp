@@ -38,12 +38,12 @@
 				alert("회원 정보 삭제에 실패하였습니다./n문의해 주십시오.");
 				history.go(-1);
 			</script>
-			<%} %>	
+			<%} 	
 		
 	}else{
-%>
+		%>
 	<script type="text/javascript">
-		alert("비밀번호가 틀립니다. 확인해 주세요.")
+		alert("비밀번호가 틀립니다. 확인해 주세요.");
 		history.back();//go(-1);
 	</script>		
 <%
