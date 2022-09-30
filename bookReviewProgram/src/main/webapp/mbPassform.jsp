@@ -16,7 +16,7 @@
 	if(id.equals(mb_id) || id.equals("admin")){
 
 	mbDAO mdao = new mbDAO();
-	mbBean mBean = mdao.oneselectmember(id);
+	mbBean mBean = mdao.oneselectmember(mb_id);
 %>
 	<h2 align="center">비밀번호 수정 화면</h2>
 	<form action="mbPassPro.jsp" method="post">
@@ -43,7 +43,7 @@
 						<input type="hidden" name="mb_id" value="<%=mBean.getMb_id()%>">
 						 <input type="submit" value="비밀번호 변경하기">&nbsp;&nbsp;
 						 <input type="button" value="회원정보조회" onclick="location.href='mbList.jsp?'" />
-						 <button onclick="location.href='mainSession.jsp?center=mbUpdateform.jsp&mb_id=<%=id%>'">회원정보 수정화면</button>
+						 <button onclick="location.href='mainSession.jsp?center=mbUpdateform.jsp&mb_id=<%=mBean.getMb_id()%>'">회원정보 수정화면</button>
 				   </td>
 				</tr>
 			</table>

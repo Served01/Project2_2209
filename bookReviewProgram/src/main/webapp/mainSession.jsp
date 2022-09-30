@@ -47,6 +47,8 @@
 	String bk_number = request.getParameter("bk_number");
 	String rv_id = request.getParameter("Rv_id");
 	String pageNum = request.getParameter("pageNum");
+	String mb_id = request.getParameter("mb_id");
+	
 	String url = null;
 	
 	if(center == null){
@@ -73,6 +75,13 @@
 		int pageNum2 = Integer.parseInt(pageNum);
 		
 		url = center+"? Rv_id='"+rv_id+"'&pageNum="+pageNum2;
+	} else if(center=="mbInsertform.jsp"){
+		
+		url = center+"? mb_id= '"+mb_id+"'";
+	} else if (center=="bkInsertform.jsp"){
+		
+		int bk_number2 = Integer.parseInt(bk_number);
+		url = center+"? bk_number=" +bk_number2;
 	}
 	
 	else {

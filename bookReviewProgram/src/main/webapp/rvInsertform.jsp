@@ -37,6 +37,10 @@ margin: auto;
 	bkDAO bdao = new bkDAO();
 	bkBean bBean = bdao.selectBook(rv_bknumber);
 	
+	
+	rvDAO rdao = new rvDAO();
+	double bk_score=rdao.getScore(rv_bknumber);
+	
 %>
 <table border="1">
 	<tr align = "center">
@@ -80,7 +84,14 @@ margin: auto;
 		</td>
 	</tr>
 	<tr align="center">
-		<td rowspan="2">평점:&nbsp;3</td>
+		<td rowspan="2">평점:&nbsp;
+		<%if(bk_score==0){%>
+			등록된 평점이 없습니다.
+		<%
+		} else { %>
+			<%=bk_score%>점
+		<%}%>
+		</td>
 		<td>장르</td>
 		<td>
 		<%if(bBean.getBk_genre()==0){%>	

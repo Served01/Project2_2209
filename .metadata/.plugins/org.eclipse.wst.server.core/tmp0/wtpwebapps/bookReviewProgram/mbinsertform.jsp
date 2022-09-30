@@ -18,7 +18,7 @@ margin: auto;
 
 <h2 align = "center">회원 가입 페이지</h2>
 
-<form action = "mbInsertform2.jsp" method = "post">
+<form action = "mainSession.jsp" method = "post">
 	<table border = "1">
 		<tr align = "center">
 			<td>ID</td>

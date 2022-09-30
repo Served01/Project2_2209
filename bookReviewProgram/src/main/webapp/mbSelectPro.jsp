@@ -11,9 +11,12 @@
 </head>
 <body>
 <%
-	
 	String id = (String)session.getAttribute("id");
-
+	String mb_id = request.getParameter("mb_id");
+	if(mb_id!=null){
+	id= mb_id;
+	}
+	
 	mbDAO mdao = new mbDAO();
 	mbBean mBean = mdao.oneselectmember(id);
 %>

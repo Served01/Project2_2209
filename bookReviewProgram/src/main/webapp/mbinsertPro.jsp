@@ -28,7 +28,8 @@
 		
 	mbDAO mdao = new mbDAO();
 	mdao.insertmember(mbean);
-	if (mdao.onecheckmember(mbean.getMb_id())==1){
+	int check = mdao.onecheckmember(mbean.getMb_id());
+	if (check==1){
 		%>
 		<script>
 			alert("회원가입에 성공하였습니다. 로그인 해 주십시오.");

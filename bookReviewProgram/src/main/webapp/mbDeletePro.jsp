@@ -12,7 +12,7 @@
 
 <%
 	request.setCharacterEncoding("utf-8");
-
+	String logout  = (String)session.getAttribute("id");
 	String id = request.getParameter("mb_id");
 	String password = request.getParameter("password");
 	
@@ -24,12 +24,15 @@
 		mdao.deletemember(id);
 		
 	if (mdao.onecheckmember(id)==-1){
-			%>
-			<script>
-				alert("회원 정보를 삭제하였습니다.");
-				location.href="mainSession.jsp";
-				//response.sendRedirect("mbList.jsp"); 관리자일 때
-			</script>
+		
+		session.setMaxInactiveInterval(0);
+		session.invalidate();
+		%>
+		<script>
+		location.href="mainSession.jsp";
+		alert("회원 정보를 삭제하였습니다.");
+		location.href="mainSession.jsp";
+		</script>
 			<%} else{ %>
 			<script>
 				alert("회원 정보 삭제에 실패하였습니다./n문의해 주십시오.");

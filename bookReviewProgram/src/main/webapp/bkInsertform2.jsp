@@ -71,7 +71,7 @@ margin: auto;
 	</tr>
 	<tr align = "center">
 		<td>이미지</td>
-		<td><button type="button">이미지 수정</button></td>
+		<td><input type="file" value="파일 선택" name="bk_image" /></td>
 	</tr>
 	<tr align = "center">
 		<td>지역</td>
@@ -113,9 +113,9 @@ margin: auto;
 	</tr>
 	<tr align="center">
 		<td colspan="2"> 				
-			<input type="submit" value="회원가입"/>&nbsp;&nbsp;
+			<input type="submit" value="저장"/>&nbsp;&nbsp;
 			<button type="button" onclick="location.href='mainSession.jsp'">취소</button>
-			
+			<input type="hidden" name="bk_number" value=<%=bk_number %> />
 	</tr>
 		
 </table>

@@ -85,7 +85,7 @@
 %>
 <script>
 	alert("책 정보를 입력하였습니다.");
-	history.go(-1);
+	location.href="mainSession.jsp"
 </script>
 <%} else{ %>
 <script>

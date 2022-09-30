@@ -16,7 +16,7 @@
 	if(id.equals(mb_id) || id.equals("admin")){
 	
 	mbDAO mdao = new mbDAO();
-	mbBean mBean = mdao.oneselectmember(id);
+	mbBean mBean = mdao.oneselectmember(mb_id);
 %>
 
 <h2 align="center">회원정보 수정 화면 구현</h2>
@@ -37,7 +37,12 @@
 				<input type="email" name="mb_email" value="<%=mBean.getMb_email() %>" required >
 			</td>
 		</tr>
-		
+		<tr align="center">
+			<td>전화번호</td>
+			<td>
+				<input type="text" name="mb_tel" value="<%=mBean.getMb_tel() %>" required >
+			</td>
+		</tr>
 		<tr align="center">
 			<td>성별</td>
 			<td>

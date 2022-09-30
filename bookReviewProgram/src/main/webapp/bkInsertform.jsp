@@ -27,7 +27,7 @@ margin: auto;
    } else {%>
 <h2 align = "center">책 정보 입력</h2>
 <!-- 책 상세정보 입력 -->
-<form action="bkInsertform2.jsp" method="post">
+<form action="mainSession.jsp" method="post">
 <table border="1">
 	<tr align = "center">
 	
@@ -93,6 +93,7 @@ margin: auto;
 		<td colspan="2"> 				
 			<button type="button" onclick="javascript:alert('일련번호 중복확인을 해주십시오.')">저장</button>&nbsp;&nbsp;
 			<button type="button" onclick="location.href='mainSession.jsp'">취소</button>
+			<input type="hidden" name="center" value="bkInsertform2.jsp">
 	</tr>
 		
 </table>

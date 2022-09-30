@@ -35,7 +35,7 @@ margin: auto;
 
 <h2 align = "center">회원 가입 페이지</h2>
 
-<form action = "mbInsertformPro.jsp" method = "post">
+<form action = "mbInsertPro.jsp" method = "post">
 	<table border = "1">
 		<tr align = "center">
 		
@@ -75,6 +75,7 @@ margin: auto;
 			<td colspan = "2">				
 				<button type="submit">회원가입</button>&nbsp;&nbsp;
 				<button type="button" onclick="location.href='mainSession.jsp'">취소</button>
+				<input type="hidden" name="mb_id" value=<%=mb_id %> />
 			</tr>
 	</table>
 </form>
