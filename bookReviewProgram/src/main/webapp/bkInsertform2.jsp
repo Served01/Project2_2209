@@ -16,7 +16,14 @@ margin: auto;
 </style>
 
 <body>
-<%
+<%	if((String)session.getAttribute("id")!="admin"){
+%>
+	<script>
+	alert("권한이 없거나 세션이 만료되었습니다.");
+	history.go(-1);
+	</script>
+<% 	
+   } else {
 
 	bkDAO bdao = new bkDAO();
 	String bk_number2 = request.getParameter("bk_number");
@@ -111,6 +118,6 @@ margin: auto;
 		
 </table>
 </form>
-<%} %>
+<%}} %>
 </body>
 </html>

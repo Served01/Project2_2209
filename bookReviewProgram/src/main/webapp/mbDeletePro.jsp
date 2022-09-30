@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원정보삭제</title>
+<title>회원정보 삭제 기능</title>
 </head>
 <body>
 

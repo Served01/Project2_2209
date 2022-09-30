@@ -56,10 +56,6 @@ margin: auto;
 			<td><input type = "text" name = "mb_name" placeholder="이름입력" required /></td>
 		</tr>
 		<tr align = "center">
-			<td>닉네임</td>
-			<td><input type = "text" name = "mb_nick" placeholder="닉네임입력" required /></td>
-		</tr>
-		<tr align = "center">
 			<td>이메일</td>
 			<td><input type = "email" name = "mb_email" placeholder="이메일입력" required /></td>
 		</tr>

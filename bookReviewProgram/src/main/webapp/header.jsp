@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="css/header.css">
 </script>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>header</title>
 
 </head>
 <body>

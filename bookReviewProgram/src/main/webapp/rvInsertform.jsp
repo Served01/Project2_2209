@@ -20,7 +20,14 @@ margin: auto;
 
 <body>
 
-<% 
+<%	if((String)session.getAttribute("id")==null){
+%>
+	<script>
+	alert("로그인을 먼저 해주시기 바랍니다.");
+	history.go(-1);
+	</script>
+<% 	
+   } else { 
 
 	int rv_bknumber= Integer.parseInt(request.getParameter("bk_number")); 
 	String rv_id = (String)session.getAttribute("id");
@@ -151,5 +158,6 @@ margin: auto;
 		</tr>
 	</table>
 </form>
+<%} %>
 </body>
 </html>

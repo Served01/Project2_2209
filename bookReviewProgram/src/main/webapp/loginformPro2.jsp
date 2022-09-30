@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>loginFormPro</title>
+<title>로그인 기능</title>
 </head>
 <body>
 <%

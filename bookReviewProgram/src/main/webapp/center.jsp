@@ -4,7 +4,7 @@
 <html lang="ko">
 	<head>
 		<meta charset="UTF-8">
-		<title>공지사항프리뷰</title>
+		<title>center</title>
 		<link rel="stylesheet" type="text/css" href="css/center.css">
 		<style type="text/css">
 			*{ padding: 0; margin: 0; }

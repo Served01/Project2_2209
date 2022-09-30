@@ -10,7 +10,7 @@
     <script src="https://kit.fontawesome.com/53a8c415f1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/loginForm.css">
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>로그인폼</title>
 </head>
 <body>
 		 <div class="wrap">

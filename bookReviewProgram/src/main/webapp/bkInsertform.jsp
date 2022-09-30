@@ -15,7 +15,14 @@ margin: auto;
 </style>
 
 <body>
-
+<%	if((String)session.getAttribute("id")!="admin"){
+%>
+	<script>
+	alert("권한이 없거나 세션이 만료되었습니다.");
+	history.go(-1);
+	</script>
+<% 	
+   } else {%>
 <h2 align = "center">책 정보 입력</h2>
 <!-- 책 상세정보 입력 -->
 <form action="bkInsertform2.jsp" method="post">
@@ -88,6 +95,6 @@ margin: auto;
 		
 </table>
 </form>
-
+<%} %>
 </body>
 </html>

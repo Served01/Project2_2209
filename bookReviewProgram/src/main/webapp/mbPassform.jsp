@@ -10,8 +10,16 @@
 <title>비밀번호 수정 화면</title>
 </head>
 <body>
-<%
-	String id = request.getParameter("mb_id");
+<%	if((String)session.getAttribute("id")!=request.getParameter("mb_id") || (String)session.getAttribute("id")!="admin"){
+%>
+	<script>
+	alert("권한이 없거나 세션이 만료되었습니다.");
+	history.go(-1);
+	</script>
+<% 	
+   } else {
+
+	String id = (String)session.getAttribute("id");
 
 	mbDAO mdao = new mbDAO();
 	mbBean mBean = mdao.oneselectmember(id);
@@ -47,5 +55,6 @@
 			</table>
 		</div>
 	</form>
+	<%} %>
 </body>
 </html>

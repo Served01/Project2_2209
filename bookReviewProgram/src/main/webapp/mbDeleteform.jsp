@@ -6,9 +6,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원정보 삭제 화면 구현</title>
+<title>회원정보 삭제 화면</title>
 </head>
 <body>
+<%	if((String)session.getAttribute("id")!="admin" || (String)session.getAttribute("id")!=request.getParameter("mb_id")){
+%>
+	<script>
+	alert("권한이 없거나 세션이 만료되었습니다.");
+	history.go(-1);
+	</script>
+<% 	
+   } else {%>
 <h2 align="center">회원정보 삭제 화면</h2>
 	<div align="center"> 
 	<form action="mbDeletePro.jsp" method="post">
@@ -34,5 +42,6 @@
 	</table>	
 	</form>
 </div>
+<%} %>
 </body>
 </html>

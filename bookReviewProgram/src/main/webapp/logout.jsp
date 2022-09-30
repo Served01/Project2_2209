@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title></title>
+<title>로그아웃 기능</title>
 </head>
 <body>
 <%

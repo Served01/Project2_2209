@@ -5,11 +5,10 @@ public class mbBean {
 	private String mb_id;
 	private String mb_pw;
 	private String mb_name;
-	private String mb_nick;
 	private String mb_email;
 	private String mb_tel;
 	private String mb_date;
-	private String mb_gender;	
+	private int mb_gender;	
 	
 	
 	public String getMb_id() {
@@ -30,12 +29,6 @@ public class mbBean {
 	public void setMb_name(String mb_name) {
 		this.mb_name = mb_name;
 	}
-	public String getMb_nick() {
-		return mb_nick;
-	}
-	public void setMb_nick(String mb_nick) {
-		this.mb_nick = mb_nick;
-	}
 	public String getMb_email() {
 		return mb_email;
 	}
@@ -54,10 +47,10 @@ public class mbBean {
 	public void setMb_date(String mb_date) {
 		this.mb_date = mb_date;
 	}
-	public String getMb_gender() {
+	public int getMb_gender() {
 		return mb_gender;
 	}
-	public void setMb_gender(String mb_gender) {
+	public void setMb_gender(int mb_gender) {
 		this.mb_gender = mb_gender;
 	}
 	

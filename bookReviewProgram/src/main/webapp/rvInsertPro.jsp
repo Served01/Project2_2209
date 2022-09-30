@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>리뷰 데이터 입력</title>
+<title>리뷰 데이터 입력 기능</title>
 </head>
 
 <body>

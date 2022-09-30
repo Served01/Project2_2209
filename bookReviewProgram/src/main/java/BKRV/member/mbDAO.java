@@ -38,15 +38,15 @@ public class mbDAO {
 		
 		try {
 		
-			String sql = "insert into member_info values (?,?,?,?,?,?,sysdate,?)";
+			String sql = "insert into member_info values (?,?,?,?,?,sysdate,?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, mBean.getMb_id());
 			pstmt.setString(2, mBean.getMb_pw());
 			pstmt.setString(3, mBean.getMb_name());
-			pstmt.setString(4, mBean.getMb_nick());
-			pstmt.setString(5, mBean.getMb_email());
-			pstmt.setString(6, mBean.getMb_tel());
-			pstmt.setString(7, mBean.getMb_gender());
+			
+			pstmt.setString(4, mBean.getMb_email());
+			pstmt.setString(5, mBean.getMb_tel());
+			pstmt.setInt(6, mBean.getMb_gender());
 			
 			pstmt.executeUpdate();
 		
@@ -74,10 +74,10 @@ public class mbDAO {
 					mBean.setMb_id(rs.getString(1));
 					mBean.setMb_pw(rs.getString(2));
 					mBean.setMb_name(rs.getString(3));
-					mBean.setMb_nick(rs.getString(4));
-					mBean.setMb_email(rs.getString(5));
-					mBean.setMb_tel(rs.getString(6));
-					mBean.setMb_gender(rs.getString(7));
+					
+					mBean.setMb_email(rs.getString(4));
+					mBean.setMb_tel(rs.getString(5));
+					mBean.setMb_gender(rs.getInt(6));
 					v.add(mBean);
 				}
 				conn.commit();
@@ -110,10 +110,10 @@ public class mbDAO {
 					mBean.setMb_id(rs.getString(1));
 					mBean.setMb_pw(rs.getString(2));				
 					mBean.setMb_name(rs.getString(3));
-					mBean.setMb_nick(rs.getString(4));
-					mBean.setMb_email(rs.getString(5));
-					mBean.setMb_tel(rs.getString(6));
-					mBean.setMb_gender(rs.getString(7));		
+					
+					mBean.setMb_email(rs.getString(4));
+					mBean.setMb_tel(rs.getString(5));
+					mBean.setMb_gender(rs.getInt(6));		
 			}		
 			conn.close();
 		}catch (SQLException e) {
@@ -153,11 +153,12 @@ public class mbDAO {
 			try {
 				getConnection();
 				
-				String sql = "update member_info set mb_email=?, mb_nick=? where mb_id=?";
+				String sql = "update member_info set mb_email=?, mb_gender=? where mb_id=?";
 				pstmt = conn.prepareStatement(sql);
 				
 				pstmt.setString(1, mBean.getMb_email());
-				pstmt.setString(2, mBean.getMb_nick());
+				
+				pstmt.setInt(2, mBean.getMb_gender());
 				pstmt.setString(3, mBean.getMb_id());
 				
 				pstmt.executeUpdate();
@@ -310,10 +311,10 @@ public class mbDAO {
 							mBean.setMb_id(rs.getString(1));
 							mBean.setMb_pw(rs.getString(2));				
 							mBean.setMb_name(rs.getString(3));
-							mBean.setMb_nick(rs.getString(4));
-							mBean.setMb_email(rs.getString(5));
-							mBean.setMb_tel(rs.getString(6));
-							mBean.setMb_gender(rs.getString(7));		
+							
+							mBean.setMb_email(rs.getString(4));
+							mBean.setMb_tel(rs.getString(5));
+							mBean.setMb_gender(rs.getInt(6));		
 								
 							mb.add(mBean);
 							}
