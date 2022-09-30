@@ -6,6 +6,7 @@
 <%@ page import="BKRV.book.bkDAO"%>
 <%@ page import="BKRV.book.bkBean"%>
 <%request.setCharacterEncoding("UTF-8");%>
+<%@ page session = "true" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,8 +21,16 @@ margin: auto;
 </style>
 
 <body>
+<%	String id = (String)session.getAttribute("id");
+	if(!id.equals("admin")){
+%>
+	<script>
+	alert("권한이 없거나 세션이 만료되었습니다.");
+	history.go(-1);
+	</script>
+<% 	
+   } else {
 
-<%
 	int bk_number = Integer.parseInt(request.getParameter("bk_number"));
 	
 	bkDAO bdao = new bkDAO();
@@ -156,6 +165,6 @@ margin: auto;
 		
 </table>
 </form>
-
+<%} %>
 </body>
 </html>

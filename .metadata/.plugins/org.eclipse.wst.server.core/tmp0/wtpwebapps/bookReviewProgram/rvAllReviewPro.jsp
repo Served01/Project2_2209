@@ -9,11 +9,12 @@
 <%@ page import="BKRV.review.rvBean" %>
 <%@ page import="java.util.Vector" %>  
 <%request.setCharacterEncoding("UTF-8");%>
+<%@ page session = "true" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>책 상세 정보 조회 화면</title>
+<title>전체 리뷰 조회</title>
 </head>
 
 <style>
@@ -23,7 +24,18 @@ margin: auto;
 </style>
 
 <body>
+<%	String id = (String)session.getAttribute("id");
 
+	if(!id.equals("admin")){
+%>
+	<script>
+	alert("권한이 없거나 세션이 만료되었습니다.");
+	history.go(-1);
+	</script>
+<% 	
+   } else {
+%>
+   
 <!-- 책 리뷰 목록 표시 -->
 
 <h2 align="center">전체 리뷰 목록</h2>
@@ -53,11 +65,11 @@ margin: auto;
 %>
 <table border="1">
 	<tr align="center">
-		<td>닉네임:&nbsp;<%=rbean.getRv_id() %></td>
+		<td>아이디:&nbsp;<%=rbean.getRv_id() %></td>
 		<td>평점:&nbsp;<%=rbean.getRv_score() %></td>
 		<td>
 		<button type="button" onclick="location.href='mainSession.jsp?center=bkUpdateform.jsp&bk_number=<%=bk_number%>'">수정</button>&nbsp;&nbsp;
-			<button type="button" onclick="javascript:deleteConfirm()">삭제</button>&nbsp;&nbsp;
+		<button type="button" onclick="javascript:deleteConfirm()">삭제</button>&nbsp;&nbsp;
 			<script>
 				function deleteConfirm(){
 					var rv_number = <%=rbean.getRv_number()%>;
@@ -84,7 +96,7 @@ margin: auto;
 		</td>
 	</tr>
 
-<%} }%>
+<%} }}%>
 </table>
 </body>
 </html>

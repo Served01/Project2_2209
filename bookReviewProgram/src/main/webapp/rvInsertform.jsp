@@ -5,6 +5,7 @@
 <%@ page import="BKRV.book.bkDAO" %>
 <%@ page import="BKRV.book.bkBean" %>
 <%	request.setCharacterEncoding("UTF-8");	%>
+<%@ page session = "true" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +21,8 @@ margin: auto;
 
 <body>
 
-<%	if((String)session.getAttribute("id")==null){
+<%	String id = (String)session.getAttribute("id");
+	if(id==null){
 %>
 	<script>
 	alert("로그인을 먼저 해주시기 바랍니다.");

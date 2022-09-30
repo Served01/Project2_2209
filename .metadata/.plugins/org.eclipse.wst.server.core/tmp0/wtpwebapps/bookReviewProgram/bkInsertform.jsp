@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page session = "true" %>
 <%@ page import="BKRV.book.bkDAO"%>
 <!DOCTYPE html>
 <html>
@@ -15,7 +16,15 @@ margin: auto;
 </style>
 
 <body>
-
+<%	String id = (String)session.getAttribute("id");
+	if(!id.equals("admin")){
+%>
+	<script>
+	alert("권한이 없거나 세션이 만료되었습니다.");
+	history.go(-1);
+	</script>
+<% 	
+   } else {%>
 <h2 align = "center">책 정보 입력</h2>
 <!-- 책 상세정보 입력 -->
 <form action="bkInsertform2.jsp" method="post">
@@ -88,6 +97,6 @@ margin: auto;
 		
 </table>
 </form>
-
+<%} %>
 </body>
 </html>

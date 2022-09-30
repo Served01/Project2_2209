@@ -1,16 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="BKRV.member.mbDAO" %>  
-<%@ page import="BKRV.member.mbBean" %>     
+<%@ page import="BKRV.member.mbBean" %> 
+<%@ page session = "true" %>    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원정보 수정 화면 구현</title>
+<title>회원정보 수정 화면</title>
 </head>
 <body>
-<%
-String id = request.getParameter("mb_id");
+<%	String id = (String)session.getAttribute("id");
+	String mb_id  = request.getParameter("mb_id");
+
+	if(id.equals(mb_id) || id.equals("admin")){
 	
 	mbDAO mdao = new mbDAO();
 	mbBean mBean = mdao.oneselectmember(id);
@@ -34,9 +37,18 @@ String id = request.getParameter("mb_id");
 				<input type="email" name="mb_email" value="<%=mBean.getMb_email() %>" required >
 			</td>
 		</tr>
+		
 		<tr align="center">
-			<td>닉네임</td>
-			<td><input type="text" name="mb_nick" value="<%=mBean.getMb_nick() %>" required ></td>
+			<td>성별</td>
+			<td>
+			<%if(mBean.getMb_gender()==1){ %>
+				<input type="radio" name="mb_gender" value="1" checked/>남자
+				<input type="radio" name="mb_gender" value="2"/>여자		
+			<%} else if(mBean.getMb_gender()==2) { %>	
+				<input type="radio" name="mb_gender" value="1" />남자
+				<input type="radio" name="mb_gender" value="2" checked />여자	
+			<%} %>		
+			</td>
 		</tr>
 		<tr align="center">
 			<td>비밀번호</td>
@@ -56,5 +68,11 @@ String id = request.getParameter("mb_id");
 	</table>
 </div>
 </form>
+<%} else{ %>
+	<script>
+	alert("권한이 없거나 세션이 만료되었습니다.");
+	history.go(-1);
+	</script>
+<% }%>
 </body>
 </html>

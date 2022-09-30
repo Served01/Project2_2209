@@ -2,13 +2,19 @@
     pageEncoding="UTF-8"%>
 <%@ page import="BKRV.member.mbDAO" %>  
 <%@ page import="BKRV.member.mbBean" %>  
+<%@ page session = "true" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원정보 삭제 화면 구현</title>
+<title>회원정보 삭제 화면</title>
 </head>
 <body>
+<%	String id = (String)session.getAttribute("id");
+	String mb_id = request.getParameter("mb_id");
+	if(id.equals("admin") || id.equals(mb_id)){
+%>
+	
 <h2 align="center">회원정보 삭제 화면</h2>
 	<div align="center"> 
 	<form action="mbDeletePro.jsp" method="post">
@@ -34,5 +40,11 @@
 	</table>	
 	</form>
 </div>
+<%} else {%>
+	<script>
+	alert("권한이 없거나 세션이 만료되었습니다.");
+	history.go(-1);
+	</script>
+<% }	%>
 </body>
 </html>

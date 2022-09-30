@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page session = "true" %>
 <%@ page import="BKRV.book.bkDAO"%>
 <!DOCTYPE html>
 <html>
@@ -15,7 +16,8 @@ margin: auto;
 </style>
 
 <body>
-<%	if((String)session.getAttribute("id")!="admin"){
+<%	String id = (String)session.getAttribute("id");
+	if(!id.equals("admin")){
 %>
 	<script>
 	alert("권한이 없거나 세션이 만료되었습니다.");

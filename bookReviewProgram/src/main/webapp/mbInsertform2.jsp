@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="BKRV.member.mbDAO"%>
+
 <%request.setCharacterEncoding("UTF-8");%>
 <!DOCTYPE html>
 <html>
@@ -17,7 +18,7 @@ margin: auto;
 
 <body>
 <%
-
+   
 	mbDAO mdao = new mbDAO();
 	String mb_id = request.getParameter("mb_id");
 	int check = mdao.duplecateMbid(mb_id);

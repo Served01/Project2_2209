@@ -5,6 +5,7 @@
 <%@ page import="BKRV.book.bkDAO"%>
 <%@ page import="BKRV.book.bkBean"%>
 <%@ page import="java.util.Vector" %>  
+<%@ page session = "true" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,9 +14,18 @@
 
 </head>
 <body>
+<%	String id = (String)session.getAttribute("id");
+	if(id==null){
+		%>
+		<script>
+		alert("권한이 없거나 세션이 만료되었습니다.");
+		history.go(-1);
+		</script>
+	<% 	
+	   } else {%>
 <h2 align="center">회원리뷰조회</h2>
-<%
-	String Rv_id = request.getParameter("Rv_id");
+ <% 
+	String Rv_id = (String)session.getAttribute("id");
 	
 	String column = "Rv_id";
 	String value = Rv_id;
@@ -65,11 +75,20 @@
 
 <table border="1" align="center">
 	<tr align="center">
-		<td>닉네임:&nbsp;<%=rBean.getRv_id() %></td>
+		<td>아이디:&nbsp;<%=rBean.getRv_id() %></td>
 		<td>평점:&nbsp;<%=rBean.getRv_score() %></td>
 		<td>
-		<button type="button">수정</button>
-		<button type="button">삭제</button>
+		<button type="button" onclick="location.href='mainSession.jsp?center=bkUpdateform.jsp&bk_number=<%=bk_number%>'">수정</button>&nbsp;&nbsp;
+		<button type="button" onclick="javascript:deleteConfirm()">삭제</button>&nbsp;&nbsp;
+			<script>
+				function deleteConfirm(){
+					var rv_number = <%=rBean.getRv_number()%>;
+					var isDelete = confirm("정말로 삭제하시겠습니까?");
+					if(isDelete){
+						location.href = "rvDeletePro.jsp?rv_number="+rv_number;
+					}
+				}
+			</script>
 		</td>
 	</tr>
 	<tr align="center">
@@ -118,12 +137,12 @@
 		
 		if(startPage > 10){
 	%>
-			<a align="center" href="mainSession.jsp?center=rvSelectMemberPro.jsp?Rv_id=<%=Rv_id %>&pageNum=<%=startPage - 10 %>">[previous]</a>
+			<a align="center" href="mainSession.jsp?center=rvSelectMemberPro.jsp?pageNum=<%=startPage - 10 %>">[previous]</a>
 	<% 
 		}
 			for(int i = startPage; i <= endPage; i++){
 	%>
-			<a align="center" href="mainSession.jsp?center=rvSelectMemberPro.jsp?Rv_id=<%=Rv_id %>&pageNum=<%=i %>">[<%=i %>]</a>
+			<a align="center" href="mainSession.jsp?center=rvSelectMemberPro.jsp?pageNum=<%=i %>">[<%=i %>]</a>
 	<%
 			}
 			
@@ -131,10 +150,10 @@
 		if(endPage < pagecount){
 			endPage = pagecount;		
 	%>
-			<a align="center" href="mainSession.jsp?center=rvSelectMemberPro.jsp?Rv_id=<%=Rv_id %>&pageNum=<%=startPage + 10 %>">[next]</a>
+			<a align="center" href="mainSession.jsp?center=rvSelectMemberPro.jsp?pageNum=<%=startPage + 10 %>">[next]</a>
 	<%
 		}
-	}}
+	}}}
 	%>
 	</div>
 	

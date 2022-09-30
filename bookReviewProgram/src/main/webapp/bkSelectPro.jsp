@@ -9,6 +9,7 @@
 <%@ page import="BKRV.review.rvBean" %>
 <%@ page import="java.util.Vector" %>  
 <%request.setCharacterEncoding("UTF-8");%>
+<%@ page session = "true" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,8 +26,9 @@ margin: auto;
 <body>
 
 <!-- bean이 없는 상태에서 가져올 때는 아래와 같이 이용 -->
-<%
-	int bk_number = Integer.parseInt(request.getParameter("bk_number"));
+<%	String id = (String)session.getAttribute("id");
+	
+    int bk_number = Integer.parseInt(request.getParameter("bk_number"));
 	
 	bkDAO bdao = new bkDAO();
 	bkBean bBean = bdao.selectBook(bk_number);
@@ -118,7 +120,7 @@ margin: auto;
 	</tr>
 	<tr align="center">
 		<td colspan="3"> 
-<%	if((String)session.getAttribute("id")=="admin"){	
+<%	if(id.equals("admin")){	
    } else {		%>		
 			<button type="button" onclick="location.href='mainSession.jsp?center=bkUpdateform.jsp&bk_number=<%=bk_number%>'">수정</button>&nbsp;&nbsp;
 			<button type="button" onclick="javascript:deleteConfirm()">삭제</button>&nbsp;&nbsp;
@@ -197,7 +199,7 @@ margin: auto;
 		<td>아이디:&nbsp;<%=rbean.getRv_id() %></td>
 		<td>평점:&nbsp;<%=rbean.getRv_score() %></td>
 		<td>
-		<%	if((String)session.getAttribute("id")=="admin" || (String)session.getAttribute("id")==rbean.getRv_id()){	
+		<%	if(id.equals("admin") || id.equals(rbean.getRv_id())){	
   		 } else {		%>		
 		<button type="button" onclick="location.href='mainSession.jsp?center=rvUpdateform.jsp&rv_number=<%=rbean.getRv_number() %>&rv_bknumber=<%=rbean.getRv_bknumber() %>&mb_id=<%=(String)session.getAttribute("id")%>'">수정</button>
 		<button type="button" onclick="javascript:rvdeleteConfirm()">삭제</button>&nbsp;&nbsp;

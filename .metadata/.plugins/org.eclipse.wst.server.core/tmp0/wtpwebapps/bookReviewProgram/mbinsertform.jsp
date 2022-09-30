@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,10 +39,6 @@ margin: auto;
 			<td><input type = "text" name = "mb_name" placeholder="이름입력" /></td>
 		</tr>
 		<tr align = "center">
-			<td>닉네임</td>
-			<td><input type = "text" name = "mb_nick" placeholder="닉네임입력" /></td>
-		</tr>
-		<tr align = "center">
 			<td>이메일</td>
 			<td><input type = "email" name = "mb_email" placeholder="이메일입력" /></td>
 		</tr>
@@ -60,6 +57,7 @@ margin: auto;
 			<td colspan = "2">				
 				<button type="button" onclick="javascript:alert('아이디 중복확인을 해주십시오.')">회원가입</button>&nbsp;&nbsp;
 				<button type="button" onclick="location.href='mainSession.jsp'">취소</button>
+				<input type="hidden" name="center" value="mbInsertform2.jsp"/>
 			</td>
 		</tr>
 	</table>

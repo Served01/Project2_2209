@@ -5,6 +5,7 @@
 <%@ page import="BKRV.book.bkDAO"%>
 <%@ page import="BKRV.book.bkBean"%>
 <%@ page import="java.util.Vector" %>  
+<%@ page session = "true" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +14,8 @@
 
 </head>
 <body>
-<%	if((String)session.getAttribute("id")==null){
+<%	String id = (String)session.getAttribute("id");
+	if(id==null){
 		%>
 		<script>
 		alert("권한이 없거나 세션이 만료되었습니다.");

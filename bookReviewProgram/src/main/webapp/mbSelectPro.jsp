@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="BKRV.member.mbDAO" %>  
-<%@ page import="BKRV.member.mbBean" %>      
+<%@ page import="BKRV.member.mbBean" %>    
+<%@ page session = "true" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +23,7 @@
 		<p align="right">
 		
 			<button onclick="location.href='mainSession.jsp?center=rvSelectMemberPro.jsp?rv_id=<%=id%>'">My review</button><!-- reviewSelectMemberPro.jsp.만들기 -->
-			<%	if((String)session.getAttribute("id")=="admin"){
+			<%	if(id.equals("admin")){
 			%>
 			<button onclick="location.href='mainSession.jsp?center=rvAllReviewPro.jsp'">리뷰목록</button><!-- reviewAllSelectMemberPro.jsp 만들기 -->
 			<button onclick="location.href='mainSession.jsp?center=mbList.jsp'">회원목록</button>
@@ -71,7 +72,7 @@
 			<td colspan="2">
 				<button onclick="location.href='mainSession.jsp?center=mbUpdateform.jsp&mb_id=<%=mBean.getMb_id()%>'">수정</button>
 				<button onclick="location.href='mainSession.jsp?center=mbDeleteform.jsp&mb_id=<%=mBean.getMb_id()%>'">삭제</button>
-				<button onclick="location.href='mainSession.jsp">메인페이지</button>
+				<button onclick="location.href='mainSession.jsp'">메인페이지</button>
 			</td>
 		</tr>
 	</table>

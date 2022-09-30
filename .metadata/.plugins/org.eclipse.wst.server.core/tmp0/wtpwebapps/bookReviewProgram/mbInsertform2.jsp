@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="BKRV.member.mbDAO"%>
+
 <%request.setCharacterEncoding("UTF-8");%>
 <!DOCTYPE html>
 <html>
@@ -17,7 +18,7 @@ margin: auto;
 
 <body>
 <%
-
+   
 	mbDAO mdao = new mbDAO();
 	String mb_id = request.getParameter("mb_id");
 	int check = mdao.duplecateMbid(mb_id);
@@ -34,7 +35,7 @@ margin: auto;
 
 <h2 align = "center">회원 가입 페이지</h2>
 
-<form action = "mbInsertform2.jsp" method = "post">
+<form action = "mbInsertformPro.jsp" method = "post">
 	<table border = "1">
 		<tr align = "center">
 		
@@ -54,10 +55,6 @@ margin: auto;
 		<tr align = "center">
 			<td>이름</td>
 			<td><input type = "text" name = "mb_name" placeholder="이름입력" required /></td>
-		</tr>
-		<tr align = "center">
-			<td>닉네임</td>
-			<td><input type = "text" name = "mb_nick" placeholder="닉네임입력" required /></td>
 		</tr>
 		<tr align = "center">
 			<td>이메일</td>

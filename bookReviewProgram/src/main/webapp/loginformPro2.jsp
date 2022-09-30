@@ -22,6 +22,7 @@
 	
 	if(check==1){
 		
+		
 		session.setAttribute("id", id);
 		session.setAttribute("pass", pass);
 		

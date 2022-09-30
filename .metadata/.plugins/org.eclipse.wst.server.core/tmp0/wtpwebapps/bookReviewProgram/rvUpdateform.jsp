@@ -5,6 +5,7 @@
 <%@ page import="BKRV.review.rvBean" %>
 <%@ page import="BKRV.book.bkDAO" %>
 <%@ page import="BKRV.book.bkBean" %>
+<%@ page session = "true" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,8 +20,9 @@ margin: auto;
 </style>
 
 <body>
+<%	String id = (String)session.getAttribute("id");
 
-<%
+	if(id.equals(request.getParameter("mb_id")) || id.equals("admin")){
 
 	int rv_number= Integer.parseInt(request.getParameter("rv_number"));
 	int rv_bknumber= Integer.parseInt(request.getParameter("rv_bknumber")); 
@@ -173,7 +175,7 @@ margin: auto;
 		<tr align="center">
 			<td colspan="2"> 				
 			<input type="submit" value="수정"/>&nbsp;&nbsp;
-			<button type="button">취소</button>
+			<button type="button" onclick = "location.href='mainSession.jsp?center=bkSelectPro.jsp&bk_number=<%=rv_bknumber%>'">취소</button>
 			<input type="hidden" name="rv_number" value=<%=rv_number%> />
 			<input type="hidden" name="rv_bknumber" value=<%=rv_bknumber%> />
 			<input type="hidden" name="rv_id" value=<%=rv_id%> />
@@ -181,5 +183,11 @@ margin: auto;
 		</tr>
 	</table>
 </form>
+<%} else{%>
+	<script>
+	alert("권한이 없거나 세션이 만료되었습니다.");
+	history.go(-1);
+	</script>
+<% 	} %>
 </body>
 </html>

@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ page import="BKRV.member.mbDAO" %>  
 <%@ page import="BKRV.member.mbBean" %>  
-<%@ page import="java.util.Vector" %>      
+<%@ page import="java.util.Vector" %> 
+<%@ page session = "true" %>     
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +18,16 @@ margin: auto;
 </style>
 
 <body>
-<%
+<%String id = (String)session.getAttribute("id"); %>
+<%	if(!id.equals("admin")){
+%>
+	<script>
+	alert("권한이 없거나 세션이 만료되었습니다.");
+	history.go(-1);
+	</script>
+<% 	
+   } else {
+
 	mbDAO mdao = new mbDAO();
 	
 	Vector<mbBean> vec = mdao.allselectmember();
@@ -65,7 +75,7 @@ margin: auto;
 	<tr align="center">
 		<td>ID</td>
 		<td>이름</td>
-		<td>닉네임</td>
+
 		<td>이메일</td>
 		<td>전화번호</td>
 		<td>성별</td>
@@ -80,10 +90,16 @@ margin: auto;
 	<tr align="center">
 		<td><a style="color:black" href="#" onclick="location.href='mainSession.jsp?center=mbSelectPro.jsp&mb_id=<%=mBean.getMb_id() %>'"><%=mBean.getMb_id() %></a></td>
 		<td><%=mBean.getMb_name() %></td>
-		<td><%=mBean.getMb_nick() %></td>
+		
 		<td><%=mBean.getMb_email() %></td>
 		<td><%=mBean.getMb_tel() %></td>
-		<td><%=mBean.getMb_gender() %></td>	
+		<td>
+		<%if(mBean.getMb_gender()==1){ %>
+		남성
+		<%} else if(mBean.getMb_gender()==2) {%>
+		여성
+		<%} %>
+		</td>	
 		<td><%=mBean.getMb_date() %></td>	
 	</tr>
 	<%}%>	
@@ -117,12 +133,12 @@ margin: auto;
 		
 		if(startPage > 10){
 	%>
-			<a align="center" href="mbList.jsp?pageNum=<%=startPage - 10 %>">[previous]</a>
+			<a align="center" href="mainSession.jsp?center=mbList.jsp&pageNum=<%=startPage - 10 %>">[previous]</a>
 	<%
 		}
 			for(int i = startPage; i <= endPage; i++){
 	%>
-			<a align="center" href="mbList.jsp?pageNum=<%=i %>">[<%=i %>]</a>
+			<a align="center" href="mainSession.jsp?center=mbList.jsp&pageNum=<%=i %>">[<%=i %>]</a>
 	<%
 			}
 			
@@ -130,12 +146,12 @@ margin: auto;
 		if(endPage < pagecount){
 			endPage = pagecount;		
 	%>
-			<a align="center" href="mbList.jsp?pageNum=<%=startPage + 10 %>">[next]</a>
+			<a align="center" href="mainSession.jsp?center=mbList.jsp&pageNum=<%=startPage + 10 %>">[next]</a>
 	<%
 		}
 	}
 	%>
 	</div>
-	
+<%} %>
 </body>
 </html>

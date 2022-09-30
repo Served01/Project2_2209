@@ -9,6 +9,7 @@
 <%@ page import="BKRV.review.rvBean" %>
 <%@ page import="java.util.Vector" %>  
 <%request.setCharacterEncoding("UTF-8");%>
+<%@ page session = "true" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +27,15 @@ margin: auto;
 
 
 
-<%	
+<%	String id = (String)session.getAttribute("id");
+	if(!id.equals("admin")){
+%>
+	<script>
+	alert("권한이 없거나 세션이 만료되었습니다.");
+	history.go(-1);
+	</script>
+<% 	
+   } else {
 	bkDAO bdao = new bkDAO();
 	Vector<bkBean> bkVec = bdao.selectAllBookList();
 	
@@ -132,12 +141,12 @@ margin: auto;
 		
 		if(startPage > 10){
 	%>
-			<a align="center" href="bkListPro.jsp?pageNum=<%=startPage - 10 %>">[previous]</a>
+			<a align="center" href="location.href='mainSession.jsp?center=bkListPro.jsp&pageNum=<%=startPage - 10 %>">[previous]</a>
 	<%
 		}
 			for(int i = startPage; i <= endPage; i++){
 	%>
-			<a align="center" href="bkListPro.jsp?pageNum=<%=i %>">[<%=i %>]</a>
+			<a align="center" href="location.href='mainSession.jsp?center=bkListPro.jsp&pageNum=<%=i %>">[<%=i %>]</a>
 	<%
 			}
 			
@@ -145,12 +154,12 @@ margin: auto;
 		if(endPage < pagecount){
 			endPage = pagecount;		
 	%>
-			<a align="center" href="bkListPro.jsp?pageNum=<%=startPage + 10 %>">[next]</a>
+			<a align="center" href="location.href='mainSession.jsp?center=bkListPro.jsp&pageNum=<%=startPage + 10 %>">[next]</a>
 	<%
 		}
 	}
 	%>
 	</div>
-<%} %>
+<%} }%>
 </body>
 </html>

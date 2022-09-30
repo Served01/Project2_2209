@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="BKRV.member.mbDAO"%>
 <%@ page import="BKRV.member.mbBean"%>
+<%@ page session = "true" %>
 <%request.setCharacterEncoding("UTF-8");%>
 <!DOCTYPE html>
 <html>
@@ -10,10 +11,9 @@
 <title>비밀번호 수정 화면</title>
 </head>
 <body>
-<%	if((String)session.getAttribute("id")==request.getParameter("mb_id") || (String)session.getAttribute("id")=="admin"){
-
-
-	String id = (String)session.getAttribute("id");
+<%	String id = (String)session.getAttribute("id");
+	String mb_id = request.getParameter("mb_id");
+	if(id.equals(mb_id) || id.equals("admin")){
 
 	mbDAO mdao = new mbDAO();
 	mbBean mBean = mdao.oneselectmember(id);

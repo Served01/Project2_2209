@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>책 정보 삭제</title>
+<title>검색 결과 없음</title>
 </head>
 <body>
 

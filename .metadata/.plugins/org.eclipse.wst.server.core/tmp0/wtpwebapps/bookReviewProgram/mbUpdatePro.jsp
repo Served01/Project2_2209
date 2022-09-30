@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원 정보 수정 구현</title>
+<title>회원 정보 수정 기능</title>
 </head>
 <body>
 <%

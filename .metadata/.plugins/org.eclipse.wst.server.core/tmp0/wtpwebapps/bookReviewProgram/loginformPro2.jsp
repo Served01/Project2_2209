@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>loginFormPro</title>
+<title>로그인 기능</title>
 </head>
 <body>
 <%
@@ -21,6 +21,7 @@
 	int check = mdao.login(id, pass);
 	
 	if(check==1){
+		
 		
 		session.setAttribute("id", id);
 		session.setAttribute("pass", pass);

@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ page import="BKRV.member.mbDAO" %>  
 <%@ page import="BKRV.member.mbBean" %>  
-<%@ page import="java.util.Vector" %>      
+<%@ page import="java.util.Vector" %> 
+<%@ page session = "true" %>     
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +18,8 @@ margin: auto;
 </style>
 
 <body>
-<%	if((String)session.getAttribute("id")!="admin"){
+<%String id = (String)session.getAttribute("id"); %>
+<%	if(!id.equals("admin")){
 %>
 	<script>
 	alert("권한이 없거나 세션이 만료되었습니다.");

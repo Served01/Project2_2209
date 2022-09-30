@@ -5,6 +5,7 @@
 <%@ page import="BKRV.review.rvBean" %>
 <%@ page import="BKRV.book.bkDAO" %>
 <%@ page import="BKRV.book.bkBean" %>
+<%@ page session = "true" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +20,9 @@ margin: auto;
 </style>
 
 <body>
-<%	if((String)session.getAttribute("id")==request.getParameter("mb_id") || (String)session.getAttribute("id")=="admin"){
+<%	String id = (String)session.getAttribute("id");
+
+	if(id.equals(request.getParameter("mb_id")) || id.equals("admin")){
 
 	int rv_number= Integer.parseInt(request.getParameter("rv_number"));
 	int rv_bknumber= Integer.parseInt(request.getParameter("rv_bknumber")); 

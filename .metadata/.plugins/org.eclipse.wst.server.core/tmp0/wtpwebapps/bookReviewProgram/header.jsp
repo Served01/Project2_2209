@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page session = "true" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,11 +12,11 @@
     <link rel="stylesheet" type="text/css" href="css/header.css">
 </script>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>header</title>
 
 </head>
 <body>
-
+<% String id = (String)session.getAttribute("id");%>
 	  <div class="navbar">    
         <div class="navbar_logo">
             <i class="fa-solid fa-book"></i>
@@ -35,12 +36,12 @@
             <button type="submit">검색</button>
         </div>
     </form>
-<%if((String)session.getAttribute("id")==null){ %>
+<%if(id==null){ %>
     <ul class="navbar_links">
             <a href="#" onclick="location.href='loginform.jsp'">로그인</a>
             <a href="#" onclick="location.href='mainSession.jsp?center=mbInsertform.jsp'">회원가입</a>
     </ul>
-<%} else if((String)session.getAttribute("id")!=null){ %>      
+<%} else if(id!=null){ %>      
      <ul class="navbar_links">
             <a href="#" onclick="javascript:logoutFunction()">로그아웃</a>
             <script>

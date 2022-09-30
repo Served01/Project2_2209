@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>비밀번호 변경 처리 프로세스</title>
+<title>비밀번호 수정 기능</title>
 </head>
 <body>
 	

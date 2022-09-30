@@ -10,6 +10,7 @@
 <%@ page import="com.oreilly.servlet.MultipartRequest" %> <!-- request 대신 -->
 <%@ page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %> <!-- 파일이름 중복을 피할 수 있도록 -->
 <%request.setCharacterEncoding("UTF-8");%>
+<%@ page session = "true" %>
 <!DOCTYPE html>
 <html>
 <head>
