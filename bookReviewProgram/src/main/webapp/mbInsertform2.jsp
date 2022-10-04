@@ -7,15 +7,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/updateform.css">
 <title>회원가입 페이지</title>
 </head>
-
-<style>
-table{
-margin: auto;
-}
-</style>
-
 <body>
 <%
    
@@ -36,13 +30,13 @@ margin: auto;
 <h2 align = "center">회원 가입 페이지</h2>
 
 <form action = "mbInsertPro.jsp" method = "post">
-	<table border = "1">
+	<table border = "1" class = "update">
 		<tr align = "center">
 		
 			<td>ID</td>
 			<td><input type="text" name="mb_id" value="<%=mb_id %>" disabled />
 				&nbsp; &nbsp;
-				<button type="submit">중복확인</button></td>
+				<button type="submit" class = "button">중복확인</button></td>
 		</tr>
 		<tr align = "center">
 			<td>PW</td>
@@ -73,8 +67,8 @@ margin: auto;
 		</tr>
 		<tr height = "40" align = "center">
 			<td colspan = "2">				
-				<button type="submit">회원가입</button>&nbsp;&nbsp;
-				<button type="button" onclick="location.href='mainSession.jsp'">취소</button>
+				<button type="submit" class = "button">회원가입</button>&nbsp;&nbsp;
+				<button type="button" class = "button" onclick="location.href='mainSession.jsp'">취소</button>
 				<input type="hidden" name="mb_id" value=<%=mb_id %> />
 			</tr>
 	</table>

@@ -14,15 +14,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/updateform.css">
 <title>책 상세 정보 조회 화면</title>
 </head>
-
-<style>
-table{
-margin: auto;
-}
-</style>
-
 <body>
 
 <!-- bean이 없는 상태에서 가져올 때는 아래와 같이 이용 -->
@@ -40,7 +34,7 @@ margin: auto;
 %>
 
 <!-- 책 상세 정보 표시 -->
-<table border="1">
+<table border="1" class= "update">
 	<tr align = "center" height="360" width="1150">
 		<td rowspan="6"><div style="height:100%; width:100%;"><img src="/image/<%=bBean.getBk_image()%>" height="100%" width="100%"></div></td>
 		<td>일련번호</td>
@@ -133,8 +127,8 @@ margin: auto;
 		<td colspan="3"> 
 <%	if(id.equals("admin")){	
    		%>		
-			<button type="button" onclick="location.href='mainSession.jsp?center=bkUpdateform.jsp&bk_number=<%=bk_number%>'">수정</button>&nbsp;&nbsp;
-			<button type="button" onclick="javascript:deleteConfirm()">삭제</button>&nbsp;&nbsp;
+			<button type="button" class = "button" onclick="location.href='mainSession.jsp?center=bkUpdateform.jsp&bk_number=<%=bk_number%>'">수정</button>&nbsp;&nbsp;
+			<button type="button" class = "button" onclick="javascript:deleteConfirm()">삭제</button>&nbsp;&nbsp;
 			<script>
 				function deleteConfirm(){
 					var bk_number = <%=bk_number%>;
@@ -145,7 +139,7 @@ margin: auto;
 				}
 			</script>
 			<%} else{} %>
-			<button type="button" onclick="javascript:history.go(-1)">이전</button>
+			<button type="button" class = "button" onclick="javascript:history.go(-1)">이전</button>
 	</tr>	
 </table>
 
@@ -158,7 +152,7 @@ margin: auto;
 <hr>
 <h2 align="center">리뷰</h2>
 <p align="center">
-	<button type="button" onclick="location.href='mainSession.jsp?center=rvInsertform.jsp&bk_number=<%=bBean.getBk_number() %>'">리뷰 등록</button>
+	<button type="button" class = "button" onclick="location.href='mainSession.jsp?center=rvInsertform.jsp&bk_number=<%=bBean.getBk_number() %>'">리뷰 등록</button>
 </p>
 
 <% 	
@@ -204,15 +198,15 @@ margin: auto;
 
 
 
-<table border="1">
-	<tr align="center">
+<table border="1" class= "update" width="100%">
+	<tr align="center" >
 		<td>아이디:&nbsp;<%=rbean.getRv_id() %></td>
 		<td>평점:&nbsp;<%=rbean.getRv_score() %></td>
 		<td>
 		<%	if(id.equals("admin") || id.equals(rbean.getRv_id())){	
   		  	%>		
-		<button type="button" onclick="location.href='mainSession.jsp?center=rvUpdateform.jsp&rv_number=<%=rbean.getRv_number() %>&rv_bknumber=<%=rbean.getRv_bknumber() %>&mb_id=<%=(String)session.getAttribute("id")%>'">수정</button>
-		<button type="button" onclick="javascript:rvdeleteConfirm()">삭제</button>&nbsp;&nbsp;
+		<button type="button" class = "button" onclick="location.href='mainSession.jsp?center=rvUpdateform.jsp&rv_number=<%=rbean.getRv_number() %>&rv_bknumber=<%=rbean.getRv_bknumber() %>&mb_id=<%=(String)session.getAttribute("id")%>'">수정</button>
+		<button type="button" class = "button" onclick="javascript:rvdeleteConfirm()">삭제</button>&nbsp;&nbsp;
 			<script>
 				function rvdeleteConfirm(){
 					
@@ -235,7 +229,7 @@ margin: auto;
 		</td>
 	</tr>
 	<tr>
-		<td colspan="3">
+		<td colspan="3" height="200">
 		<%=rbean.getRv_content()%>
 		</td>
 	</tr>

@@ -10,15 +10,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/updateform.css">
 <title>리뷰 데이터 입력 페이지</title>
 </head>
-
-<style>
-table{
-margin: auto;
-}
-</style>
-
 <body>
 
 <%	String id = (String)session.getAttribute("id");
@@ -42,7 +36,7 @@ margin: auto;
 	double bk_score=rdao.getScore(rv_bknumber);
 	
 %>
-<table border="1">
+<table border="1" class = "update">
 	<tr align = "center" height="230" width="1150">
 		<td rowspan="6" width="250"><div style="height:100%; width:100%;"><img src="/image/<%=bBean.getBk_image()%>" height="100%" width="100%"></div></td>
 		<td>일련번호</td>
@@ -138,7 +132,7 @@ margin: auto;
 <h2 align="center">리뷰 작성</h2>
 
 <form action="rvInsertPro.jsp" method="post">
-	<table border="1">
+	<table border="1" class="update" width="100%">
 		<tr align="center">
 			<td>리뷰 작성자</td>
 			<td><%=rv_id %></td>
@@ -156,7 +150,7 @@ margin: auto;
 		<tr align="center">
 			<td>내용</td>
 			<td>
-			<textarea rows="10" cols="67" name="rv_content"  required ></textarea>
+			<textarea  rows="10" cols="100" name="rv_content"  required ></textarea>
 			</td>
 		</tr>
 		
@@ -164,9 +158,9 @@ margin: auto;
 			<td colspan="2">
 				<input type="hidden" name="rv_bknumber" value=<%=rv_bknumber %> />
 				<input type="hidden" name="rv_id" value=<%=rv_id %> />
-				<input type="submit" value="등록"/>&nbsp;&nbsp;
-				<input type="button" value="취소"/>&nbsp;&nbsp;
-				<input type="button" value="뒤로가기" onclick="location.href='history.back()'" />
+				<input type="submit" class = "button" value="등록"/>&nbsp;&nbsp;
+				<input type="button" class = "button" value="취소"/>&nbsp;&nbsp;
+				<input type="button" class = "button" value="뒤로가기" onclick="javascript:history.go(-1)" />
 			</td>
 		</tr>
 	</table>

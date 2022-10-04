@@ -8,15 +8,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/updateform.css">
 <title>전체 회원 목록 보기 화면</title>
 </head>
-
-<style>
-table{
-margin: auto;
-}
-</style>
-
 <body>
 <%String id = (String)session.getAttribute("id"); %>
 <%	if(!id.equals("admin")){
@@ -61,8 +55,8 @@ margin: auto;
 
 <h2 align="center">전체 회원 정보 조회</h2>
 <p align="center">
-<input type="button" value="마이페이지" onclick="location.href='mainSession.jsp?center=mbSelectPro.jsp&mb_id=<%=request.getParameter("mb_id") %>'" />&nbsp;&nbsp;
-<button onclick="location.href='mainSession.jsp'">메인 페이지</button>
+<input type="button" class = "button" value="마이페이지" onclick="location.href='mainSession.jsp?center=mbSelectPro.jsp'" />&nbsp;&nbsp;
+<button class = "button" onclick="location.href='mainSession.jsp'">메인 페이지</button>
 </p>
 <br>
 
@@ -71,7 +65,7 @@ margin: auto;
 <%} else{%>
 
 
-<table border="1" width="1000">
+<table border="1" width="1000" class = "update">
 	<tr align="center">
 		<td height="10" width="100">ID</td>
 		<td height="10" width="100">이름</td>
@@ -87,7 +81,7 @@ margin: auto;
 	%>
 	
 	<tr align="center">
-		<td><a style="color:black" href="#" onclick="location.href='mainSession.jsp?center=mbSelectPro.jsp&mb_id=<%=mBean.getMb_id() %>'"><%=mBean.getMb_id() %></a></td>
+		<td><a style="color:pink" href="#" onclick="location.href='mainSession.jsp?center=mbSelectPro.jsp&mb_id=<%=mBean.getMb_id() %>'"><%=mBean.getMb_id() %></a></td>
 		<td><%=mBean.getMb_name() %></td>
 		
 		<td><%=mBean.getMb_email() %></td>

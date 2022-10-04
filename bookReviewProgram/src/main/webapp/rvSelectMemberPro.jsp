@@ -10,8 +10,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/updateform.css">
 <title>회원의 리뷰 목록</title>
-
 </head>
 <body>
 <%	String id = (String)session.getAttribute("id");
@@ -73,13 +73,13 @@
 		
 %>
 
-<table border="1" align="center">
+<table border="1" class = "update" align="center" width="100%">
 	<tr align="center">
 		<td>아이디:&nbsp;<%=rBean.getRv_id() %></td>
 		<td>평점:&nbsp;<%=rBean.getRv_score() %></td>
 		<td>
-		<button type="button" onclick="location.href='mainSession.jsp?center=bkUpdateform.jsp&bk_number=<%=bk_number%>'">수정</button>&nbsp;&nbsp;
-		<button type="button" onclick="javascript:deleteConfirm()">삭제</button>&nbsp;&nbsp;
+		<button type="button" class = "button" onclick="location.href='mainSession.jsp?center=bkUpdateform.jsp&bk_number=<%=bk_number%>'">수정</button>&nbsp;&nbsp;
+		<button type="button" class = "button" onclick="javascript:deleteConfirm()">삭제</button>&nbsp;&nbsp;
 			<script>
 				function deleteConfirm(){
 					var rv_number = <%=rBean.getRv_number()%>;
@@ -101,7 +101,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td colspan="3">
+		<td colspan="3" height="150">
 		<%=rBean.getRv_content()%>
 		</td>
 	</tr>

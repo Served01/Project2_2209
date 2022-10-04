@@ -10,15 +10,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/updateform.css">
 <title>리뷰 수정 페이지</title>
 </head>
-
-<style>
-table{
-margin: auto;
-}
-</style>
-
 <body>
 <%	String id = (String)session.getAttribute("id");
 
@@ -30,12 +24,13 @@ margin: auto;
 	
 	rvDAO rdao = new rvDAO();
 	rvBean rbean = rdao.updateOneSelectReview(rv_number, rv_bknumber, rv_id);
+	double bk_score = rdao.getScore(rv_bknumber);
 	
 	bkDAO bdao = new bkDAO();
 	bkBean bBean = bdao.selectBook(rv_bknumber);
 	
 %>
-<table border="1">
+<table border="1" class = "update">
 	<tr align = "center">
 		<td rowspan="6"><div style="height:100%; width:100%;"><img src="/image/<%=bBean.getBk_image()%>" height="100%" width="100%"></div></td>
 		<td>일련번호</td>
@@ -77,7 +72,13 @@ margin: auto;
 		</td>
 	</tr>
 	<tr align="center">
-		<td rowspan="2">평점:&nbsp;3</td>
+		<td rowspan="2">평점:&nbsp;
+		<%if(bk_score==0){%>
+			등록된 평점이 없습니다.
+		<%
+		} else { %>
+			<%=bk_score%>점
+		<%}%></td>
 		<td>장르</td>
 		<td>
 		<%if(bBean.getBk_genre()==0){%>	
@@ -121,7 +122,7 @@ margin: auto;
 <hr>
 	<h2 align="center">리뷰 수정</h2>
 <form action="rvUpdatePro.jsp" method="post">
-	<table border="1">
+	<table border="1" class = "update">
 		<tr align="center">
 			<td>리뷰 작성자</td>
 			<td><%=rbean.getRv_id() %></td>
@@ -174,8 +175,8 @@ margin: auto;
 		</tr>
 		<tr align="center">
 			<td colspan="2"> 				
-			<input type="submit" value="수정"/>&nbsp;&nbsp;
-			<button type="button" onclick = "location.href='mainSession.jsp?center=bkSelectPro.jsp&bk_number=<%=rv_bknumber%>'">취소</button>
+			<input type="submit" class = "button" value="수정"/>&nbsp;&nbsp;
+			<button type="button" class = "button" onclick = "location.href='mainSession.jsp?center=bkSelectPro.jsp&bk_number=<%=rv_bknumber%>'">취소</button>
 			<input type="hidden" name="rv_number" value=<%=rv_number%> />
 			<input type="hidden" name="rv_bknumber" value=<%=rv_bknumber%> />
 			<input type="hidden" name="rv_id" value=<%=rv_id%> />

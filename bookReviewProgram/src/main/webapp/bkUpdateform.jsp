@@ -11,10 +11,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/updateform.css">
 <title>책 정보 수정</title>
 </head>
-</style>
-
 <body>
 <%	String id = (String)session.getAttribute("id");
 	if(!id.equals("admin")){
@@ -35,7 +34,7 @@
 
 <h2 align = "center">책 정보 수정 페이지</h2>
 
-<form action="bkUpdatePro.jsp" method="post" enctype="multipart/form-data">
+<form action="bkUpdatePro.jsp" method="post" enctype="multipart/form-data" class = "update">
 <table border="1" class="update">
 	<tr align = "center">
 		<td><h4>일련번호</h4></td>
@@ -154,8 +153,8 @@
 	</tr>
 	<tr align="center">
 		<td colspan="2"> 				
-			<input type="submit" value="수정" class="button"/>&nbsp;&nbsp;
-			<button type="button" class="button" onclick="javascript:history.go(-1)">취소</button>
+			<input type="submit" class= "button" value="수정"/>&nbsp;&nbsp;
+			<button type="button" class= "button"onclick="javascript:history.go(-1)">취소</button>
 			<input type="hidden" name="bk_number" value=<%=bBean.getBk_number()%> />
 	</tr>
 		

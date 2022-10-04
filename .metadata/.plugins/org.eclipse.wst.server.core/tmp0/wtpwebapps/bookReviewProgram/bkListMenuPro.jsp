@@ -13,15 +13,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/updateform.css">
 <title>메뉴용 책 리스트 조회 화면</title>
 </head>
-
-<style>
-table{
-margin: auto;
-}
-</style>
-
 <body>
 
 <!-- bean이 없는 상태에서 가져올 때는 아래와 같이 이용 -->
@@ -74,10 +68,10 @@ margin: auto;
 		
 			String bk_title= bBean.getBk_title();
 	%>
-%>
+
 
 <!-- 책 일부 정보 표시 -->
-<table border="1">
+<table border="1" class= "update">
 	<tr align = "center" height="80" width="1150">
 		<td rowspan="4" width="250"><div style="height:100%; width:100%;"><img src="/image/<%=bBean.getBk_image()%>" height="100%" width="100%"></div></td>
 		<td height="20" width="200">책 일련번호</td>
@@ -86,7 +80,7 @@ margin: auto;
 	<tr align = "center">
 		<!-- <td> rowspan=4 -->
 		<td height="20" width="200">책 제목</td>
-		<td height="20" width="400"><%=bBean.getBk_title()%></td>
+		<td height="20" width="400"><a style="color:pink" href="#" onclick="location.href='mainSession.jsp?center=bkSelectPro.jsp&bk_number=<%=bBean.getBk_number()%>'"><%=bk_title %></a></td>
 		<td height="20" width="200">책 저자</td>
 		<td height="20" width="400"><%=bBean.getBk_writer()%></td>
 	</tr>

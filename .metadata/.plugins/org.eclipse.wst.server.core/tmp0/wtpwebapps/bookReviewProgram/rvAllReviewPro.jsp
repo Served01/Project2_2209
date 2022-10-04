@@ -14,15 +14,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/updateform.css">
 <title>전체 리뷰 조회</title>
 </head>
-
-<style>
-table{
-margin: auto;
-}
-</style>
-
 <body>
 <%	String id = (String)session.getAttribute("id");
 
@@ -40,8 +34,8 @@ margin: auto;
 
 <h2 align="center">전체 리뷰 목록</h2>
 
-<input type="button" value="마이페이지" onclick="location.href='mainSession.jsp?center=mbSelectPro.jsp&mb_id=<%=request.getParameter("mb_id") %>'" />&nbsp;&nbsp;
-<button onclick="location.href='mainSession.jsp'">메인 페이지</button>
+<input type="button" class = "button" value="마이페이지" onclick="location.href='mainSession.jsp?center=mbSelectPro.jsp&mb_id=<%=request.getParameter("mb_id") %>'" />&nbsp;&nbsp;
+<button class = "button" onclick="location.href='mainSession.jsp'">메인 페이지</button>
 <br><br>
 
 <%
@@ -63,7 +57,7 @@ margin: auto;
 		String bk_title = bdao.selecttitleBook(bk_number);
 		
 %>
-<table border="1">
+<table border="1" class = "update">
 	<tr align="center" height="230" width="1150">
 		<td height="10" width="200">아이디:&nbsp;<%=rbean.getRv_id() %></td>
 		<td height="10" width="200">평점:&nbsp;<%=rbean.getRv_score() %></td>

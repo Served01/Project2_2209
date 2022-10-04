@@ -7,15 +7,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/updateform.css">
 <title>책 정보 입력 페이지</title>
 </head>
-
-<style>
-table{
-margin: auto;
-}
-</style>
-
 <body>
 <%	String id = (String)session.getAttribute("id");
 	if(!id.equals("admin")){
@@ -45,13 +39,13 @@ margin: auto;
 <h2 align = "center">책 정보 입력</h2>
 <!-- 책 상세정보 입력 -->
 <form action="bkInsertPro.jsp" method="post" enctype="multipart/form-data">
-<table border="1">
+<table border="1"  class= "update">
 	<tr align = "center">
 	
 		<td>일련번호</td>
 		<td><input type="text" name="bk_number" value = <%= bk_number%> disabled />
 			&nbsp; &nbsp;
-			<button type="button" onclick="javascript:alert('사용가능한 일련번호로 확인되었습니다.')">중복확인</button></td>
+			<button type="button" class = "button" onclick="javascript:alert('사용가능한 일련번호로 확인되었습니다.')">중복확인</button></td>
 	</tr>
 	<tr align = "center">
 		<td>제목</td>
@@ -113,8 +107,8 @@ margin: auto;
 	</tr>
 	<tr align="center">
 		<td colspan="2"> 				
-			<input type="submit" value="저장"/>&nbsp;&nbsp;
-			<button type="button" onclick="location.href='mainSession.jsp'">취소</button>
+			<input type="submit" class= "button" value="저장"/>&nbsp;&nbsp;
+			<button type="button" class= "button" onclick="location.href='mainSession.jsp'">취소</button>
 			<input type="hidden" name="bk_number" value=<%=bk_number %> />
 	</tr>
 		

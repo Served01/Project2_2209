@@ -7,6 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/updateform.css">
 <title>회원정보 삭제 화면</title>
 </head>
 <body>
@@ -18,7 +19,7 @@
 <h2 align="center">회원정보 삭제 화면</h2>
 	<div align="center"> 
 	<form action="mbDeletePro.jsp" method="post">
-	<table border="1">
+	<table border="1" class= "update">
 		<tr align="center">
 			<td>아이디</td>
 			<td><%=request.getParameter("mb_id") %></td> 
@@ -32,9 +33,9 @@
 		<tr>
 			<td align="center" colspan="2"> 
 				<input type="hidden" name="mb_id" value="<%=request.getParameter("mb_id") %>">
-				<input type="submit" value="회원정보삭제">&nbsp;&nbsp;		
-				<input type="button" value="회원목록보기" onclick="location.href='mbList.jsp'"/>&nbsp;&nbsp;	
-				<input type="button" value="마이페이지" onclick="location.href='mainSession.jsp?center=mbSelectPro.jsp&mb_id=<%=request.getParameter("mb_id") %>'" />
+				<input type="submit" class = "button" value="회원정보삭제">&nbsp;&nbsp;		
+				<input type="button" class = "button" value="회원목록보기" onclick="location.href='mbList.jsp'"/>&nbsp;&nbsp;	
+				<input type="button" class = "button" value="마이페이지" onclick="location.href='mainSession.jsp?center=mbSelectPro.jsp&mb_id=<%=request.getParameter("mb_id") %>'" />
 			</td>	
 		</tr>		
 	</table>	

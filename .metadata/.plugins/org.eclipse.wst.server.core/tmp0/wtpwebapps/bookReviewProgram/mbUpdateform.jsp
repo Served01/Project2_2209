@@ -7,6 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/updateform.css">
 <title>회원정보 수정 화면</title>
 </head>
 <body>
@@ -22,7 +23,7 @@
 <h2 align="center">회원정보 수정 화면 구현</h2>
 <form action="mbUpdatePro.jsp" method="post"> 
 <div align="center">
-	<table border="1">
+	<table border="1" class = "update">
 		<tr align="center">
 			<td>아이디</td>
 			<td><%=mBean.getMb_id() %></td>
@@ -64,10 +65,10 @@
 		<tr style="height: 40; ">
 			<td colspan="2">
 				<input type="hidden" name="mb_id" value="<%=mBean.getMb_id() %>">
-				<input type="submit" value="회원정보수정">&nbsp;&nbsp;
-				<input type="button" value="비밀번호 변경" onclick="location.href='mainSession.jsp?center=mbPassform.jsp&mb_id=<%=mBean.getMb_id() %>'"/>&nbsp;&nbsp;
-				<input type="button" value="회원정보조회" onclick="location.href='mainSession.jsp?center=mbList.jsp'"/>&nbsp;&nbsp;
-				<input type="button" value="마이페이지" onclick="location.href='mainSession.jsp?center=mbSelectPro.jsp&mb_id=<%=mBean.getMb_id() %>'" />
+				<input type="submit" value="회원정보수정" class = "button">&nbsp;&nbsp;
+				<input type="button" class = "button" value="비밀번호 변경" onclick="location.href='mainSession.jsp?center=mbPassform.jsp&mb_id=<%=mBean.getMb_id() %>'"/>&nbsp;&nbsp;
+				<input type="button" class = "button" value="회원정보조회" onclick="location.href='mainSession.jsp?center=mbList.jsp'"/>&nbsp;&nbsp;
+				<input type="button" class = "button" value="마이페이지" onclick="location.href='mainSession.jsp?center=mbSelectPro.jsp&mb_id=<%=mBean.getMb_id() %>'" />
 			</td>
 		</tr>
 	</table>

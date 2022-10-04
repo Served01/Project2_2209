@@ -6,15 +6,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/updateform.css">
 <title>책 정보 입력 페이지</title>
 </head>
-
-<style>
-table{
-margin: auto;
-}
-</style>
-
 <body>
 <%	String id = (String)session.getAttribute("id");
 	if(!id.equals("admin")){
@@ -27,14 +21,14 @@ margin: auto;
    } else {%>
 <h2 align = "center">책 정보 입력</h2>
 <!-- 책 상세정보 입력 -->
-<form action="mainSession.jsp" method="post">
-<table border="1">
+<form action="mainSession.jsp" method="post" >
+<table border="1" class= "update">
 	<tr align = "center">
 	
 		<td>일련번호</td>
 		<td><input type="text" name="bk_number" placeholder="8자리 일련번호" required />
 			&nbsp; &nbsp;
-			<button type="submit">중복확인</button></td>
+			<button type="submit" class = "button">중복확인</button></td>
 	</tr>
 	<tr align = "center">
 		<td>제목</td>
@@ -91,8 +85,8 @@ margin: auto;
 	</tr>
 	<tr align="center">
 		<td colspan="2"> 				
-			<button type="button" onclick="javascript:alert('일련번호 중복확인을 해주십시오.')">저장</button>&nbsp;&nbsp;
-			<button type="button" onclick="location.href='mainSession.jsp'">취소</button>
+			<button type="button" class= "button" onclick="javascript:alert('일련번호 중복확인을 해주십시오.')">저장</button>&nbsp;&nbsp;
+			<button type="button" class= "button" onclick="location.href='mainSession.jsp'">취소</button>
 			<input type="hidden" name="center" value="bkInsertform2.jsp">
 	</tr>
 		
