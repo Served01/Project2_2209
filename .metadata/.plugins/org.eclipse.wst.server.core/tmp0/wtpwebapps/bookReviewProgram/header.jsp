@@ -38,7 +38,7 @@
 <%if((String)session.getAttribute("id")==null){ %>
     <ul class="navbar_links">
             <a href="#" onclick="location.href='loginForm.jsp'">로그인</a>
-            <a href="#" onclick="location.href='mainSession.jsp?center=mbinsertform.jsp'">회원가입</a>
+            <a href="#" onclick="location.href='mainSession.jsp?center=mbInsertform.jsp'">회원가입</a>
     </ul>
 <%} else if((String)session.getAttribute("id")!=null){ %>      
      <ul class="navbar_links">

@@ -167,19 +167,20 @@ public class bkDAO {
 		
 		try {
 			
-			String sql = "update book_info set bk_title=?, bk_writer=?, bk_publisher=?, bk_pubdate=?, bk_local=?, bk_genre=?, bk_ebook=?, bk_detail=?, bk_title_upper = upper(?) where bk_number=?";
+			String sql = "update book_info set bk_title=?, bk_writer=?, bk_publisher=?, bk_pubdate=?, bk_image=?, bk_local=?, bk_genre=?, bk_ebook=?, bk_detail=?, bk_title_upper = upper(?) where bk_number=?";
 			
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, bBean.getBk_title());
 			pstmt.setString(2, bBean.getBk_writer());
 			pstmt.setString(3, bBean.getBk_publisher());
 			pstmt.setString(4, bBean.getBk_pubdate());
-			pstmt.setInt(5, bBean.getBk_local());
-			pstmt.setInt(6, bBean.getBk_genre());
-			pstmt.setInt(7, bBean.getBk_ebook());
-			pstmt.setString(8, bBean.getBk_detail());
-			pstmt.setString(9, bBean.getBk_title());
-			pstmt.setInt(10, bBean.getBk_number());
+			pstmt.setString(5, bBean.getBk_image());
+			pstmt.setInt(6, bBean.getBk_local());
+			pstmt.setInt(7, bBean.getBk_genre());
+			pstmt.setInt(8, bBean.getBk_ebook());
+			pstmt.setString(9, bBean.getBk_detail());
+			pstmt.setString(10, bBean.getBk_title());
+			pstmt.setInt(11, bBean.getBk_number());
 			
 			pstmt.executeUpdate();
 			

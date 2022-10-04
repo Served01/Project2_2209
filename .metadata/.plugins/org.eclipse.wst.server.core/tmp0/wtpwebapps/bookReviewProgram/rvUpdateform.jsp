@@ -37,7 +37,7 @@ margin: auto;
 %>
 <table border="1">
 	<tr align = "center">
-		<td rowspan="6">이미지</td>
+		<td rowspan="6"><div style="height:100%; width:100%;"><img src="/image/<%=bBean.getBk_image()%>" height="100%" width="100%"></div></td>
 		<td>일련번호</td>
 		<td><%=bBean.getBk_number()%></td>
 	</tr>

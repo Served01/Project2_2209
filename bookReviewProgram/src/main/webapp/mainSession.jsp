@@ -83,6 +83,7 @@ background-image:url('https://png.pngtree.com/background/20211215/original/pngtr
 		int pageNum2 = Integer.parseInt(pageNum);
 		
 		url = center+"? Rv_id='"+rv_id+"'&pageNum="+pageNum2;
+		
 	} else if(center=="mbInsertform.jsp"){
 		
 		url = center+"? mb_id= '"+mb_id+"'";

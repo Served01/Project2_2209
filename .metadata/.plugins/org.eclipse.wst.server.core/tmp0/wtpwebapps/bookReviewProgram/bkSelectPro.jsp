@@ -132,7 +132,7 @@ margin: auto;
 	<tr align="center">
 		<td colspan="3"> 
 <%	if(id.equals("admin")){	
-   } else {		%>		
+   		%>		
 			<button type="button" onclick="location.href='mainSession.jsp?center=bkUpdateform.jsp&bk_number=<%=bk_number%>'">수정</button>&nbsp;&nbsp;
 			<button type="button" onclick="javascript:deleteConfirm()">삭제</button>&nbsp;&nbsp;
 			<script>
@@ -144,7 +144,7 @@ margin: auto;
 					}
 				}
 			</script>
-			<%} %>
+			<%} else{} %>
 			<button type="button" onclick="javascript:history.go(-1)">이전</button>
 	</tr>	
 </table>
@@ -210,7 +210,7 @@ margin: auto;
 		<td>평점:&nbsp;<%=rbean.getRv_score() %></td>
 		<td>
 		<%	if(id.equals("admin") || id.equals(rbean.getRv_id())){	
-  		 } else {		%>		
+  		  	%>		
 		<button type="button" onclick="location.href='mainSession.jsp?center=rvUpdateform.jsp&rv_number=<%=rbean.getRv_number() %>&rv_bknumber=<%=rbean.getRv_bknumber() %>&mb_id=<%=(String)session.getAttribute("id")%>'">수정</button>
 		<button type="button" onclick="javascript:rvdeleteConfirm()">삭제</button>&nbsp;&nbsp;
 			<script>
@@ -225,7 +225,7 @@ margin: auto;
 					}
 				}
 			</script>
-		<%} %>
+		<%} else{}%>
 		
 		</td>
 	</tr>

@@ -13,11 +13,6 @@
 <meta charset="UTF-8">
 <title>책 정보 수정</title>
 </head>
-
-<style>
-table{
-margin: auto;
-}
 </style>
 
 <body>
@@ -37,36 +32,37 @@ margin: auto;
 	bkBean bBean = bdao.selectBook(bk_number);
 	
 %>
+
 <h2 align = "center">책 정보 수정 페이지</h2>
 
-<form action="bkUpdatePro.jsp" method="post">
-<table border="1">
+<form action="bkUpdatePro.jsp" method="post" enctype="multipart/form-data">
+<table border="1" class="update">
 	<tr align = "center">
-		<td>일련번호</td>
+		<td><h4>일련번호</h4></td>
 		<td><%=bBean.getBk_number() %></td>
 	</tr>
 	<tr align = "center">
-		<td>제목</td>
-		<td><input type="text" name="bk_title" value=<%=bBean.getBk_title() %> required  /></td>
+		<td><h4>제목</h4></td>
+		<td><input type="text" name="bk_title" value=<%=bBean.getBk_title() %> /></td>
 	</tr>
 	<tr align = "center">
-		<td>저자</td>
-		<td><input type="text" name="bk_writer" value=<%=bBean.getBk_writer() %> required  /></td>
+		<td><h4>저자</h4></td>
+		<td><input type="text" name="bk_writer" value=<%=bBean.getBk_writer() %> /></td>
 	</tr>
 	<tr align = "center">
-		<td>출판사</td>
-		<td><input type="text" name="bk_publisher" value=<%=bBean.getBk_publisher()%>  required /></td>
+		<td><h4>출판사</h4></td>
+		<td><input type="text" name="bk_publisher" value=<%=bBean.getBk_publisher() %> /></td>
 	</tr>
 	<tr align = "center">
-		<td>출간일</td>
-		<td><input type="date" name="bk_pubdate" value=<%=bBean.getBk_pubdate() %> required  /></td>
+		<td><h4>출간일</h4></td>
+		<td><input type="date" name="bk_pubdate" value=<%=bBean.getBk_pubdate() %> /></td>
 	</tr>
 	<tr align = "center">
 		<td>이미지</td>
-		<td><button type="button">이미지 수정</button></td>
+		<td>&nbsp;&nbsp;&nbsp;<input type="file" value="파일 선택" name="bk_image"/></td>
 	</tr>
 	<tr align = "center">
-		<td>지역</td>
+		<td><h4>지역</h4></td>
 		<td>
 		<% 
 		
@@ -86,7 +82,7 @@ margin: auto;
 		</td>
 	</tr>
 	<tr align="center">
-		<td>장르</td>
+		<td><h4>장르</h4></td>
 		<td>
 		<%if(bBean.getBk_genre()==0){%>
 			<select name="bk_genre">
@@ -138,7 +134,7 @@ margin: auto;
 		</td>
 	</tr>
 	<tr align="center">
-		<td>ebook 유무</td>
+		<td><h4>ebook유무</h4></td>
 		<td>
 		<%if(bBean.getBk_ebook()==0){ %>
 			<input type="radio" name="bk_ebook" value="0" checked="checked" /> O
@@ -152,14 +148,14 @@ margin: auto;
 	</tr>
 	<!-- 작성일 sysdate 처리 -->
 	<tr align="center">
-		<td>상세 내용</td>
+		<td><h4>상세 내용</h4></td>
 		<td>
 			<textarea rows="10" cols="74" name="bk_detail" style ="resize:none"><%=bBean.getBk_detail()%></textarea></td>
 	</tr>
 	<tr align="center">
 		<td colspan="2"> 				
-			<input type="submit" value="수정"/>&nbsp;&nbsp;
-			<input type="button" value="마이페이지" onclick="location.href='mainSession.jsp?center=mbSelectPro.jsp&mb_id=<%=request.getParameter("mb_id") %>'" />
+			<input type="submit" value="수정" class="button"/>&nbsp;&nbsp;
+			<button type="button" class="button" onclick="javascript:history.go(-1)">취소</button>
 			<input type="hidden" name="bk_number" value=<%=bBean.getBk_number()%> />
 	</tr>
 		

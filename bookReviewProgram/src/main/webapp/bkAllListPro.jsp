@@ -141,12 +141,12 @@ margin: auto;
 		
 		if(startPage > 10){
 	%>
-			<a align="center" href="mainSession.jsp?center=bkListPro.jsp&pageNum=<%=startPage - 10 %>">[previous]</a>
+			<a align="center" href="mainSession.jsp?center=bkAllListPro.jsp&pageNum=<%=startPage - 10 %>">[previous]</a>
 	<%
 		}
 			for(int i = startPage; i <= endPage; i++){
 	%>
-			<a align="center" href="mainSession.jsp?center=bkListPro.jsp&pageNum=<%=i %>">[<%=i %>]</a>
+			<a align="center" href="mainSession.jsp?center=bkAllListPro.jsp&pageNum=<%=i %>">[<%=i %>]</a>
 	<%
 			}
 			
@@ -154,7 +154,7 @@ margin: auto;
 		if(endPage < pagecount){
 			endPage = pagecount;		
 	%>
-			<a align="center" href="mainSession.jsp?center=bkListPro.jsp&pageNum=<%=startPage + 10 %>">[next]</a>
+			<a align="center" href="mainSession.jsp?center=bkAllListPro.jsp&pageNum=<%=startPage + 10 %>">[next]</a>
 	<%
 		}
 	}
