@@ -1,8 +1,0 @@
- #wrap2{
-    background-color: #263343;
-	height:110px;
-	position: relative;
-    }
-    span{
-    color:"white";
-    }
