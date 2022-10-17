@@ -28,6 +28,7 @@
 		<item key="WizardZipFileResourceExportPage1.STORE_CREATE_STRUCTURE_ID" value="true"/>
 		<item key="WizardZipFileResourceExportPage1.STORE_COMPRESS_CONTENTS_ID" value="true"/>
 		<list key="WizardZipFileResourceExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="E:\Github_WS\Project2_2209\Project2_2209.zip"/>
 			<item value="D:\학생방\Github\Project2\bookReviewProgram_project2.zip"/>
 		</list>
 	</section>
